@@ -51,4 +51,4 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/
-Assets/00.RemoteAssets
+Assets/00.AddressableRemoteAsset
