@@ -12,9 +12,6 @@
 
 /[Jj]son[Cc]onverter/*
 
-!/[Jj]son[Cc]onverter/ExcelFiles/
-!/[Jj]son[Cc]onverter/ExcelFiles/**
-
 .history/
 Assets/ThirdParty
 
