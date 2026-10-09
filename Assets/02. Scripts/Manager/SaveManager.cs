@@ -35,7 +35,20 @@ public class SaveManager : SingletonBase<SaveManager>
     public PlayerModel GetDefaultData()
     {
         PlayerModel newPlayerData = new PlayerModel();
-        //newPlayerData.PlayerName = "";
+        newPlayerData.PlayerName = "";
+
+        string[] characterKeys = { "Player_01", "Elysia_01", "July_01", "Taehyun_01", "Labresa_01" };
+
+        foreach (var key in characterKeys)
+        {
+            Character rawData = GameDataManager.Inst.GetData<Character>(key);
+
+            if (rawData != null)
+            {
+                bool isPlayer = (key == "Player_01");
+                newPlayerData.Characters.Add(new CharacterModel(rawData, isPlayer));
+            }
+        }
 
         return newPlayerData;
     }
