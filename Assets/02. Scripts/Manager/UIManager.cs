@@ -14,10 +14,10 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
-        // 시작용 UI
+        this.OpenResumeUI();
     }
 
-    private UIBase OpenUI(UIRoot root, UIType type)
+    public UIBase OpenUI(UIRoot root, UIType type)
     {
         UIBase openedUI = GetOpenedUI(root, type);
 
@@ -30,7 +30,7 @@ public class UIManager : SingletonBase<UIManager>
         return openedUI;
     }
 
-    private void CloseUI(UIRoot root, UIType type)
+    public void CloseUI(UIRoot root, UIType type)
     {
         if (_activeUI.Contains(type))
         {
