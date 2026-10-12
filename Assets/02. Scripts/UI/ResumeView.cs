@@ -36,11 +36,11 @@ public class ResumeView : ViewBase
 
     private const int MaxGaugeCount = 10;
 
-    private GameObject[] _staminaSlots;
-    private GameObject[] _crazySlots;
-    private GameObject[] _oblivionSlots;
+    private GuageSlot[] _staminaSlots;
+    private GuageSlot[] _crazySlots;
+    private GuageSlot[] _oblivionSlots;
 
-    private CharacterViewModel _characterViewModel;
+    private CharacterViewModel _characterVM;
     private Character _data;
     private List<Relation> _relations = new List<Relation>();
     private int _relationIndex = 0;
@@ -53,7 +53,7 @@ public class ResumeView : ViewBase
 
     private void OnEnable()
     {
-        if (_characterViewModel != null)
+        if (_characterVM != null)
         {
             Refresh();
         }
@@ -61,8 +61,8 @@ public class ResumeView : ViewBase
 
     private void Start()
     {
-        _characterViewModel = ServiceManager.Inst.GetCharacterViewModel();
-        _characterViewModel.PropertyChanged += OnPropertyChanged;
+        _characterVM = ServiceManager.Inst.GetCharacterViewModel();
+        _characterVM.PropertyChanged += OnPropertyChanged;
 
         _staminaSlots = InitializeGaugeSlot(Parent_Stamina, MaxGaugeCount);
         _crazySlots = InitializeGaugeSlot(Parent_Crazy, MaxGaugeCount);
@@ -73,41 +73,44 @@ public class ResumeView : ViewBase
 
     private void OnDestroy()
     {
-        if (_characterViewModel != null)
+        if (_characterVM != null)
         {
-            _characterViewModel.PropertyChanged -= OnPropertyChanged;
+            _characterVM.PropertyChanged -= OnPropertyChanged;
         }
     }
 
     private void Refresh()
     {
-        _data = GameDataManager.Inst.GetData<Character>(_characterViewModel.CurrentCharacter);
+        _data = GameDataManager.Inst.GetData<Character>(_characterVM.CurrentCharacter);
         _relations = _data.GetRelations();
         _relationIndex = 0;
 
-        Debug.Log($"ID:{_data.ID} 관계수:{_relations.Count} 체력:{_characterViewModel.Stamina} 열광:{_characterViewModel.Crazy} 망각:{_characterViewModel.Oblivion}");
+        Debug.Log($"ID:{_data.ID} 관계수:{_relations.Count} 체력:{_characterVM.Stamina} 열광:{_characterVM.Crazy} 망각:{_characterVM.Oblivion} 이념:{_characterVM.Ideology}");
 
         SetCharacterData().Forget();
         UpdateAllGauges();
         RefreshRelationshipUI().Forget();
     }
 
-    private GameObject[] InitializeGaugeSlot(Transform parent, int maxCount)
+    private GuageSlot[] InitializeGaugeSlot(Transform parent, int maxCount)
     {
-        GameObject[] slots = new GameObject[maxCount];
+        GuageSlot[] slots = new GuageSlot[maxCount];
 
-        while (parent.childCount < maxCount)
+        for (int i = 0; i < maxCount; i++)
         {
-            GameObject prefab = Instantiate(Slot_Guage, parent);
-            
+            GameObject newSlot = Instantiate(Slot_Guage, parent);
+            slots[i] = newSlot.GetComponent<GuageSlot>();
         }
+
+        return slots;
     }
 
     private void UpdateAllGauges()
     {
-        UpdateGaugeSlots(Parent_Stamina, _characterViewModel.Stamina);
-        UpdateGaugeSlots(Parent_Crazy, _characterViewModel.Crazy);
-        UpdateGaugeSlots(Parent_Oblivion, _characterViewModel.Oblivion);
+        UpdateGaugeSlots(_staminaSlots, _characterVM.Stamina, false);
+        UpdateGaugeSlots(_crazySlots, _characterVM.Crazy, true);
+        UpdateGaugeSlots(_oblivionSlots, _characterVM.Oblivion, true);
+        UpdateIdeology(_characterVM.Ideology);
     }
 
     private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -115,18 +118,19 @@ public class ResumeView : ViewBase
         switch (e.PropertyName)
         {
             case nameof(CharacterViewModel.Stamina):
-                UpdateGaugeSlots(Parent_Stamina, _characterViewModel.Stamina);
+                UpdateGaugeSlots(_staminaSlots, _characterVM.Stamina, false);
                 break;
 
             case nameof(CharacterViewModel.Crazy):
-                UpdateGaugeSlots(Parent_Crazy, _characterViewModel.Crazy);
+                UpdateGaugeSlots(_crazySlots, _characterVM.Crazy, true);
                 break;
 
             case nameof(CharacterViewModel.Oblivion):
-                UpdateGaugeSlots(Parent_Oblivion, _characterViewModel.Oblivion);
+                UpdateGaugeSlots(_oblivionSlots, _characterVM.Oblivion, true);
                 break;
 
             case nameof(CharacterViewModel.Ideology):
+                UpdateIdeology(_characterVM.Ideology);
                 break;
         }
     }
@@ -140,16 +144,23 @@ public class ResumeView : ViewBase
         await SetImage(Image_Character, _data.ID);
     }
 
-    private void UpdateGaugeSlots(Transform parent, int currentValue)
+    private void UpdateGaugeSlots(GuageSlot[] slots, int currentValue, bool isInverse = false)
     {
-        if (parent == null || Slot_Guage == null)
-        {
-            return;
-        }
+        int totalCount = slots.Length;
 
-        for (int i = 0; i < parent.childCount; i++)
+        for (int i = 0; i < totalCount; i++)
         {
-            parent.GetChild(i).gameObject.SetActive(i < currentValue);
+            if (slots[i] != null)
+            {
+                bool isActive = i < currentValue;
+
+                float t = totalCount > 1 ? (float)i / (totalCount - 1) : 0f;
+                float colorFactor = isInverse ? t : (1f - t);
+
+                Color slotColor = Color.Lerp(Color.blue, Color.red, colorFactor);
+
+                slots[i].SetActiveImage(isActive, slotColor);
+            }
         }
     }
 
@@ -232,6 +243,51 @@ public class ResumeView : ViewBase
             case RelationType.Friendship: return "우정";
             case RelationType.Pact: return "맹약";
             default: return "중립";
+        }
+    }
+
+    private void UpdateIdeology(float ideology)
+    {
+        float normalizedVal = Mathf.Clamp(ideology / 3f, -1f, 1f);
+
+        Image_LeftIdeology.fillAmount = normalizedVal < 0 ? Mathf.Abs(normalizedVal) : 0f;
+        Image_RightIdeology.fillAmount = normalizedVal > 0 ? normalizedVal : 0f;
+
+        Text_Ideology.text = GetIdeologyName(ideology);
+    }
+
+    private string GetIdeologyName(float ideology)
+    {
+        if (ideology == 0)
+        {
+            return "균형";
+        }
+        else
+        {
+            if (ideology <= -3)
+            {
+                return "혁명";
+            }
+            else if (ideology == -2)
+            {
+                return "개혁";
+            }
+            else if (ideology == -1)
+            {
+                return "발전";
+            }
+            else if (ideology == 1)
+            {
+                return "안정";
+            }
+            else if (ideology == 2)
+            {
+                return "헌신";
+            }
+            else
+            {
+                return "수호";
+            }
         }
     }
 }

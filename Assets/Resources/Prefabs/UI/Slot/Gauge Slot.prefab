@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3931670855231092462}
+  - component: {fileID: 8987257261784969370}
   m_Layer: 0
   m_Name: Gauge Slot
   m_TagString: Untagged
@@ -37,6 +38,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 45, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8987257261784969370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444302075937798784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3e105e8d559524097c17ef4f3a634d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image_Filled: {fileID: 2275757221783496902}
 --- !u!1 &1621356458765515505
 GameObject:
   m_ObjectHideFlags: 0
