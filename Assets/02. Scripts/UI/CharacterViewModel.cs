@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro.EditorUtilities;
+using UnityEngine;
 
 public class CharacterViewModel : ViewModelBase
 {
@@ -40,6 +42,61 @@ public class CharacterViewModel : ViewModelBase
         }
 
         return 0;
+    }
+
+    public bool CheckSkill(SkillCategory category, int index)
+    {
+        switch (category)
+        {
+            case SkillCategory.Major:
+                if (Enum.IsDefined(typeof(MajorType), index))
+                {
+                    MajorType type = (MajorType)index;
+                    return CurrentCharacterModel.SelectedMajor.Contains(type);
+                }
+                break;
+
+            case SkillCategory.Career:
+                if (Enum.IsDefined(typeof(CareerType), index))
+                {
+                    CareerType type = (CareerType)index;
+                    return CurrentCharacterModel.SelectedCareer.Contains(type);
+                }
+                break;
+
+            case SkillCategory.Nature:
+                if (Enum.IsDefined(typeof(NatureType), index))
+                {
+                    NatureType type = (NatureType)index;
+                    return CurrentCharacterModel.SelectedNature.Contains(type);
+                }
+                break;
+
+            case SkillCategory.Wisdom:
+                if (Enum.IsDefined(typeof(WisdomType), index))
+                {
+                    WisdomType type = (WisdomType)index;
+                    return CurrentCharacterModel.SelectedWisdom.Contains(type);
+                }
+                break;
+
+            case SkillCategory.Method:
+                if (Enum.IsDefined(typeof(MethodType), index))
+                {
+                    MethodType type = (MethodType)index;
+                    return CurrentCharacterModel.SelectedMethod.Contains(type);
+                }
+                break;
+
+            case SkillCategory.Resistance:
+                if (Enum.IsDefined(typeof(ResistanceType), index))
+                {
+                    ResistanceType type = (ResistanceType)index;
+                    return CurrentCharacterModel.SelectedResistance.Contains(type);
+                }
+                break;
+        }
+        return false;
     }
 
     public CharacterModel CurrentCharacterModel

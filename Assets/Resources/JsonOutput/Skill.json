@@ -1,0 +1,434 @@
+[
+  {
+    "ID": "Skill_Major_1",
+    "Name": "의학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_2",
+    "Name": "물리학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_3",
+    "Name": "천문학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_4",
+    "Name": "화학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_5",
+    "Name": "생물학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_6",
+    "Name": "사학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_7",
+    "Name": "경제학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_8",
+    "Name": "종교학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_9",
+    "Name": "예체능",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_10",
+    "Name": "언어학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_11",
+    "Name": "인문학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Major_12",
+    "Name": "공학",
+    "Category": "Major",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_1",
+    "Name": "수리",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_2",
+    "Name": "제조",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_3",
+    "Name": "정보",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_4",
+    "Name": "의료",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_5",
+    "Name": "농업",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_6",
+    "Name": "재생",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_7",
+    "Name": "건축",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_8",
+    "Name": "교육",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_9",
+    "Name": "법률",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_10",
+    "Name": "행정",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_11",
+    "Name": "운전",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Career_12",
+    "Name": "금융",
+    "Category": "Career",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_1",
+    "Name": "이기적",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_2",
+    "Name": "유악",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_3",
+    "Name": "고집",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_4",
+    "Name": "허영",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_5",
+    "Name": "의심",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_6",
+    "Name": "충동",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_7",
+    "Name": "비관",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_8",
+    "Name": "위선",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_9",
+    "Name": "무기력",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_10",
+    "Name": "탐욕",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_11",
+    "Name": "통제",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Nature_12",
+    "Name": "냉소",
+    "Category": "Nature",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_1",
+    "Name": "협상",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_2",
+    "Name": "아첨",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_3",
+    "Name": "연기",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_4",
+    "Name": "선동",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_5",
+    "Name": "협박",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_6",
+    "Name": "회피",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_7",
+    "Name": "매혹",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_8",
+    "Name": "세뇌",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_9",
+    "Name": "음해",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_10",
+    "Name": "전가",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_11",
+    "Name": "침묵",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Wisdom_12",
+    "Name": "눈치",
+    "Category": "Wisdom",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_1",
+    "Name": "격투",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_2",
+    "Name": "괴력",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_3",
+    "Name": "지구력",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_4",
+    "Name": "민첩",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_5",
+    "Name": "순발력",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_6",
+    "Name": "강화",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_7",
+    "Name": "감각",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_8",
+    "Name": "인내",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_9",
+    "Name": "은신",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_10",
+    "Name": "감지",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_11",
+    "Name": "손재주",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Method_12",
+    "Name": "수완",
+    "Category": "Method",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_1",
+    "Name": "포식",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_2",
+    "Name": "기생",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_3",
+    "Name": "감염",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_4",
+    "Name": "변이",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_5",
+    "Name": "환각",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_6",
+    "Name": "정신",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_7",
+    "Name": "죽음",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_8",
+    "Name": "공간",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_9",
+    "Name": "시간",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_10",
+    "Name": "공허",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_11",
+    "Name": "신성",
+    "Category": "Resistance",
+    "Description": null
+  },
+  {
+    "ID": "Skill_Resistance_12",
+    "Name": "지식",
+    "Category": "Resistance",
+    "Description": null
+  }
+]

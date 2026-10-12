@@ -136,6 +136,17 @@ public enum RelationType
     Pact
 }
 
+public enum SkillCategory
+{
+    None,
+    Major,
+    Career,
+    Nature,
+    Wisdom,
+    Method,
+    Resistance
+}
+
 public enum MajorType
 {
     None,

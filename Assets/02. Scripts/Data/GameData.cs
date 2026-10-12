@@ -68,4 +68,12 @@ public class Character : GameDataBase
             }
         }
     }
+
+    [System.Serializable]
+    public class Skill : GameDataBase
+    {
+        public string Name;
+        public string Category;
+        public string Description;
+    }
 }

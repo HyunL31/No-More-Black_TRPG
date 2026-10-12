@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static Character;
 
 public class GameDataManager : SingletonBase<GameDataManager>
 {
@@ -21,6 +22,7 @@ public class GameDataManager : SingletonBase<GameDataManager>
     public void LoadAllData()
     {
         LoadData<Character>("Character");
+        LoadData<Skill>("Skill");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase
