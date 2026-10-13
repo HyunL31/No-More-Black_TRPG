@@ -48,11 +48,11 @@ public static class UIExtension
 
     public static void OpenDialogueUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Content, UIType.DialogueUI);
+        uiManager.OpenUI(UIRoot.Main, UIType.DialogueUI);
     }
 
     public static void CloseDialogueUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Content, UIType.DialogueUI);
+        uiManager.CloseUI(UIRoot.Main, UIType.DialogueUI);
     }
 }

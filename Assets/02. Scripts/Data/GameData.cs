@@ -68,13 +68,29 @@ public class Character : GameDataBase
             }
         }
     }
+}
 
-    [System.Serializable]
-    public class Skill : GameDataBase
-    {
-        public string Name;
-        public string Category;
-        public bool CanGet;
-        public string Description;
-    }
+[System.Serializable]
+public class Skill : GameDataBase
+{
+    public string Name;
+    public string Category;
+    public bool CanGet;
+    public string Description;
+}
+
+
+[System.Serializable]
+public class Dialogue : GameDataBase
+{
+    public string NextID;
+    public string Speaker;
+    public string[] Character;
+    public string[] Slot;
+    public string Content;
+    public string[] Emotion;
+    public string[] Animation;
+    public string BGM;
+    public string SFX;
+    public string Background;
 }

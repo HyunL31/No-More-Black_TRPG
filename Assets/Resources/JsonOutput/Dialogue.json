@@ -1,0 +1,187 @@
+[
+  {
+    "ID": "Dialogue_01",
+    "NextID": "Dialogue_02",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "안녕하세요.",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_02",
+    "NextID": "Dialogue_03",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "엘리시아 입니다.",
+    "Emotion": null,
+    "Animation": null,
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_03",
+    "NextID": "Dialogue_04",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "반갑습니다.",
+    "Emotion": null,
+    "Animation": null,
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_04",
+    "NextID": "Dialogue_05",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "오늘은 ------를 진행해야합니다.",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_05",
+    "NextID": "Dialogue_06",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "바로 -------로 가시면 돼요.",
+    "Emotion": null,
+    "Animation": null,
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space"
+  },
+  {
+    "ID": "Dialogue_06",
+    "NextID": "Dialogue_07",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "혹시 ~~~가 어디있는지 모르시나요?",
+    "Emotion": null,
+    "Animation": null,
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space"
+  },
+  {
+    "ID": "Dialogue_07",
+    "NextID": "Dialogue_08",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "우주선 맵을 활용해주세요.",
+    "Emotion": [
+      "smile",
+      "smile"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space"
+  },
+  {
+    "ID": "Dialogue_08",
+    "NextID": "Dialogue_09",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "도움이 필요하신가요?",
+    "Emotion": [
+      "smile",
+      "normal"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space"
+  },
+  {
+    "ID": "Dialogue_09",
+    "NextID": "Dialogue_10",
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "언제든 말을 걸어주세요.",
+    "Emotion": [
+      "smile",
+      "smile"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space"
+  }
+]
