@@ -14,7 +14,8 @@ public enum UIRoot
 public enum UIType
 {
     None,
-    ResumeUI
+    ResumeUI,
+    SkillUI
 }
 
 public static class UIExtension
@@ -32,5 +33,15 @@ public static class UIExtension
     public static void CloseResumeUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.ResumeUI);
+    }
+
+    public static void OpenSkillUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.SkillUI);
+    }
+
+    public static void CloseSkillUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.SkillUI);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks.Triggers;
+﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using static Character;
@@ -12,31 +12,51 @@ public class SkillUI : ViewBase
     [SerializeField] private GameObject Prefab_SkillSlot;
 
     private CharacterViewModel _characterVM;
-    private SkillCategory _currentCategory = SkillCategory.Major;
+    private SkillCategory _currentCategory = SkillCategory.None;
 
     private List<SkillSlot> _leftSlots = new List<SkillSlot>();
     private List<SkillSlot> _rightSlots = new List<SkillSlot>();
 
+    public int CheckCount { get; private set; } = 1;
+
     private void Start()
     {
-        if (_characterVM == null)
-        {
-            _characterVM = ServiceManager.Inst.CharacterViewModel;
-        }
+        _characterVM = ServiceManager.Inst.CharacterViewModel;
 
         Init();
     }
 
     public void Init()
     {
+        if (_characterVM == null)
+        {
+            _characterVM = ServiceManager.Inst.CharacterViewModel;
+        }
+
         for (int i = 0; i < Buttons_SkillCategory.Count; i++)
         {
             SkillButton button = Buttons_SkillCategory[i];
             button.Init(OnClickCategory);
+            button.SetCategoryIcon().Forget();
         }
 
+        SetDefaultCategory();
         CreateSkillSlot();
         SwitchCategory(_currentCategory);
+    }
+
+    private void SetDefaultCategory()
+    {
+        for (int i = 0; i < Buttons_SkillCategory.Count; i++)
+        {
+            SkillButton button = Buttons_SkillCategory[i];
+
+            if (button.IsUnlock == true)
+            {
+                _currentCategory = button.SkillCategory;
+                return;
+            }
+        }
     }
 
     private void CreateSkillSlot()
@@ -74,17 +94,24 @@ public class SkillUI : ViewBase
 
     private void UpdateSlots()
     {
-        for (int i = 1; i <= _leftSlots.Count; i++)
+        for (int i = 0; i < _leftSlots.Count; i++)
         {
-            Debug.Log(GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i}").Name);
-            string skillName = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i}").Name;
-            _leftSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i));
+            var data = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i + 1}");
+            string skillName = data.Name;
+            bool canCheck = data.CanGet;
+
+            _leftSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + 1));
+            _leftSlots[i].CheckInteractable(canCheck);
         }
 
-        for (int i = 1; i <= _rightSlots.Count; i++)
+        for (int i = 0; i < _rightSlots.Count; i++)
         {
-            string skillName = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i + 6}").Name;
-            _leftSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + 6));
+            var data = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i + (_leftSlots.Count + 1)}");
+            string skillName = data.Name;
+            bool canCheck = data.CanGet;
+
+            _rightSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + (_leftSlots.Count + 1)));
+            _rightSlots[i].CheckInteractable(canCheck);
         }
     }
 
@@ -92,15 +119,9 @@ public class SkillUI : ViewBase
     {
         if (_characterVM == null)
         {
-            Debug.LogWarning("CharacterViewModel is null in SkillUI!");
             return false;
         }
 
         return _characterVM.CheckSkill(category, index);
-    }
-
-    private bool CheckUnlock(SkillCategory category)
-    {
-        return false;
     }
 }

@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class SaveManager : SingletonBase<SaveManager>
 {
+    public PlayerModel PlayerModel { get; private set; }
+
+    private void Start()
+    {
+        // 임시
+        PlayerModel = RequestLoadData(0);
+    }
+
     private string GetPath(int slotIndex)
     {
         return Path.Combine(Application.persistentDataPath, $"NoMoreBlack{slotIndex}.json");
@@ -22,12 +30,13 @@ public class SaveManager : SingletonBase<SaveManager>
         {
             string json = File.ReadAllText(path);
             PlayerModel data = JsonUtility.FromJson<PlayerModel>(json);
-
+            this.PlayerModel = data;
             return data;
         }
         else
         {
             var playerData = GetDefaultData();
+            this.PlayerModel = playerData;
             return playerData;
         }
     }

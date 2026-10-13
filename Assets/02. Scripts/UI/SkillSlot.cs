@@ -11,5 +11,15 @@ public class SkillSlot : MonoBehaviour
     {
         Text_SkillName.text = skillName;
         Toggle_Skill.isOn = isActive;
+
+        if (isActive == true)
+        {
+            Toggle_Skill.interactable = false;
+        }
+    }
+
+    public void CheckInteractable(bool canInteractable)
+    {
+        Toggle_Skill.interactable = canInteractable;
     }
 }

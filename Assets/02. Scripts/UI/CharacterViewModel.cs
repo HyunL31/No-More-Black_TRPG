@@ -1,6 +1,4 @@
 ﻿using System;
-using TMPro.EditorUtilities;
-using UnityEngine;
 
 public class CharacterViewModel : ViewModelBase
 {
@@ -9,7 +7,7 @@ public class CharacterViewModel : ViewModelBase
 
     public CharacterViewModel()
     {
-        _playerModel = SaveManager.Inst.RequestLoadData(0);
+        _playerModel = SaveManager.Inst.PlayerModel;
     }
 
     public void SetCurrentCharacter(string currentCharacter)

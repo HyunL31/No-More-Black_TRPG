@@ -14,6 +14,7 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
+        this.OpenSkillUI();
         this.OpenResumeUI();
     }
 

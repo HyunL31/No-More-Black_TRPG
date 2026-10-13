@@ -74,6 +74,7 @@ public class Character : GameDataBase
     {
         public string Name;
         public string Category;
+        public bool CanGet;
         public string Description;
     }
 }

@@ -50,6 +50,8 @@ public class CharacterModel
     public List<WisdomType> SelectedWisdom = new List<WisdomType>();
     public List<MethodType> SelectedMethod = new List<MethodType>();
     public List<ResistanceType> SelectedResistance = new List<ResistanceType>();
+    
+    public Dictionary<SkillCategory, bool> CategoryUnlock = new Dictionary<SkillCategory, bool>();
 
     public CharacterModel(Character character, bool isPlayer = false)
     {
@@ -75,6 +77,13 @@ public class CharacterModel
         AddParsed(SelectedWisdom, character.Wisdom);
         AddParsed(SelectedMethod, character.Method);
         AddParsed(SelectedResistance, character.Resistance);
+
+        CategoryUnlock.Add(SkillCategory.Nature, true);
+        CategoryUnlock.Add(SkillCategory.Major, true);
+        CategoryUnlock.Add(SkillCategory.Career, false);
+        CategoryUnlock.Add(SkillCategory.Wisdom, false);
+        CategoryUnlock.Add(SkillCategory.Method, false);
+        CategoryUnlock.Add(SkillCategory.Resistance, false);
     }
 
     private static void AddParsed<T>(List<T> list, string value) where T : struct
