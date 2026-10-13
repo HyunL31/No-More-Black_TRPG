@@ -15,7 +15,8 @@ public enum UIType
 {
     None,
     ResumeUI,
-    SkillUI
+    SkillUI,
+    DialogueUI
 }
 
 public static class UIExtension
@@ -43,5 +44,15 @@ public static class UIExtension
     public static void CloseSkillUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.SkillUI);
+    }
+
+    public static void OpenDialogueUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.DialogueUI);
+    }
+
+    public static void CloseDialogueUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.DialogueUI);
     }
 }
