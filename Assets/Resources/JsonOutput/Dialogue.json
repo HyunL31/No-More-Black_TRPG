@@ -31,8 +31,12 @@
       "L"
     ],
     "Content": "엘리시아 입니다.",
-    "Emotion": null,
-    "Animation": null,
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
     "BGM": null,
     "SFX": null,
     "Background": "White"
@@ -48,8 +52,12 @@
       "L"
     ],
     "Content": "반갑습니다.",
-    "Emotion": null,
-    "Animation": null,
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
     "BGM": null,
     "SFX": null,
     "Background": "White"
@@ -86,8 +94,12 @@
       "L"
     ],
     "Content": "바로 -------로 가시면 돼요.",
-    "Emotion": null,
-    "Animation": null,
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
     "BGM": null,
     "SFX": null,
     "Background": "Space"
@@ -103,8 +115,12 @@
       "L"
     ],
     "Content": "혹시 ~~~가 어디있는지 모르시나요?",
-    "Emotion": null,
-    "Animation": null,
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
     "BGM": null,
     "SFX": null,
     "Background": "Space"

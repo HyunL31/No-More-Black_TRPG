@@ -760,6 +760,11 @@ MonoBehaviour:
   Button_Skip: {fileID: 7434472045520744251}
   Image_NextArrow: {fileID: 4645883851328887042}
   Image_Background: {fileID: 735439420993860570}
+  Transform_Left: {fileID: 7859206616561785654}
+  Transform_LeftMiddle: {fileID: 4292637815721420342}
+  Transform_Middle: {fileID: 8740951894479870502}
+  Transform_RightMiddle: {fileID: 7660526378103803490}
+  Transform_Right: {fileID: 9020708452446568274}
 --- !u!1 &7874242764808394166
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class SoundManager : SingletonBase<SoundManager>
 
         if (clip == null)
         {
-            Debug.LogError($"사운드 로드 실패: {soundID}'");
+            Debug.LogError($"사운드 로드 실패: {soundID}");
             return;
         }
 

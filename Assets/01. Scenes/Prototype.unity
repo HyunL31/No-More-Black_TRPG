@@ -208,7 +208,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3033575427660568996, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3448351618067771824, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,7 +256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135222389965795889, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
