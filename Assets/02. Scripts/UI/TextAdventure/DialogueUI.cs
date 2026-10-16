@@ -63,7 +63,7 @@ public class DialogueUI : ViewBase
 
     private void OnClickLog()
     {
-
+        UIManager.Inst.OpenDialogueLog();
     }
 
     private void OnClickAuto()

@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3455092251181563789, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3483663427964037291, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_Name
       value: Manager
