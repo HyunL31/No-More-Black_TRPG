@@ -25,6 +25,11 @@ public class DialogueUI : ViewBase
         Button_Skip.onClick.AddListener(OnClickSkip);
     }
 
+    private void OnDestroy()
+    {
+        CancelTyping();
+    }
+
     private void OnClickDialogueButton()
     {
         if (_isTyping == true)
