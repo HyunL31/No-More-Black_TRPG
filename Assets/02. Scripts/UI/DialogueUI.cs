@@ -12,6 +12,7 @@ public class DialogueUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_Speaker;
     [SerializeField] private Button Button_Skip;
     [SerializeField] private Image Image_NextArrow;
+    [SerializeField] private Image Image_Background;
 
     private string _currentID = "Dialogue_01";
     private float _typingSpeed = 0.05f;
@@ -49,10 +50,14 @@ public class DialogueUI : ViewBase
 
         Text_Speaker.text = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
 
+        ChangeBackground(data.Background).Forget();
+
         CancelTyping();
         _typingToken = new CancellationTokenSource();
-
         TypingEffect(data.Content, _typingToken.Token).Forget();
+
+        SetBGM(data.BGM);
+        SetSFX(data.SFX);
 
         _currentID = data.NextID;
     }
@@ -84,6 +89,27 @@ public class DialogueUI : ViewBase
         Text_Dialogue.maxVisibleCharacters = content.Length;
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);
+    }
+
+    private async UniTask ChangeBackground(string background)
+    {
+        Image_Background.sprite = await ResourceManager.Inst.LoadSprite($"Sprite/Background/{background}");
+    }
+
+    private void SetBGM(string bgm)
+    {
+        if (bgm != null)
+        {
+            SoundManager.Inst.PlayBGM(bgm);
+        }
+    }
+
+    private void SetSFX(string sfx)
+    {
+        if (sfx != null)
+        {
+            SoundManager.Inst.PlaySFX(sfx);
+        }
     }
 
     private void CancelTyping()

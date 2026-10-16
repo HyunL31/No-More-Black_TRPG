@@ -97,6 +97,16 @@ public class CharacterViewModel : ViewModelBase
         return false;
     }
 
+    public bool CheckAbandonSkill(string skillID)
+    {
+        if (CurrentCharacterModel.AbandonedSkillID.Contains(skillID))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public CharacterModel CurrentCharacterModel
     {
         get

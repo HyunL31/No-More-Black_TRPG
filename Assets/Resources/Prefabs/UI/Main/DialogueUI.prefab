@@ -759,6 +759,7 @@ MonoBehaviour:
   Text_Speaker: {fileID: 8001068742773947102}
   Button_Skip: {fileID: 7434472045520744251}
   Image_NextArrow: {fileID: 4645883851328887042}
+  Image_Background: {fileID: 735439420993860570}
 --- !u!1 &7874242764808394166
 GameObject:
   m_ObjectHideFlags: 0

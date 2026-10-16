@@ -29,7 +29,7 @@ public class SkillButton : MonoBehaviour
 
     public async UniTask SetCategoryIcon()
     {
-        bool isUnlock = SaveManager.Inst.PlayerModel.Characters[0].CategoryUnlock[SkillCategory];
+        bool isUnlock = SaveManager.Inst.PlayerModel.Characters[0].CategoryUnlock.Contains(SkillCategory);
 
         if (isUnlock)
         {

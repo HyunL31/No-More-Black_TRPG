@@ -1,5 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using static Character;
 
@@ -96,22 +98,28 @@ public class SkillUI : ViewBase
     {
         for (int i = 0; i < _leftSlots.Count; i++)
         {
-            var data = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i + 1}");
+            string skillID = $"Skill_{_currentCategory}_{i + 1}";
+            var data = GameDataManager.Inst.GetData<Skill>(skillID);
             string skillName = data.Name;
+
             bool canCheck = data.CanGet;
+            bool isAbandon = CheckAbandon(skillID);
 
             _leftSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + 1));
-            _leftSlots[i].CheckInteractable(canCheck);
+            _leftSlots[i].CheckInteractable(canCheck && isAbandon == false);
         }
 
         for (int i = 0; i < _rightSlots.Count; i++)
         {
-            var data = GameDataManager.Inst.GetData<Skill>($"Skill_{_currentCategory}_{i + (_leftSlots.Count + 1)}");
+            string skillID = $"Skill_{_currentCategory}_{i + (_leftSlots.Count + 1)}";
+            var data = GameDataManager.Inst.GetData<Skill>(skillID);
             string skillName = data.Name;
+
             bool canCheck = data.CanGet;
+            bool isAbandon = CheckAbandon(skillID);
 
             _rightSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + (_leftSlots.Count + 1)));
-            _rightSlots[i].CheckInteractable(canCheck);
+            _rightSlots[i].CheckInteractable(canCheck && isAbandon == false);
         }
     }
 
@@ -123,5 +131,15 @@ public class SkillUI : ViewBase
         }
 
         return _characterVM.CheckSkill(category, index);
+    }
+
+    private bool CheckAbandon(string skillID)
+    {
+        if (_characterVM == null)
+        {
+            return false;
+        }
+
+        return _characterVM.CheckAbandonSkill(skillID);
     }
 }
