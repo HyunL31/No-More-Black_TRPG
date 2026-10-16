@@ -16,12 +16,18 @@ public class DialogueUI : ViewBase
     [SerializeField] private Image Image_NextArrow;
     [SerializeField] private Image Image_Background;
 
+    [SerializeField] private Button Button_Log;
+    [SerializeField] private Button Button_Auto;
+
     [Header("캐릭터 슬롯")]
     [SerializeField] private Transform Transform_Left;
     [SerializeField] private Transform Transform_LeftMiddle;
     [SerializeField] private Transform Transform_Middle;
     [SerializeField] private Transform Transform_RightMiddle;
     [SerializeField] private Transform Transform_Right;
+
+    private bool _isAuto = false;
+    private float _autoWait = 0.5f;
 
     private string _currentID = "Dialogue_01";
     private float _typingSpeed = 0.05f;
@@ -34,6 +40,8 @@ public class DialogueUI : ViewBase
     {
         Button_Dialogue.onClick.AddListener(OnClickDialogueButton);
         Button_Skip.onClick.AddListener(OnClickSkip);
+        Button_Auto.onClick.AddListener(OnClickAuto);
+        Button_Log.onClick.AddListener(OnClickLog);
     }
 
     private void OnDestroy()
@@ -48,6 +56,21 @@ public class DialogueUI : ViewBase
             _isTyping = false;
         }
         else
+        {
+            ShowDialogue();
+        }
+    }
+
+    private void OnClickLog()
+    {
+
+    }
+
+    private void OnClickAuto()
+    {
+        _isAuto = !_isAuto;
+
+        if (_isTyping == false && _isAuto == true)
         {
             ShowDialogue();
         }
@@ -119,6 +142,13 @@ public class DialogueUI : ViewBase
         Text_Dialogue.maxVisibleCharacters = content.Length;
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);
+
+        if (_isAuto == true)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(_autoWait), cancellationToken: token);
+
+            ShowDialogue();
+        }
     }
 
     private async UniTask ChangeBackground(string background)
