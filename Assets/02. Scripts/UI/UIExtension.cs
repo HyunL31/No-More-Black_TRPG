@@ -14,6 +14,7 @@ public enum UIRoot
 public enum UIType
 {
     None,
+    TitleUI,
     ResumeUI,
     SkillUI,
     DialogueUI,
@@ -65,5 +66,15 @@ public static class UIExtension
     public static void CloseDialogueLog(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.DialogueLog);
+    }
+
+    public static void OpenTitleUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Main, UIType.TitleUI);
+    }
+
+    public static void CloseTitleUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Main, UIType.TitleUI);
     }
 }

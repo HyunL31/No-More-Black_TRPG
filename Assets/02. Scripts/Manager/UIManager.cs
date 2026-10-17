@@ -14,7 +14,7 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
-        this.OpenDialogueUI();
+        this.OpenTitleUI();
     }
 
     public UIBase OpenUI(UIRoot root, UIType type)
