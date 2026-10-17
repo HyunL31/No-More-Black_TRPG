@@ -44,6 +44,11 @@ public class DialogueUI : ViewBase
         Button_Log.onClick.AddListener(OnClickLog);
     }
 
+    private void OnEnable()
+    {
+        ShowDialogue();
+    }
+
     private void OnDestroy()
     {
         CancelTyping();
@@ -87,7 +92,8 @@ public class DialogueUI : ViewBase
 
         var data = GameDataManager.Inst.GetData<Dialogue>(_currentID);
 
-        Text_Speaker.text = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
+        string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
+        Text_Speaker.text = speaker;
 
         ChangeBackground(data.Background).Forget();
 
@@ -111,6 +117,8 @@ public class DialogueUI : ViewBase
 
             ChangeCharacter(characters[i], slots[i], animations[i], emotions[i], isSpeaker).Forget();
         }
+
+        TextAdventureManager.Inst.OnAddLog?.Invoke(_currentID);
 
         _currentID = data.NextID;
     }
