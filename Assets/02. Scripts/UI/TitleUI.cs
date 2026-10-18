@@ -21,6 +21,16 @@ public class TitleUI : ViewBase
     [SerializeField] private Button Button_Display;
     [SerializeField] private Button Button_Return;
 
+    [Header("패널 스위처")]
+    [SerializeField] private PanelSwitcher Switcher_Option;
+    [SerializeField] private PanelSwitcher Switcher_Setting;
+
+    [Header("패널")]
+    [SerializeField] private PanelSlideController Controller_Title;
+    [SerializeField] private PanelSlideController Controller_Setting;
+    [SerializeField] private PanelSlideController Controller_Sound;
+    [SerializeField] private PanelSlideController Controller_Display;
+
     private float _fadeSpeed = 0.3f;
     private float _longDelay = 0.5f;
     private float _shortDelay = 0.2f;
@@ -67,7 +77,16 @@ public class TitleUI : ViewBase
 
     private void OnClickConfig()
     {
+        SwitchSetting().Forget();
+    }
 
+    private async UniTask SwitchSetting()
+    {
+        Switcher_Option.SwitchTo(Controller_Setting, Vector2.left, Vector2.left).Forget();
+
+        await UniTask.Delay(TimeSpan.FromSeconds(0.4f));
+
+        Controller_Sound.SlideIn(Vector2.right);
     }
 
     private void OnClickQuit()
@@ -82,17 +101,19 @@ public class TitleUI : ViewBase
 
     private void OnClickSound()
     {
-
+        Switcher_Setting.SwitchTo(Controller_Sound, Vector2.right, Vector2.right).Forget();
     }
 
     private void OnClickDisplay()
     {
-        
+        Switcher_Setting.SwitchTo(Controller_Display, Vector2.right, Vector2.right).Forget();
     }
 
     private void OnClickReturn()
     {
-
+        Switcher_Option.SwitchTo(Controller_Title, Vector2.left, Vector2.left).Forget();
+        Controller_Sound.SlideOut(Vector2.right);
+        Controller_Display.SlideOut(Vector2.right);
     }
 
     private async UniTask FadeRoutine(CancellationToken cancellationToken)
