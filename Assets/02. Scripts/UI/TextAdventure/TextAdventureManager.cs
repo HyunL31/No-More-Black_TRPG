@@ -7,6 +7,7 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
     public List<string> DialogueLogs { get; private set; } = new List<string>();
 
     public Action<string> OnAddLog;
+    public Action<string> OnChangeBaseUI;
 
     protected override void Awake()
     {

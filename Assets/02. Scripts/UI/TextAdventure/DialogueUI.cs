@@ -14,17 +14,9 @@ public class DialogueUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_Speaker;
     [SerializeField] private Button Button_Skip;
     [SerializeField] private Image Image_NextArrow;
-    [SerializeField] private Image Image_Background;
 
     [SerializeField] private Button Button_Log;
     [SerializeField] private Button Button_Auto;
-
-    [Header("캐릭터 슬롯")]
-    [SerializeField] private Transform Transform_Left;
-    [SerializeField] private Transform Transform_LeftMiddle;
-    [SerializeField] private Transform Transform_Middle;
-    [SerializeField] private Transform Transform_RightMiddle;
-    [SerializeField] private Transform Transform_Right;
 
     private bool _isAuto = false;
     private float _autoWait = 0.5f;
@@ -33,8 +25,6 @@ public class DialogueUI : ViewBase
     private float _typingSpeed = 0.05f;
     private bool _isTyping = false;
     private CancellationTokenSource _typingToken;
-
-    private Dictionary<string, CharacterState> _characters = new Dictionary<string, CharacterState>();
 
     private void Awake()
     {
@@ -95,8 +85,6 @@ public class DialogueUI : ViewBase
         string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
         Text_Speaker.text = speaker;
 
-        ChangeBackground(data.Background).Forget();
-
         CancelTyping();
         _typingToken = new CancellationTokenSource();
         TypingEffect(data.Content, _typingToken.Token).Forget();
@@ -104,20 +92,7 @@ public class DialogueUI : ViewBase
         SetBGM(data.BGM);
         SetSFX(data.SFX);
 
-        ClearCharacter();
-
-        string[] characters = data.Character;
-        string[] slots = data.Slot;
-        string[] emotions = data.Emotion;
-        string[] animations = data.Animation;
-
-        for (int i = 0; i < characters.Length; i++)
-        {
-            bool isSpeaker = i == 0 ? true : false;
-
-            ChangeCharacter(characters[i], slots[i], animations[i], emotions[i], isSpeaker).Forget();
-        }
-
+        TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(_currentID);
         TextAdventureManager.Inst.OnAddLog?.Invoke(_currentID);
 
         _currentID = data.NextID;
@@ -159,11 +134,6 @@ public class DialogueUI : ViewBase
         }
     }
 
-    private async UniTask ChangeBackground(string background)
-    {
-        Image_Background.sprite = await ResourceManager.Inst.LoadSprite($"Sprite/Background/{background}");
-    }
-
     private void SetBGM(string bgm)
     {
         if (string.IsNullOrEmpty(bgm) == false)
@@ -178,67 +148,6 @@ public class DialogueUI : ViewBase
         {
             SoundManager.Inst.PlaySFX(sfx);
         }
-    }
-
-    private async UniTask ChangeCharacter(string characterID, string slot, string animation, string skin, bool isSpeaker)
-    {
-        GameObject prefab = null;
-
-        if (_characters.ContainsKey(characterID) == false)
-        {
-            prefab = await ResourceManager.Inst.InstantiateAsync($"Spine/{characterID}", GetTransform(slot));
-            CharacterState characterState = prefab.GetComponent<CharacterState>();
-
-            _characters.Add(characterID, characterState);
-        }
-        else
-        {
-            prefab = _characters[characterID].gameObject;
-            prefab.SetActive(true);
-            prefab.transform.SetParent(GetTransform(slot));
-        }
-
-        _characters[characterID].ApplyEmotion(animation, skin);
-
-        if (isSpeaker == true)
-        {
-            _characters[characterID].SetWhite();
-        }
-        else
-        {
-            _characters[characterID].SetDark();
-        }
-    }
-
-    private void ClearCharacter()
-    {
-        foreach (CharacterState state in _characters.Values)
-        {
-            state.gameObject.SetActive(false);
-        }
-    }
-
-    private Transform GetTransform(string slot)
-    {
-        switch (slot)
-        {
-            case "L":
-                return Transform_Left;
-
-            case "LM":
-                return Transform_LeftMiddle;
-
-            case "M":
-                return Transform_Middle;
-
-            case "RM":
-                return Transform_RightMiddle;
-
-            case "R":
-                return Transform_Right;
-        }
-
-        return transform;
     }
 
     private void CancelTyping()
