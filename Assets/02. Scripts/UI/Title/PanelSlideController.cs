@@ -1,7 +1,6 @@
 ﻿using DG.Tweening;
 using System;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PanelSlideController : MonoBehaviour
 {
@@ -9,12 +8,24 @@ public class PanelSlideController : MonoBehaviour
     [SerializeField] private float Speed_Duration;
     [SerializeField] private Ease Ease = Ease.OutCubic;
 
+    [SerializeField] private bool PlayOnEnable = true;
+    [SerializeField] private Vector2 Direction_Enter = Vector2.right;
+    [SerializeField] private Vector2 Direction_Exit = Vector2.left;
+
     private Vector2 _homePos;
     private bool _isInit;
 
     private void Awake()
     {
         Init();
+    }
+
+    private void OnEnable()
+    {
+        if (PlayOnEnable == true)
+        {
+            SlideIn(Direction_Enter);
+        }
     }
 
     private void Init()
@@ -47,7 +58,11 @@ public class PanelSlideController : MonoBehaviour
         Init();
 
         DOTween.Kill(Rect_Panel);
-        Rect_Panel.gameObject.SetActive(true);
+
+        if (Rect_Panel.gameObject.activeSelf == false)
+        {
+            Rect_Panel.gameObject.SetActive(true);
+        }
 
         Rect_Panel.anchoredPosition = _homePos + GetOffset(fromDirection);
 
@@ -62,7 +77,11 @@ public class PanelSlideController : MonoBehaviour
 
         Rect_Panel.DOAnchorPos(_homePos + GetOffset(toDirection), Speed_Duration).SetEase(Ease).SetTarget(Rect_Panel).OnComplete(() =>
         {
-            Rect_Panel.gameObject.SetActive(false);
+            if (Rect_Panel.gameObject.activeSelf == true && PlayOnEnable == false)
+            {
+                Rect_Panel.gameObject.SetActive(false);
+            }
+
             Rect_Panel.anchoredPosition = _homePos;
             onComplete?.Invoke();
         });

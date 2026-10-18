@@ -1,12 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
-using Spine;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueLog : ViewBase
 {
+    [SerializeField] private PanelSlideController SlideController;
     [SerializeField] private Button Button_Close;
     [SerializeField] private Transform Transform_LogParent;
     [SerializeField] private LogSlot Prefab_LeftLogSlot;
@@ -37,7 +36,7 @@ public class DialogueLog : ViewBase
 
     private void OnClickClose()
     {
-        UIManager.Inst.CloseDialogueLog();
+        SlideController.SlideOut(Vector2.up, UIManager.Inst.CloseDialogueLog);
     }
 
     private void InitSlot()

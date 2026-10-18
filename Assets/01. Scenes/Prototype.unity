@@ -260,11 +260,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135222389965795889, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682545094681625865, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4255462690511620498, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}

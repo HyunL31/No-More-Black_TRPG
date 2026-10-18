@@ -410,6 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6969868337019100126}
   - component: {fileID: 8828557715102397527}
+  - component: {fileID: 1465079786298055211}
   m_Layer: 0
   m_Name: DialogueLog
   m_TagString: Untagged
@@ -450,10 +451,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d542a901b1164288af3235c51e199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SlideController: {fileID: 1465079786298055211}
   Button_Close: {fileID: 2639743081651725252}
   Transform_LogParent: {fileID: 8231924783224745564}
   Prefab_LeftLogSlot: {fileID: 6531295966133730180, guid: 3b6e5ab7fd32da84f89ec6708d79deb2, type: 3}
   Prefab_RightLogSlot: {fileID: 6683391632224821181, guid: 783f18025b947754895fe91d599f3100, type: 3}
+--- !u!114 &1465079786298055211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095105146195557331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3438342f74dffa4d94b0ee91e1cf925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect_Panel: {fileID: 6969868337019100126}
+  Speed_Duration: 0.3
+  Ease: 9
+  PlayOnEnable: 1
+  Direction_Enter: {x: 0, y: 1}
+  Direction_Exit: {x: 0, y: 1}
 --- !u!1 &6222818704486599299
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,9 +619,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00024414062, y: -889.0337}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &3039089640651596291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
-  m_VerticalFit: 2
+  m_VerticalFit: 1
 --- !u!1 &8661054958937788843
 GameObject:
   m_ObjectHideFlags: 0

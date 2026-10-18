@@ -6249,6 +6249,9 @@ MonoBehaviour:
   Rect_Panel: {fileID: 8890533278917087605}
   Speed_Duration: 0.4
   Ease: 9
+  PlayOnEnable: 0
+  Direction_Enter: {x: 0, y: 0}
+  Direction_Exit: {x: 0, y: 0}
 --- !u!114 &3413060853787676432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7852,6 +7855,9 @@ MonoBehaviour:
   Rect_Panel: {fileID: 638083526149103560}
   Speed_Duration: 0.4
   Ease: 9
+  PlayOnEnable: 0
+  Direction_Enter: {x: 0, y: 0}
+  Direction_Exit: {x: 0, y: 0}
 --- !u!114 &8504930450405972514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8057,6 +8063,9 @@ MonoBehaviour:
   Rect_Panel: {fileID: 7751875002948512879}
   Speed_Duration: 0.4
   Ease: 9
+  PlayOnEnable: 0
+  Direction_Enter: {x: 0, y: 0}
+  Direction_Exit: {x: 0, y: 0}
 --- !u!1 &7600712264097466754
 GameObject:
   m_ObjectHideFlags: 0
@@ -9815,6 +9824,9 @@ MonoBehaviour:
   Rect_Panel: {fileID: 2607905222855236937}
   Speed_Duration: 0.4
   Ease: 9
+  PlayOnEnable: 0
+  Direction_Enter: {x: 0, y: 0}
+  Direction_Exit: {x: 0, y: 0}
 --- !u!1 &9021739568459900995
 GameObject:
   m_ObjectHideFlags: 0

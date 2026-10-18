@@ -103,4 +103,14 @@ public class UIManager : SingletonBase<UIManager>
 
         return rootTransform;
     }
+
+    public bool IsOpend(UIType type)
+    {
+        if (_activeUI.Contains(type))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

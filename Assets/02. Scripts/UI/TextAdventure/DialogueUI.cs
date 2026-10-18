@@ -1,7 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using Spine;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using TMPro;
 using UnityEngine;
@@ -126,7 +124,7 @@ public class DialogueUI : ViewBase
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);
 
-        if (_isAuto == true)
+        if (_isAuto == true && UIManager.Inst.IsOpend(UIType.DialogueLog) == false)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_autoWait), cancellationToken: token);
 
