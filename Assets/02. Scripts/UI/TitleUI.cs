@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using DG.Tweening.Core.Easing;
 using System;
 using System.Threading;
 using UnityEngine;
@@ -17,6 +16,10 @@ public class TitleUI : ViewBase
     [SerializeField] private Button Button_LoadGame;
     [SerializeField] private Button Button_Config;
     [SerializeField] private Button Button_Quit;
+    [SerializeField] private Button Button_Reset;
+    [SerializeField] private Button Button_Sound;
+    [SerializeField] private Button Button_Display;
+    [SerializeField] private Button Button_Return;
 
     private float _fadeSpeed = 0.3f;
     private float _longDelay = 0.5f;
@@ -25,7 +28,14 @@ public class TitleUI : ViewBase
 
     private void Awake()
     {
-        
+        Button_NewGame.onClick.AddListener(OnClickNewGame);
+        Button_LoadGame.onClick.AddListener(OnClickLoadGame);
+        Button_Config.onClick.AddListener(OnClickConfig);
+        Button_Quit.onClick.AddListener(OnClickQuit);
+        Button_Reset.onClick.AddListener(OnClickReset);
+        Button_Sound.onClick.AddListener(OnClickSound);
+        Button_Display.onClick.AddListener(OnClickDisplay);
+        Button_Return.onClick.AddListener(OnClickReturn);
     }
 
     private void Start()
@@ -43,6 +53,46 @@ public class TitleUI : ViewBase
     private void OnDestroy()
     {
         CancelFade();
+    }
+
+    private void OnClickNewGame()
+    {
+        
+    }
+
+    private void OnClickLoadGame()
+    {
+
+    }
+
+    private void OnClickConfig()
+    {
+
+    }
+
+    private void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
+    private void OnClickReset()
+    {
+
+    }
+
+    private void OnClickSound()
+    {
+
+    }
+
+    private void OnClickDisplay()
+    {
+        
+    }
+
+    private void OnClickReturn()
+    {
+
     }
 
     private async UniTask FadeRoutine(CancellationToken cancellationToken)

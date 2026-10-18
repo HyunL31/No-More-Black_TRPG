@@ -2620,6 +2620,7 @@ GameObject:
   - component: {fileID: 1638871652661198010}
   - component: {fileID: 8275942510351730786}
   - component: {fileID: 7116311161765273986}
+  - component: {fileID: 9195552542465848957}
   m_Layer: 0
   m_Name: Config Button
   m_TagString: Untagged
@@ -2729,6 +2730,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9195552542465848957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376225851383799245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 6642563865456655066}
+  _currentIndex: 2
 --- !u!1 &2394194063859957083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,6 +2967,7 @@ GameObject:
   - component: {fileID: 8162809009118170458}
   - component: {fileID: 6830815822348296}
   - component: {fileID: 1088732115986700979}
+  - component: {fileID: 2531439355614153912}
   m_Layer: 0
   m_Name: LoadGame Button
   m_TagString: Untagged
@@ -3061,6 +3077,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2531439355614153912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622956164786053208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 6642563865456655066}
+  _currentIndex: 1
 --- !u!1 &2759737285934462476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,6 +3580,7 @@ GameObject:
   - component: {fileID: 8190783093575267843}
   - component: {fileID: 4791709075511417009}
   - component: {fileID: 7914843665127078903}
+  - component: {fileID: 8628948687526443972}
   m_Layer: 0
   m_Name: NewGame Button
   m_TagString: Untagged
@@ -3659,6 +3690,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8628948687526443972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192931289588114294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 6642563865456655066}
+  _currentIndex: 0
 --- !u!1 &3200729435007466362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4683,10 +4728,14 @@ MonoBehaviour:
   Panel_Start: {fileID: 6473938777714106217}
   Panel_Trigger: {fileID: 559318441220672708}
   Panel_Title: {fileID: 8510889775774086304}
-  Button_NewGame: {fileID: 0}
-  Button_LoadGame: {fileID: 0}
-  Button_Config: {fileID: 0}
-  Button_Quit: {fileID: 0}
+  Button_NewGame: {fileID: 7914843665127078903}
+  Button_LoadGame: {fileID: 1088732115986700979}
+  Button_Config: {fileID: 7116311161765273986}
+  Button_Quit: {fileID: 9092190497025679090}
+  Button_Reset: {fileID: 7686606085277585689}
+  Button_Sound: {fileID: 3556277256804771571}
+  Button_Display: {fileID: 8751924163460643760}
+  Button_Return: {fileID: 7882199346050974876}
 --- !u!1 &4733792894040544308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,6 +5228,7 @@ GameObject:
   - component: {fileID: 4390912387937155331}
   - component: {fileID: 418025184407058592}
   - component: {fileID: 9092190497025679090}
+  - component: {fileID: 2252096933296613350}
   m_Layer: 0
   m_Name: Exit Button
   m_TagString: Untagged
@@ -5288,6 +5338,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2252096933296613350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163445396677202688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 6642563865456655066}
+  _currentIndex: 3
 --- !u!1 &5240049702594080318
 GameObject:
   m_ObjectHideFlags: 0
@@ -5945,6 +6009,7 @@ GameObject:
   - component: {fileID: 59271464605533383}
   - component: {fileID: 4776487323673910418}
   - component: {fileID: 7882199346050974876}
+  - component: {fileID: 2319823044258258598}
   m_Layer: 0
   m_Name: Return Button
   m_TagString: Untagged
@@ -6054,6 +6119,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2319823044258258598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913504812420238765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 8232238209009469925}
+  _currentIndex: 3
 --- !u!1 &6021196678391969540
 GameObject:
   m_ObjectHideFlags: 0
@@ -6665,6 +6744,7 @@ GameObject:
   - component: {fileID: 4421775183337391937}
   - component: {fileID: 5261931189619323068}
   - component: {fileID: 7686606085277585689}
+  - component: {fileID: 1926796862821230781}
   m_Layer: 0
   m_Name: Reset Button
   m_TagString: Untagged
@@ -6774,6 +6854,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1926796862821230781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6562082976483814588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 8232238209009469925}
+  _currentIndex: 0
 --- !u!1 &6667381334094086736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7049,6 +7143,7 @@ GameObject:
   - component: {fileID: 3771094126781191214}
   - component: {fileID: 2894185636773118160}
   - component: {fileID: 3556277256804771571}
+  - component: {fileID: 6155327780219967580}
   m_Layer: 0
   m_Name: Sound Button
   m_TagString: Untagged
@@ -7158,6 +7253,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6155327780219967580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940261634965218994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 8232238209009469925}
+  _currentIndex: 1
 --- !u!1 &7016442601234824236
 GameObject:
   m_ObjectHideFlags: 0
@@ -7735,6 +7844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7751875002948512879}
+  - component: {fileID: 8232238209009469925}
   m_Layer: 0
   m_Name: SettingOptions
   m_TagString: Untagged
@@ -7765,6 +7875,30 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00390625, y: 0.004272461}
   m_SizeDelta: {x: 808.9576, y: 708.1744}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &8232238209009469925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7492080979357459912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8515f5162a3a1bf4788e3b20c159f0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - {fileID: 341976735066999700}
+  - {fileID: 483891099999692198}
+  - {fileID: 7458649363105122794}
+  - {fileID: 6130416599360937413}
+  Buttons:
+  - {fileID: 7686606085277585689}
+  - {fileID: 3556277256804771571}
+  - {fileID: 8751924163460643760}
+  - {fileID: 7882199346050974876}
+  Size_OriginText: 55
+  Size_BigText: 60
 --- !u!1 &7600712264097466754
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,6 +8665,7 @@ GameObject:
   - component: {fileID: 1356065372301047296}
   - component: {fileID: 8096814482045134242}
   - component: {fileID: 8751924163460643760}
+  - component: {fileID: 615785634289171049}
   m_Layer: 0
   m_Name: Display Button
   m_TagString: Untagged
@@ -8640,6 +8775,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &615785634289171049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439464586535866128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6ccccee0eda2047bb927cfc32663d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScrollSelector: {fileID: 8232238209009469925}
+  _currentIndex: 2
 --- !u!1 &8493491458789815436
 GameObject:
   m_ObjectHideFlags: 0
@@ -9437,6 +9586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2607905222855236937}
+  - component: {fileID: 6642563865456655066}
   m_Layer: 0
   m_Name: StartOptions
   m_TagString: Untagged
@@ -9467,6 +9617,30 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00390625, y: 0.004272461}
   m_SizeDelta: {x: 808.9576, y: 708.1744}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &6642563865456655066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975124505569274450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8515f5162a3a1bf4788e3b20c159f0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Texts:
+  - {fileID: 5352900840957486480}
+  - {fileID: 3723511214863675953}
+  - {fileID: 6778401133273636643}
+  - {fileID: 3409208011911836432}
+  Buttons:
+  - {fileID: 7914843665127078903}
+  - {fileID: 1088732115986700979}
+  - {fileID: 7116311161765273986}
+  - {fileID: 9092190497025679090}
+  Size_OriginText: 55
+  Size_BigText: 60
 --- !u!1 &9021739568459900995
 GameObject:
   m_ObjectHideFlags: 0
