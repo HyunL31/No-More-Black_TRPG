@@ -31,6 +31,10 @@ public class TitleUI : ViewBase
     [SerializeField] private PanelSlideController Controller_Sound;
     [SerializeField] private PanelSlideController Controller_Display;
 
+    [Header("설정")]
+    [SerializeField] private SoundSetting SoundSetting;
+    [SerializeField] private DisplaySetting DisplaySetting;
+
     private float _fadeSpeed = 0.3f;
     private float _longDelay = 0.5f;
     private float _shortDelay = 0.2f;
@@ -96,7 +100,8 @@ public class TitleUI : ViewBase
 
     private void OnClickReset()
     {
-
+        SoundSetting.ResetSound();
+        DisplaySetting.ResetDisplay();
     }
 
     private void OnClickSound()
@@ -111,6 +116,8 @@ public class TitleUI : ViewBase
 
     private void OnClickReturn()
     {
+        PlayerPrefs.Save();
+
         Switcher_Option.SwitchTo(Controller_Title, Vector2.left, Vector2.left).Forget();
         Controller_Sound.SlideOut(Vector2.right);
         Controller_Display.SlideOut(Vector2.right);

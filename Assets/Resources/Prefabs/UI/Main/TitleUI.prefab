@@ -4793,6 +4793,8 @@ MonoBehaviour:
   Controller_Setting: {fileID: 7934638521670673796}
   Controller_Sound: {fileID: 1301149571233696298}
   Controller_Display: {fileID: 3201004177431704538}
+  SoundSetting: {fileID: 3413060853787676432}
+  DisplaySetting: {fileID: 8504930450405972514}
 --- !u!1 &4733792894040544308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6200,6 +6202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8890533278917087605}
   - component: {fileID: 1301149571233696298}
+  - component: {fileID: 3413060853787676432}
   m_Layer: 0
   m_Name: Sound Panel
   m_TagString: Untagged
@@ -6246,6 +6249,23 @@ MonoBehaviour:
   Rect_Panel: {fileID: 8890533278917087605}
   Speed_Duration: 0.4
   Ease: 9
+--- !u!114 &3413060853787676432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021196678391969540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e4a745bbfc9eb4a923c61b7602a677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24100000, guid: cacee4c83cd63e14c9beb1b61ccb415a, type: 2}
+  Slider_Master: {fileID: 6365575346416612070}
+  Slider_BGM: {fileID: 1551662735280281347}
+  Slider_SFX: {fileID: 6274613850397351033}
+  Slider_Voice: {fileID: 6354622640845703078}
 --- !u!1 &6242636855326633295
 GameObject:
   m_ObjectHideFlags: 0
@@ -7783,6 +7803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 638083526149103560}
   - component: {fileID: 3201004177431704538}
+  - component: {fileID: 8504930450405972514}
   m_Layer: 0
   m_Name: Display Panel
   m_TagString: Untagged
@@ -7831,6 +7852,23 @@ MonoBehaviour:
   Rect_Panel: {fileID: 638083526149103560}
   Speed_Duration: 0.4
   Ease: 9
+--- !u!114 &8504930450405972514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428099391740966101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448e283d6c286274f9286d28aa01cd9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dropdown_Resolution: {fileID: 4194536354754021868}
+  Toggle_FullScreen: {fileID: 2352628110995201419}
+  Slider_Brightness: {fileID: 7248953479222548388}
+  Dropdown_TextSpeed: {fileID: 6971548134840703066}
+  Toggle_Vibration: {fileID: 935887109714248091}
 --- !u!1 &7452469171637436480
 GameObject:
   m_ObjectHideFlags: 0

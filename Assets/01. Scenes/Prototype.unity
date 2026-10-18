@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -329,5 +333,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 8988275862575387021}
-  - {fileID: 7669137345668697161}
   - {fileID: 113554304}
+  - {fileID: 7669137345668697161}
