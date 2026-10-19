@@ -72,7 +72,27 @@ public class DialogueUI : ViewBase
 
     private void OnClickSkip()
     {
-        
+        CancelTyping();
+
+        bool isPlaying = false;
+
+        while (isPlaying == false)
+        {
+            Debug.Log(GetCurrentID());
+            var data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
+            string nextID = data.NextID;
+
+            if (nextID.Contains("Choice") || nextID == "0")
+            {
+                isPlaying = true;
+                break;
+            }
+
+            TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
+            TextAdventureManager.Inst.SetCurrentID(nextID);
+        }
+
+        ShowDialogue();
     }
 
     private void ShowDialogue()
