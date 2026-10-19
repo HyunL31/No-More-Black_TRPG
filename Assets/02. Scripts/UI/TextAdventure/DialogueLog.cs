@@ -45,17 +45,15 @@ public class DialogueLog : ViewBase
 
         var logs = TextAdventureManager.Inst.DialogueLogs;
 
-        foreach (string contentID in logs)
+        for (int i = 0; i < logs.Count; i++)
         {
-            var data = GameDataManager.Inst.GetData<Dialogue>(contentID);
-
-            bool isPlayer = data.Speaker == "Player_01";
+            bool isPlayer = logs[i].Key == "Player_01";
 
             LogSlot slot = isPlayer ? _rightPool.Get() : _leftPool.Get();
 
             _activeSlots.Add(slot);
 
-            slot.SetSlot(contentID).Forget();
+            slot.SetSlot(logs[i].Key, logs[i].Value).Forget();
         }
     }
 

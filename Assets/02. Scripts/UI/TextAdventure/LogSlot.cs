@@ -8,14 +8,10 @@ public class LogSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Text_Dialogue;
     [SerializeField] private Image Image_Portrait;
 
-    public async UniTask SetSlot(string contentID)
+    public async UniTask SetSlot(string characterID, string content)
     {
-        if (contentID.Contains("Dialogue"))
-        {
-            var data = GameDataManager.Inst.GetData<Dialogue>(contentID);
+        Text_Dialogue.text = content;
 
-            Text_Dialogue.text = data.Content;
-            Image_Portrait.sprite = await ResourceManager.Inst.LoadSprite($"Sprites/Character/{data.Speaker}");
-        }
+        Image_Portrait.sprite = await ResourceManager.Inst.LoadSprite($"Sprites/Character/{characterID}");
     }
 }

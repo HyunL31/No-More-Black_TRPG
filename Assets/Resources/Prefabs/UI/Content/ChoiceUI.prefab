@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d38d2bb87204e7448ab2374aa41084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent_Slot: {fileID: 2959722727275139810}
+  Transform_ChoiceParent: {fileID: 2959722727275139810}
+  Prefab_Slot: {fileID: 8490471783721792630, guid: e92ee604eb1269f4eaae85f8f4e87026, type: 3}
 --- !u!1 &3780403897325356776
 GameObject:
   m_ObjectHideFlags: 0

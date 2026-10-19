@@ -106,7 +106,7 @@
   },
   {
     "ID": "Dialogue_06",
-    "NextID": "Dialogue_07",
+    "NextID": "Choice_01",
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -127,7 +127,7 @@
   },
   {
     "ID": "Dialogue_07",
-    "NextID": "Dialogue_08",
+    "NextID": "Dialogue_09",
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01",

@@ -6,4 +6,32 @@ public class ChoiceSlot : MonoBehaviour
 {
     [SerializeField] private Button Button_Choice;
     [SerializeField] private TextMeshProUGUI Text_Choice;
+
+    private string _returnID = "";
+
+    private void Awake()
+    {
+        Button_Choice.onClick.AddListener(OnClickSlot);
+    }
+
+    private void OnClickSlot()
+    {
+        TextAdventureManager.Inst.SetCurrentID(_returnID);
+        TextAdventureManager.Inst.OnAddLog?.Invoke("Player_01", Text_Choice.text);
+
+        UIManager.Inst.OpenDialogueUI();
+        TextAdventureManager.Inst.OnReturnDialogue?.Invoke();
+
+        UIManager.Inst.CloseChoiceUI();
+    }
+
+    public void SetSlot(string content)
+    {
+        Text_Choice.text = content;
+    }
+
+    public void SetReturnID(string returnID)
+    {
+        _returnID = returnID;
+    }
 }

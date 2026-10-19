@@ -94,3 +94,11 @@ public class Dialogue : GameDataBase
     public string SFX;
     public string Background;
 }
+
+[System.Serializable]
+public class Choice : GameDataBase
+{
+    public string NextID;
+    public string Content;
+    public string Result;
+}

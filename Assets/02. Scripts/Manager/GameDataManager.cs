@@ -23,6 +23,7 @@ public class GameDataManager : SingletonBase<GameDataManager>
         LoadData<Character>("Character");
         LoadData<Skill>("Skill");
         LoadData<Dialogue>("Dialogue");
+        LoadData<Choice>("Choice");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase

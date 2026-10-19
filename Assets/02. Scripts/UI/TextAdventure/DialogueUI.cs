@@ -19,7 +19,6 @@ public class DialogueUI : ViewBase
     private bool _isAuto = false;
     private float _autoWait = 0.5f;
 
-    private string _currentID = "Dialogue_01";
     private float _typingSpeed = 0.05f;
     private bool _isTyping = false;
     private CancellationTokenSource _typingToken;
@@ -30,6 +29,8 @@ public class DialogueUI : ViewBase
         Button_Skip.onClick.AddListener(OnClickSkip);
         Button_Auto.onClick.AddListener(OnClickAuto);
         Button_Log.onClick.AddListener(OnClickLog);
+
+        TextAdventureManager.Inst.OnReturnDialogue += ShowDialogue;
     }
 
     private void OnEnable()
@@ -50,7 +51,7 @@ public class DialogueUI : ViewBase
         }
         else
         {
-            ShowDialogue();
+            MoveToNextContent();
         }
     }
 
@@ -63,7 +64,7 @@ public class DialogueUI : ViewBase
     {
         _isAuto = !_isAuto;
 
-        if (_isTyping == false && _isAuto == true)
+        if (_isTyping == false && _isAuto == true && CanNext() == true)
         {
             ShowDialogue();
         }
@@ -76,9 +77,11 @@ public class DialogueUI : ViewBase
 
     private void ShowDialogue()
     {
+        string currentID = GetCurrentID();
+
         Image_NextArrow.gameObject.SetActive(false);
 
-        var data = GameDataManager.Inst.GetData<Dialogue>(_currentID);
+        var data = GameDataManager.Inst.GetData<Dialogue>(currentID);
 
         string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
         Text_Speaker.text = speaker;
@@ -90,15 +93,22 @@ public class DialogueUI : ViewBase
         SetBGM(data.BGM);
         SetSFX(data.SFX);
 
-        TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(_currentID);
-        TextAdventureManager.Inst.OnAddLog?.Invoke(_currentID);
+        TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(currentID);
+        TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
 
-        _currentID = data.NextID;
+        TextAdventureManager.Inst.SetCurrentID(data.NextID);
     }
 
-    private void MoveToNextID()
+    private void MoveToNextContent()
     {
-
+        if (GetCurrentID().Contains("Dialogue"))
+        {
+            ShowDialogue();
+        }
+        else if(GetCurrentID().Contains("Choice"))
+        {
+            UIManager.Inst.OpenChoiceUI();
+        }
     }
 
     private async UniTask TypingEffect(string content, CancellationToken token)
@@ -124,7 +134,7 @@ public class DialogueUI : ViewBase
         _isTyping = false;
         Image_NextArrow.gameObject.SetActive(true);
 
-        if (_isAuto == true && UIManager.Inst.IsOpend(UIType.DialogueLog) == false)
+        if (_isAuto == true && CanNext() == true)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_autoWait), cancellationToken: token);
 
@@ -148,6 +158,11 @@ public class DialogueUI : ViewBase
         }
     }
 
+    private string GetCurrentID()
+    {
+        return TextAdventureManager.Inst.CurrentID;
+    }
+
     private void CancelTyping()
     {
         if (_typingToken != null)
@@ -156,5 +171,15 @@ public class DialogueUI : ViewBase
             _typingToken.Dispose();
             _typingToken = null;
         }
+    }
+
+    private bool CanNext()
+    {
+        if (UIManager.Inst.IsOpend(UIType.DialogueLog) == false && UIManager.Inst.IsOpend(UIType.ChoiceUI) == false)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class TextAdventureManager : SingletonBase<TextAdventureManager>
 {
-    public List<string> DialogueLogs { get; private set; } = new List<string>();
+    public string CurrentID { get; private set; } = "Dialogue_01";
 
-    public Action<string> OnAddLog;
+    public List<KeyValuePair<string, string>> DialogueLogs { get; private set; } = new List<KeyValuePair<string, string>>();
+
+    public Action<string, string> OnAddLog;
     public Action<string> OnChangeBaseUI;
+    public Action OnReturnDialogue;
 
     protected override void Awake()
     {
@@ -15,8 +17,13 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
         OnAddLog = AddDialogueLog;
     }
 
-    private void AddDialogueLog(string contentID)
+    private void AddDialogueLog(string characterID, string content)
     {
-        DialogueLogs.Add(contentID);
+        DialogueLogs.Add(new KeyValuePair<string, string>(characterID, content));
+    }
+
+    public void SetCurrentID(string id)
+    {
+        CurrentID = id;
     }
 }

@@ -19,6 +19,7 @@ public enum UIType
     SkillUI,
     VisualNovelUI,
     DialogueUI,
+    ChoiceUI,
     DialogueLog
 }
 
@@ -67,6 +68,16 @@ public static class UIExtension
     public static void CloseDialogueUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.DialogueUI);
+    }
+
+    public static void OpenChoiceUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.ChoiceUI);
+    }
+
+    public static void CloseChoiceUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.ChoiceUI);
     }
 
     public static void OpenDialogueLog(this UIManager uiManager)
