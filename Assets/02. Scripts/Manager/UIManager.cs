@@ -16,6 +16,10 @@ public class UIManager : SingletonBase<UIManager>
     {
         this.OpenVisualNovelUI();
         this.OpenDialogueUI();
+
+        //this.OpenResumeUI();
+
+        //this.OpenSkillUI();
     }
 
     public UIBase OpenUI(UIRoot root, UIType type)

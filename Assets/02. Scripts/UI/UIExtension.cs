@@ -1,7 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
-
-public enum UIRoot
+﻿public enum UIRoot
 {
     None,
     Background,
@@ -20,6 +17,7 @@ public enum UIType
     VisualNovelUI,
     DialogueUI,
     ChoiceUI,
+    PolygraphUI,
     DialogueLog
 }
 
@@ -78,6 +76,16 @@ public static class UIExtension
     public static void CloseChoiceUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.ChoiceUI);
+    }
+
+    public static void OpenPolygraphUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.PolygraphUI);
+    }
+
+    public static void ClosePolygraphUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.PolygraphUI);
     }
 
     public static void OpenDialogueLog(this UIManager uiManager)

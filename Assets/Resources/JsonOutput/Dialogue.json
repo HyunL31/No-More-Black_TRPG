@@ -199,5 +199,89 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space"
+  },
+  {
+    "ID": "Dialogue_10",
+    "NextID": "Poly_01",
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "과연 누가 거짓말을 하고 있을까요?",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_11",
+    "NextID": "Dialogue_13",
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "아뇨, 그 사람은 '진실'을 말하고 있습니다.",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_12",
+    "NextID": "Dialogue_10",
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "네! 바로 그 사람이 거짓말을 한 거에요!",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_13",
+    "NextID": "0",
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "거짓말은 아주 나쁜 짓이죠!",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
   }
 ]
