@@ -7,6 +7,7 @@ using UnityEngine;
 public class CharacterState : MonoBehaviour
 {
     [SerializeField] private SkeletonGraphic SkeletonGraphic;
+    [SerializeField] private InspectorCharacter InspectorCharacter;
 
     private string _currentAnim;
     private string _currentSkin;
@@ -24,6 +25,8 @@ public class CharacterState : MonoBehaviour
         _skeleton = SkeletonGraphic.Skeleton;
         _skeletonData = _skeleton.Data;
         _combinedSkin = new Skin("CombinedSkin");
+
+        InspectorCharacter.enabled = false;
     }
 
     private void OnDestroy()

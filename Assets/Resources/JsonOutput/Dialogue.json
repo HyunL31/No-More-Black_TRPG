@@ -30,7 +30,7 @@
     "Slot": [
       "L"
     ],
-    "Content": "엘리시아 입니다.",
+    "Content": "엘리시아입니다.",
     "Emotion": [
       "smile"
     ],
@@ -223,7 +223,7 @@
   },
   {
     "ID": "Dialogue_11",
-    "NextID": "Dialogue_13",
+    "NextID": "Dialogue_10",
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -244,7 +244,7 @@
   },
   {
     "ID": "Dialogue_12",
-    "NextID": "Dialogue_10",
+    "NextID": "Dialogue_13",
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -265,7 +265,7 @@
   },
   {
     "ID": "Dialogue_13",
-    "NextID": "0",
+    "NextID": "Dialogue_14",
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -276,6 +276,132 @@
     "Content": "거짓말은 아주 나쁜 짓이죠!",
     "Emotion": [
       "angry"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_14",
+    "NextID": "Dialogue_15",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "안녕하세요.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_15",
+    "NextID": "Dialogue_16",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "온태현입니다.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_16",
+    "NextID": "Inspect_01",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "당신은 누가 범인이라고 생각하나요?",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_17",
+    "NextID": "Dialogue_16",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "정말 그렇게 생각하나요...? 다시 한 번 기회를 드리죠.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_18",
+    "NextID": "Dialogue_19",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "네, 저도 동의합니다.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White"
+  },
+  {
+    "ID": "Dialogue_19",
+    "NextID": "0",
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "항상 의심스러운 사람이었어요.",
+    "Emotion": [
+      "default"
     ],
     "Animation": [
       "active"

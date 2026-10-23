@@ -25,6 +25,7 @@ public class GameDataManager : SingletonBase<GameDataManager>
         LoadData<Dialogue>("Dialogue");
         LoadData<Choice>("Choice");
         LoadData<Polygraph>("Polygraph");
+        LoadData<Inspector>("Inspector");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase

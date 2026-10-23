@@ -63,6 +63,7 @@ public class VisualNovelUI : ViewBase
             prefab = _characters[characterID].gameObject;
             prefab.SetActive(true);
             prefab.transform.SetParent(GetTransform(slot));
+            prefab.transform.localPosition = new Vector2(0, prefab.transform.localPosition.y);
         }
 
         _characters[characterID].ApplyEmotion(animation, skin);

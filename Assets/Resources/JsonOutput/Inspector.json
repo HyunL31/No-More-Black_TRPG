@@ -1,0 +1,42 @@
+[
+  {
+    "ID": "Inspect_01_1",
+    "NextID": "Dialogue_17",
+    "CharacterID": "Elysia_01",
+    "Answer": false,
+    "Background": "White",
+    "Result": null
+  },
+  {
+    "ID": "Inspect_01_2",
+    "NextID": "Dialogue_18",
+    "CharacterID": "July_01",
+    "Answer": true,
+    "Background": null,
+    "Result": null
+  },
+  {
+    "ID": "Inspect_01_3",
+    "NextID": "Dialogue_17",
+    "CharacterID": "Taehyun_01",
+    "Answer": false,
+    "Background": null,
+    "Result": null
+  },
+  {
+    "ID": "Inspect_01_4",
+    "NextID": "Dialogue_17",
+    "CharacterID": "Elysia_01",
+    "Answer": false,
+    "Background": null,
+    "Result": null
+  },
+  {
+    "ID": "Inspect_01_5",
+    "NextID": "Dialogue_17",
+    "CharacterID": "July_01",
+    "Answer": false,
+    "Background": null,
+    "Result": null
+  }
+]

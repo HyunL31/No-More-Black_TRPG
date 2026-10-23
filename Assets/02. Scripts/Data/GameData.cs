@@ -111,3 +111,13 @@ public class Polygraph : GameDataBase
     public bool Answer;
     public string Result;
 }
+
+[System.Serializable]
+public class Inspector : GameDataBase
+{
+    public string NextID;
+    public string CharacterID;
+    public bool Answer;
+    public string Background;
+    public string Result;
+}

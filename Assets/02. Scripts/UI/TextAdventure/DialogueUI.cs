@@ -72,24 +72,29 @@ public class DialogueUI : ViewBase
 
     private void OnClickSkip()
     {
+        var data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
+
+        if (data == null)
+        {
+            return;
+        }
+
         CancelTyping();
 
-        bool isPlaying = false;
+        string nextID = data.NextID;
 
-        while (isPlaying == false)
+        while (true)
         {
-            Debug.Log(GetCurrentID());
-            var data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
-            string nextID = data.NextID;
-
-            if (nextID.Contains("Choice") || nextID == "0")
+            if (nextID.Contains("Choice") || nextID.Contains("Poly") || nextID.Contains("Inspect") || nextID == "0")
             {
-                isPlaying = true;
                 break;
             }
 
             TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
             TextAdventureManager.Inst.SetCurrentID(nextID);
+
+            data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
+            nextID = data.NextID;
         }
 
         ShowDialogue();
@@ -132,6 +137,12 @@ public class DialogueUI : ViewBase
         else if (GetCurrentID().Contains("Poly"))
         {
             UIManager.Inst.OpenPolygraphUI();
+            UIManager.Inst.CloseDialogueUI();
+        }
+        else if (GetCurrentID().Contains("Inspect"))
+        {
+            UIManager.Inst.OpenInspectorUI();
+            UIManager.Inst.CloseVisualNovelUI();
             UIManager.Inst.CloseDialogueUI();
         }
     }
