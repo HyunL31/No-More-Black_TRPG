@@ -129,6 +129,11 @@ public class DialogueUI : ViewBase
         {
             UIManager.Inst.OpenChoiceUI();
         }
+        else if (GetCurrentID().Contains("Poly"))
+        {
+            UIManager.Inst.OpenPolygraphUI();
+            UIManager.Inst.CloseDialogueUI();
+        }
     }
 
     private async UniTask TypingEffect(string content, CancellationToken token)

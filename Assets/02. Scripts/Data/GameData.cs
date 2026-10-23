@@ -102,3 +102,12 @@ public class Choice : GameDataBase
     public string Content;
     public string Result;
 }
+
+[System.Serializable]
+public class Polygraph : GameDataBase
+{
+    public string NextID;
+    public string CharacterID;
+    public bool Answer;
+    public string Result;
+}
