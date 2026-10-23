@@ -10,6 +10,7 @@ public class PolyButton : MonoBehaviour
     [SerializeField] private Image Image_Culprit;
 
     private string _polyID = "";
+    private string _culpritID = "";
     private bool _isSelected = false;
 
     private Color _normalColor = Color.white;
@@ -36,6 +37,9 @@ public class PolyButton : MonoBehaviour
         }
         else
         {
+            string culpritName = GameDataManager.Inst.GetData<Character>(_culpritID).Name;
+            TextAdventureManager.Inst.OnAddLog?.Invoke("Player_01", culpritName);
+
             string returnID = GameDataManager.Inst.GetData<Polygraph>(_polyID).NextID;
             TextAdventureManager.Inst.SetCurrentID(returnID);
 
@@ -63,9 +67,9 @@ public class PolyButton : MonoBehaviour
 
     private async UniTask SetPolyImage()
     {
-        string culprit = GameDataManager.Inst.GetData<Polygraph>(_polyID).CharacterID;
+        _culpritID = GameDataManager.Inst.GetData<Polygraph>(_polyID).CharacterID;
 
-        Image_Culprit.sprite = await ResourceManager.Inst.LoadSprite($"Sprites/Character/{culprit}");
+        Image_Culprit.sprite = await ResourceManager.Inst.LoadSprite($"Sprites/Character/{_culpritID}");
     }
 
     public Image GetCulpritImage()
