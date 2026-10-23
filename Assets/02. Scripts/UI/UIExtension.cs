@@ -18,6 +18,7 @@ public enum UIType
     DialogueUI,
     ChoiceUI,
     PolygraphUI,
+    InspectorUI,
     DialogueLog
 }
 
@@ -86,6 +87,16 @@ public static class UIExtension
     public static void ClosePolygraphUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.PolygraphUI);
+    }
+
+    public static void OpenInspectorUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.InspectorUI);
+    }
+
+    public static void CloseInspectorUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.InspectorUI);
     }
 
     public static void OpenDialogueLog(this UIManager uiManager)
