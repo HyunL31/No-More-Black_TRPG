@@ -90,9 +90,9 @@ public class PolyButton : MonoBehaviour
         Deselect();
     }
 
-    public void InitState(Action<PolyButton> callback)
+    public void InitState(Action<PolyButton> action)
     {
-        _onClickButton -= callback;
-        _onClickButton += callback;
+        _onClickButton -= action;
+        _onClickButton += action;
     }
 }

@@ -10,7 +10,7 @@ public class InspectorCharacter : MonoBehaviour
     private string _inspectorID = "";
     private bool _isSelected = false;
 
-    private Action _onClickCharacter;
+    private Action<string> _onClickCharacter;
 
     private void Awake()
     {
@@ -24,6 +24,8 @@ public class InspectorCharacter : MonoBehaviour
 
     private void OnClickCharacter()
     {
+        _onClickCharacter?.Invoke(_inspectorID);
+
         _isSelected = true;
 
         string[] data = GameDataManager.Inst.GetData<Inspector>(_inspectorID).ClickAnim;
@@ -44,6 +46,12 @@ public class InspectorCharacter : MonoBehaviour
         }
     }
 
+    private void SetDefaultAnim()
+    {
+        string[] data = GameDataManager.Inst.GetData<Inspector>(_inspectorID).DefaultAnim;
+        CharacterState.ApplyEmotion(data[1], data[0]);
+    }
+
     public void SetInspectorID(string inspectorID)
     {
         _inspectorID = inspectorID;
@@ -51,15 +59,20 @@ public class InspectorCharacter : MonoBehaviour
 
     public void InitCharacterState()
     {
-        string[] data = GameDataManager.Inst.GetData<Inspector>(_inspectorID).DefaultAnim;
-
-        CharacterState.ApplyEmotion(data[1], data[0]);
+        SetDefaultAnim();
         CharacterState.SetWhite();
     }
 
     public void Deselect()
     {
+        SetDefaultAnim();
+
         _isSelected = false;
         SetCharacterColor();
+    }
+
+    public void InitAction(Action<string> action)
+    {
+        _onClickCharacter = action;
     }
 }

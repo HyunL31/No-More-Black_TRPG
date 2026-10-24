@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class InspectorUI : ViewBase
 
     [Header("의견 UI")]
     [SerializeField] private GameObject Panel_Info;
+    [SerializeField] private PanelSlideController PanelSlideController;
     [SerializeField] private GameObject Panel_Opinion;
     [SerializeField] private TextMeshProUGUI Text_Opinion;
     [SerializeField] private Button Button_Accept;
@@ -32,7 +34,7 @@ public class InspectorUI : ViewBase
     private CancellationTokenSource _panoramaToken;
 
     private string _inspectorID = "";
-    private string _returnID = "";
+    private string _currentID = "";
     private Dictionary<string, InspectorCharacter> _characters = new Dictionary<string, InspectorCharacter>();
 
     private void Awake()
@@ -74,15 +76,19 @@ public class InspectorUI : ViewBase
 
     private void OnClickReject()
     {
+        PanelSlideController.SlideOut(Vector2.left);
+
         Panel_Opinion.SetActive(false);
         Panel_Info.SetActive(true);
 
-        ClearCharacterState();
+        InitCharacterState();
     }
 
     private void OnClickAccept()
     {
-        TextAdventureManager.Inst.SetCurrentID(_returnID);
+        var data = GameDataManager.Inst.GetData<Inspector>(_currentID);
+        TextAdventureManager.Inst.SetCurrentID(data.NextID);
+        TextAdventureManager.Inst.OnAddLog(data.CharacterID, data.Content);
 
         UIManager.Inst.OpenVisualNovelUI();
         UIManager.Inst.OpenDialogueUI();
@@ -163,6 +169,7 @@ public class InspectorUI : ViewBase
 
                 _characters[characterID].SetInspectorID(inspector.ID);
                 _characters[characterID].InitCharacterState();
+                _characters[characterID].InitAction((inspectorID) => ClearCharacterState(inspectorID));
             }
         }
 
@@ -181,11 +188,30 @@ public class InspectorUI : ViewBase
         }
     }
 
-    private void ClearCharacterState()
+    private void ClearCharacterState(string inspectorID = "")
     {
         foreach (InspectorCharacter character in _characters.Values)
         {
             character.Deselect();
+        }
+
+        _currentID = inspectorID;
+        
+        if (string.IsNullOrEmpty(_currentID) == false)
+        {
+            SetOpinionText();
+
+            Panel_Info.SetActive(false);
+            Panel_Opinion.SetActive(true);
+            PanelSlideController.SlideIn(Vector2.left);
+        }
+    }
+
+    private void InitCharacterState()
+    {
+        foreach (InspectorCharacter character in _characters.Values)
+        {
+            character.InitCharacterState();
         }
     }
 
@@ -193,5 +219,11 @@ public class InspectorUI : ViewBase
     {
         string background = GameDataManager.Inst.GetData<Inspector>($"{_inspectorID}_1").Background;
         Image_Background.sprite = await ResourceManager.Inst.LoadSprite($"Sprite/Background/{background}");
+    }
+
+    private void SetOpinionText()
+    {
+        string content = GameDataManager.Inst.GetData<Inspector>(_currentID).Content;
+        Text_Opinion.text = content;
     }
 }

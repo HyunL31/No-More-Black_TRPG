@@ -738,13 +738,14 @@ GameObject:
   - component: {fileID: 2929692650954142671}
   - component: {fileID: 5590720765845110314}
   - component: {fileID: 866194004629660511}
+  - component: {fileID: 3344809089289606803}
   m_Layer: 0
   m_Name: Opinion Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2929692650954142671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -762,11 +763,11 @@ RectTransform:
   - {fileID: 6517807157529059402}
   m_Father: {fileID: 3811299008588378570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -512, y: -296}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 49.48761, y: 49.773438}
   m_SizeDelta: {x: 797.0248, y: 388.4531}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &5590720765845110314
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -805,6 +806,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3344809089289606803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538339508221716490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3438342f74dffa4d94b0ee91e1cf925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect_Panel: {fileID: 2929692650954142671}
+  Speed_Duration: 0.3
+  Ease: 9
+  PlayOnEnable: 1
+  Direction_Enter: {x: -1, y: 0}
+  Direction_Exit: {x: -1, y: 0}
 --- !u!1 &2915918861045912807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000002861, y: 45.75061}
+  m_AnchoredPosition: {x: 0, y: 45.75061}
   m_SizeDelta: {x: 681.729, y: 192.5036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5634739985638015507
@@ -1590,14 +1609,14 @@ MonoBehaviour:
   Button_Right: {fileID: 8710698157695839369}
   Transform_CharacterContainer: {fileID: 5736844374357609464}
   Panel_Info: {fileID: 8211481604743490830}
+  PanelSlideController: {fileID: 3344809089289606803}
   Panel_Opinion: {fileID: 2538339508221716490}
   Text_Opinion: {fileID: 4737762938020243812}
   Button_Accept: {fileID: 8664684977779230413}
   Button_Reject: {fileID: 2824277278794911132}
   Step_Panorama: 300
   Duration_Panorama: 0.3
-  Min_Panorama: 960
-  Max_Panorama: 960
+  Offset_Panorama: 800
 --- !u!1 &8211481604743490830
 GameObject:
   m_ObjectHideFlags: 0
