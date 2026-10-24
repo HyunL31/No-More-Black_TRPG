@@ -87,6 +87,7 @@ public class InspectorUI : ViewBase
     private void OnClickAccept()
     {
         var data = GameDataManager.Inst.GetData<Inspector>(_currentID);
+        TextAdventureManager.Inst.ApplyResult(data.Result);
         TextAdventureManager.Inst.SetCurrentID(data.NextID);
         TextAdventureManager.Inst.OnAddLog(data.CharacterID, data.Content);
 

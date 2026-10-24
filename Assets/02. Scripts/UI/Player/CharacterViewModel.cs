@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CharacterViewModel : ViewModelBase
 {
@@ -106,6 +108,91 @@ public class CharacterViewModel : ViewModelBase
 
         return false;
     }
+
+    public void AddStamina(int delta)
+    {
+        Stamina = Mathf.Clamp(Stamina + delta, 0, 10);
+    }
+
+    public void AddCrazy(int delta)
+    {
+        Crazy = Mathf.Clamp(Crazy + delta, 0, 10);
+    }
+
+    public void AddOblivion(int delta)
+    {
+        Oblivion = Mathf.Clamp(Oblivion + delta, 0, 10);
+    }
+
+    public void AddIdeology(int delta)
+    {
+        Ideology = Mathf.Clamp(Ideology + delta, -3, 3);
+    }
+
+    public void GetSkill(string skillID)
+    {
+        Skill skill = GameDataManager.Inst.GetData<Skill>(skillID);
+        if (skill == null)
+        {
+            return;
+        }
+
+        CharacterModel model = CurrentCharacterModel;
+
+        if (!Enum.TryParse<SkillCategory>(skill.Category, out SkillCategory category))
+        {
+            return;
+        }
+
+        if (!model.CategoryUnlock.Contains(category))
+        {
+            model.CategoryUnlock.Add(category);
+        }
+
+        switch (skill.Category)
+        {
+            case "Major":
+                AddEnum(model.SelectedMajor, skill.Name);
+                break;
+            
+            case "Career":
+                AddEnum(model.SelectedCareer, skill.Name);
+                break;
+            
+            case "Nature":
+                AddEnum(model.SelectedNature, skill.Name);
+                break;
+            
+            case "Wisdom":
+                AddEnum(model.SelectedWisdom, skill.Name);
+                break;
+            
+            case "Method":
+                AddEnum(model.SelectedMethod, skill.Name);
+                break;
+            
+            case "Resistance":
+                AddEnum(model.SelectedResistance, skill.Name);
+                break;
+        }
+    }
+
+    public void AbandonSkill(string skillID)
+    {
+        if (!CurrentCharacterModel.AbandonedSkillID.Contains(skillID))
+        {
+            CurrentCharacterModel.AbandonedSkillID.Add(skillID);
+        }
+    }
+
+    private static void AddEnum<T>(List<T> list, string value) where T : struct
+    {
+        if (Enum.TryParse<T>(value, out var parsed) && !list.Contains(parsed))
+        {
+            list.Add(parsed);
+        }
+    }
+
 
     public CharacterModel CurrentCharacterModel
     {

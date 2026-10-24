@@ -14,7 +14,7 @@
       "smile",
       "active"
     ],
-    "Result": null
+    "Result": "Result_01"
   },
   {
     "ID": "Inspect_01_2",
@@ -31,7 +31,7 @@
       "smile",
       "active"
     ],
-    "Result": null
+    "Result": "Result_06"
   },
   {
     "ID": "Inspect_01_3",
@@ -48,6 +48,6 @@
       "default",
       "active"
     ],
-    "Result": null
+    "Result": "Result_01"
   }
 ]

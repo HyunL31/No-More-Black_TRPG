@@ -1,5 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+
+public enum ResultType
+{
+    None,
+    Stamina,
+    Crazy,
+    Oblivion,
+    Skill
+}
 
 public class TextAdventureManager : SingletonBase<TextAdventureManager>
 {
@@ -20,6 +30,11 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
     private void AddDialogueLog(string characterID, string content)
     {
         DialogueLogs.Add(new KeyValuePair<string, string>(characterID, content));
+    }
+
+    public void ApplyResult(string resultID)
+    {
+        GameUtil.ApplyResult(resultID);
     }
 
     public void SetCurrentID(string id)

@@ -35,6 +35,8 @@ public class DialogueUI : ViewBase
 
     private void OnEnable()
     {
+        _typingSpeed = PlayerPrefs.GetFloat("TextSpeed", 0.03f);
+
         ShowDialogue();
     }
 
@@ -91,6 +93,7 @@ public class DialogueUI : ViewBase
             }
 
             TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
+            TextAdventureManager.Inst.ApplyResult(data.Result);
             TextAdventureManager.Inst.SetCurrentID(nextID);
 
             data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
@@ -120,6 +123,11 @@ public class DialogueUI : ViewBase
 
         TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(currentID);
         TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
+
+        if (string.IsNullOrEmpty(data.Result) == false)
+        {
+            TextAdventureManager.Inst.ApplyResult(data.Result);
+        }
 
         TextAdventureManager.Inst.SetCurrentID(data.NextID);
     }

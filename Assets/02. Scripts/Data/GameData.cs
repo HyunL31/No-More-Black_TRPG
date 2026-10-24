@@ -93,6 +93,7 @@ public class Dialogue : GameDataBase
     public string BGM;
     public string SFX;
     public string Background;
+    public string Result;
 }
 
 [System.Serializable]
@@ -123,4 +124,13 @@ public class Inspector : GameDataBase
     public string[] DefaultAnim;
     public string[] ClickAnim;
     public string Result;
+}
+
+[System.Serializable]
+public class Result : GameDataBase
+{
+    public string Type;
+    public float Value;
+    public string SkillID;
+    public bool IsGet;
 }

@@ -40,8 +40,9 @@ public class PolyButton : MonoBehaviour
             string culpritName = GameDataManager.Inst.GetData<Character>(_culpritID).Name;
             TextAdventureManager.Inst.OnAddLog?.Invoke("Player_01", culpritName);
 
-            string returnID = GameDataManager.Inst.GetData<Polygraph>(_polyID).NextID;
-            TextAdventureManager.Inst.SetCurrentID(returnID);
+            var data = GameDataManager.Inst.GetData<Polygraph>(_polyID);
+            TextAdventureManager.Inst.ApplyResult(data.Result);
+            TextAdventureManager.Inst.SetCurrentID(data.NextID);
 
             UIManager.Inst.OpenDialogueUI();
             UIManager.Inst.ClosePolygraphUI();

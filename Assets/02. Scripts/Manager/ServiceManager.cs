@@ -2,15 +2,15 @@
 
 public class ServiceManager : SingletonBase<ServiceManager>
 {
-    public CharacterViewModel CharacterViewModel;
+    private CharacterViewModel _characterViewModel;
 
     public CharacterViewModel GetCharacterViewModel()
     {
-        if (CharacterViewModel == null)
+        if (_characterViewModel == null)
         {
-            CharacterViewModel = new CharacterViewModel();
+            _characterViewModel = new CharacterViewModel();
         }
 
-        return CharacterViewModel;
+        return _characterViewModel;
     }
 }

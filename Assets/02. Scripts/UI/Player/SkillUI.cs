@@ -23,7 +23,7 @@ public class SkillUI : ViewBase
 
     private void Start()
     {
-        _characterVM = ServiceManager.Inst.CharacterViewModel;
+        _characterVM = ServiceManager.Inst.GetCharacterViewModel();
 
         Init();
     }
@@ -32,7 +32,7 @@ public class SkillUI : ViewBase
     {
         if (_characterVM == null)
         {
-            _characterVM = ServiceManager.Inst.CharacterViewModel;
+            _characterVM = ServiceManager.Inst.GetCharacterViewModel();
         }
 
         for (int i = 0; i < Buttons_SkillCategory.Count; i++)

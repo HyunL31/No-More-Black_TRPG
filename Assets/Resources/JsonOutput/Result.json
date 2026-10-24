@@ -1,0 +1,44 @@
+[
+  {
+    "ID": "Result_01",
+    "Type": "Stamina",
+    "Value": -1,
+    "SkillID": null,
+    "IsGet": null
+  },
+  {
+    "ID": "Result_02",
+    "Type": "Crazy",
+    "Value": -1,
+    "SkillID": null,
+    "IsGet": null
+  },
+  {
+    "ID": "Result_03",
+    "Type": "Oblivion",
+    "Value": 1,
+    "SkillID": null,
+    "IsGet": null
+  },
+  {
+    "ID": "Result_04",
+    "Type": "Ideology",
+    "Value": -2,
+    "SkillID": null,
+    "IsGet": null
+  },
+  {
+    "ID": "Result_05",
+    "Type": "Skill",
+    "Value": null,
+    "SkillID": "Skill_Wisdom_1",
+    "IsGet": true
+  },
+  {
+    "ID": "Result_06",
+    "Type": "Stamina",
+    "Value": 1,
+    "SkillID": null,
+    "IsGet": null
+  }
+]

@@ -18,7 +18,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_02",
@@ -39,7 +40,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_03",
@@ -60,7 +62,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_04",
@@ -81,7 +84,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_05",
@@ -102,7 +106,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "Space"
+    "Background": "Space",
+    "Result": null
   },
   {
     "ID": "Dialogue_06",
@@ -123,7 +128,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "Space"
+    "Background": "Space",
+    "Result": null
   },
   {
     "ID": "Dialogue_07",
@@ -148,7 +154,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "Space"
+    "Background": "Space",
+    "Result": null
   },
   {
     "ID": "Dialogue_08",
@@ -173,7 +180,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "Space"
+    "Background": "Space",
+    "Result": "Result_05"
   },
   {
     "ID": "Dialogue_09",
@@ -198,7 +206,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "Space"
+    "Background": "Space",
+    "Result": null
   },
   {
     "ID": "Dialogue_10",
@@ -219,7 +228,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_11",
@@ -240,7 +250,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_12",
@@ -261,7 +272,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_13",
@@ -282,7 +294,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_14",
@@ -303,7 +316,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_15",
@@ -324,7 +338,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_16",
@@ -345,7 +360,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_17",
@@ -366,7 +382,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_18",
@@ -387,7 +404,8 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   },
   {
     "ID": "Dialogue_19",
@@ -408,6 +426,7 @@
     ],
     "BGM": null,
     "SFX": null,
-    "Background": "White"
+    "Background": "White",
+    "Result": null
   }
 ]

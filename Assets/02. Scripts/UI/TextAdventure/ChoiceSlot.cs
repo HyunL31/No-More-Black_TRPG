@@ -7,6 +7,7 @@ public class ChoiceSlot : MonoBehaviour
     [SerializeField] private Button Button_Choice;
     [SerializeField] private TextMeshProUGUI Text_Choice;
 
+    private string _resultID = "";
     private string _returnID = "";
 
     private void Awake()
@@ -16,6 +17,8 @@ public class ChoiceSlot : MonoBehaviour
 
     private void OnClickSlot()
     {
+        TextAdventureManager.Inst.ApplyResult(_resultID);
+
         TextAdventureManager.Inst.SetCurrentID(_returnID);
         TextAdventureManager.Inst.OnAddLog?.Invoke("Player_01", Text_Choice.text);
 
@@ -30,8 +33,9 @@ public class ChoiceSlot : MonoBehaviour
         Text_Choice.text = content;
     }
 
-    public void SetReturnID(string returnID)
+    public void SetReturnID(string resultID, string returnID)
     {
+        _resultID = resultID;
         _returnID = returnID;
     }
 }
