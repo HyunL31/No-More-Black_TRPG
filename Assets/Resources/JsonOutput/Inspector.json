@@ -3,40 +3,51 @@
     "ID": "Inspect_01_1",
     "NextID": "Dialogue_17",
     "CharacterID": "Elysia_01",
+    "Content": "~~~하는 이유로 나는 000이 범인인 거 같아.",
     "Answer": false,
     "Background": "White",
+    "DefaultAnim": [
+      "normal",
+      "basic"
+    ],
+    "ClickAnim": [
+      "smile",
+      "active"
+    ],
     "Result": null
   },
   {
     "ID": "Inspect_01_2",
     "NextID": "Dialogue_18",
     "CharacterID": "July_01",
+    "Content": "무조건 ㅁㅁㅁ이 범인이지.",
     "Answer": true,
     "Background": null,
+    "DefaultAnim": [
+      "normal",
+      "basic"
+    ],
+    "ClickAnim": [
+      "smile",
+      "active"
+    ],
     "Result": null
   },
   {
     "ID": "Inspect_01_3",
     "NextID": "Dialogue_17",
     "CharacterID": "Taehyun_01",
+    "Content": "진짜 우리 중에 범인이 있는 게 맞아...?",
     "Answer": false,
     "Background": null,
-    "Result": null
-  },
-  {
-    "ID": "Inspect_01_4",
-    "NextID": "Dialogue_17",
-    "CharacterID": "Elysia_01",
-    "Answer": false,
-    "Background": null,
-    "Result": null
-  },
-  {
-    "ID": "Inspect_01_5",
-    "NextID": "Dialogue_17",
-    "CharacterID": "July_01",
-    "Answer": false,
-    "Background": null,
+    "DefaultAnim": [
+      "default",
+      "basic"
+    ],
+    "ClickAnim": [
+      "default",
+      "active"
+    ],
     "Result": null
   }
 ]

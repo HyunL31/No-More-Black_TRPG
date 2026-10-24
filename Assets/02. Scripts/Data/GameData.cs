@@ -117,7 +117,10 @@ public class Inspector : GameDataBase
 {
     public string NextID;
     public string CharacterID;
+    public string Content;
     public bool Answer;
     public string Background;
+    public string[] DefaultAnim;
+    public string[] ClickAnim;
     public string Result;
 }
