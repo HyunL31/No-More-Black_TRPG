@@ -22,6 +22,22 @@ public class UIManager : SingletonBase<UIManager>
         //this.OpenSkillUI();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.OpenResumeUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            this.OpenSkillUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            this.CloseSkillUI();
+        }
+    }
+
     public UIBase OpenUI(UIRoot root, UIType type)
     {
         UIBase openedUI = GetOpenedUI(root, type);

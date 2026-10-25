@@ -33,9 +33,7 @@ public class CharacterViewModel : ViewModelBase
     {
         for (int i = 0; i < _playerModel.Characters.Count; i++)
         {
-            CharacterModel character = _playerModel.Characters[i];
-
-            if (character.Name == GameDataManager.Inst.GetData<Character>(CurrentCharacter).Name)
+            if (_playerModel.Characters[i].ID == CurrentCharacter)
             {
                 return i;
             }
@@ -44,55 +42,52 @@ public class CharacterViewModel : ViewModelBase
         return 0;
     }
 
-    public bool CheckSkill(SkillCategory category, int index)
+    public bool CheckSkill(SkillCategory category, string skillID)
     {
+        var skill = GameDataManager.Inst.GetData<Skill>(skillID);
+        if (skill == null) return false;
+
         switch (category)
         {
             case SkillCategory.Major:
-                if (Enum.IsDefined(typeof(MajorType), index))
+                if (Enum.TryParse<MajorType>(skill.EnName, out var majorType))
                 {
-                    MajorType type = (MajorType)index;
-                    return CurrentCharacterModel.SelectedMajor.Contains(type);
+                    return CurrentCharacterModel.SelectedMajor.Contains(majorType);
                 }
                 break;
 
             case SkillCategory.Career:
-                if (Enum.IsDefined(typeof(CareerType), index))
+                if (Enum.TryParse<CareerType>(skill.EnName, out var careerType))
                 {
-                    CareerType type = (CareerType)index;
-                    return CurrentCharacterModel.SelectedCareer.Contains(type);
+                    return CurrentCharacterModel.SelectedCareer.Contains(careerType);
                 }
                 break;
 
             case SkillCategory.Nature:
-                if (Enum.IsDefined(typeof(NatureType), index))
+                if (Enum.TryParse<NatureType>(skill.EnName, out var natureType))
                 {
-                    NatureType type = (NatureType)index;
-                    return CurrentCharacterModel.SelectedNature.Contains(type);
+                    return CurrentCharacterModel.SelectedNature.Contains(natureType);
                 }
                 break;
 
             case SkillCategory.Wisdom:
-                if (Enum.IsDefined(typeof(WisdomType), index))
+                if (Enum.TryParse<WisdomType>(skill.EnName, out var wisdomType))
                 {
-                    WisdomType type = (WisdomType)index;
-                    return CurrentCharacterModel.SelectedWisdom.Contains(type);
+                    return CurrentCharacterModel.SelectedWisdom.Contains(wisdomType);
                 }
                 break;
 
             case SkillCategory.Method:
-                if (Enum.IsDefined(typeof(MethodType), index))
+                if (Enum.TryParse<MethodType>(skill.EnName, out var methodType))
                 {
-                    MethodType type = (MethodType)index;
-                    return CurrentCharacterModel.SelectedMethod.Contains(type);
+                    return CurrentCharacterModel.SelectedMethod.Contains(methodType);
                 }
                 break;
 
             case SkillCategory.Resistance:
-                if (Enum.IsDefined(typeof(ResistanceType), index))
+                if (Enum.TryParse<ResistanceType>(skill.EnName, out var resistanceType))
                 {
-                    ResistanceType type = (ResistanceType)index;
-                    return CurrentCharacterModel.SelectedResistance.Contains(type);
+                    return CurrentCharacterModel.SelectedResistance.Contains(resistanceType);
                 }
                 break;
         }
@@ -152,27 +147,27 @@ public class CharacterViewModel : ViewModelBase
         switch (skill.Category)
         {
             case "Major":
-                AddEnum(model.SelectedMajor, skill.Name);
+                AddEnum(model.SelectedMajor, skill.EnName);
                 break;
             
             case "Career":
-                AddEnum(model.SelectedCareer, skill.Name);
+                AddEnum(model.SelectedCareer, skill.EnName);
                 break;
             
             case "Nature":
-                AddEnum(model.SelectedNature, skill.Name);
+                AddEnum(model.SelectedNature, skill.EnName);
                 break;
             
             case "Wisdom":
-                AddEnum(model.SelectedWisdom, skill.Name);
+                AddEnum(model.SelectedWisdom, skill.EnName);
                 break;
             
             case "Method":
-                AddEnum(model.SelectedMethod, skill.Name);
+                AddEnum(model.SelectedMethod, skill.EnName);
                 break;
             
             case "Resistance":
-                AddEnum(model.SelectedResistance, skill.Name);
+                AddEnum(model.SelectedResistance, skill.EnName);
                 break;
         }
     }

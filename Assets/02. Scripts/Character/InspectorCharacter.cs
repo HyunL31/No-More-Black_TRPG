@@ -28,8 +28,11 @@ public class InspectorCharacter : MonoBehaviour
 
         _isSelected = true;
 
-        string[] data = GameDataManager.Inst.GetData<Inspector>(_inspectorID).ClickAnim;
-        CharacterState.ApplyEmotion(data[1], data[0]);
+        if (string.IsNullOrEmpty(_inspectorID) == false)
+        {
+            string[] data = GameDataManager.Inst.GetData<Inspector>(_inspectorID).ClickAnim;
+            CharacterState.ApplyEmotion(data[1], data[0]);
+        }
 
         SetCharacterColor();
     }

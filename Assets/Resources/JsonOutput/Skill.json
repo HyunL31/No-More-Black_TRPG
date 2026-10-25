@@ -1,6 +1,7 @@
 [
   {
     "ID": "Skill_Major_1",
+    "EnName": "Medical",
     "Name": "의학",
     "Category": "Major",
     "CanGet": false,
@@ -8,6 +9,7 @@
   },
   {
     "ID": "Skill_Major_2",
+    "EnName": "Physics",
     "Name": "물리학",
     "Category": "Major",
     "CanGet": false,
@@ -15,6 +17,7 @@
   },
   {
     "ID": "Skill_Major_3",
+    "EnName": "Astronomy",
     "Name": "천문학",
     "Category": "Major",
     "CanGet": false,
@@ -22,6 +25,7 @@
   },
   {
     "ID": "Skill_Major_4",
+    "EnName": "Chemistry",
     "Name": "화학",
     "Category": "Major",
     "CanGet": false,
@@ -29,6 +33,7 @@
   },
   {
     "ID": "Skill_Major_5",
+    "EnName": "Biology",
     "Name": "생물학",
     "Category": "Major",
     "CanGet": false,
@@ -36,6 +41,7 @@
   },
   {
     "ID": "Skill_Major_6",
+    "EnName": "History",
     "Name": "사학",
     "Category": "Major",
     "CanGet": false,
@@ -43,6 +49,7 @@
   },
   {
     "ID": "Skill_Major_7",
+    "EnName": "Economics",
     "Name": "경제학",
     "Category": "Major",
     "CanGet": false,
@@ -50,6 +57,7 @@
   },
   {
     "ID": "Skill_Major_8",
+    "EnName": "Religion",
     "Name": "종교학",
     "Category": "Major",
     "CanGet": false,
@@ -57,6 +65,7 @@
   },
   {
     "ID": "Skill_Major_9",
+    "EnName": "Arts",
     "Name": "예체능",
     "Category": "Major",
     "CanGet": false,
@@ -64,6 +73,7 @@
   },
   {
     "ID": "Skill_Major_10",
+    "EnName": "Language",
     "Name": "언어학",
     "Category": "Major",
     "CanGet": false,
@@ -71,6 +81,7 @@
   },
   {
     "ID": "Skill_Major_11",
+    "EnName": "Humanities",
     "Name": "인문학",
     "Category": "Major",
     "CanGet": false,
@@ -78,6 +89,7 @@
   },
   {
     "ID": "Skill_Major_12",
+    "EnName": "Engineering",
     "Name": "공학",
     "Category": "Major",
     "CanGet": false,
@@ -85,6 +97,7 @@
   },
   {
     "ID": "Skill_Career_1",
+    "EnName": "Repair",
     "Name": "수리",
     "Category": "Career",
     "CanGet": false,
@@ -92,6 +105,7 @@
   },
   {
     "ID": "Skill_Career_2",
+    "EnName": "Manufacturing",
     "Name": "제조",
     "Category": "Career",
     "CanGet": false,
@@ -99,6 +113,7 @@
   },
   {
     "ID": "Skill_Career_3",
+    "EnName": "Information",
     "Name": "정보",
     "Category": "Career",
     "CanGet": false,
@@ -106,6 +121,7 @@
   },
   {
     "ID": "Skill_Career_4",
+    "EnName": "Medical",
     "Name": "의료",
     "Category": "Career",
     "CanGet": false,
@@ -113,6 +129,7 @@
   },
   {
     "ID": "Skill_Career_5",
+    "EnName": "Agriculture",
     "Name": "농업",
     "Category": "Career",
     "CanGet": false,
@@ -120,6 +137,7 @@
   },
   {
     "ID": "Skill_Career_6",
+    "EnName": "Regeneration",
     "Name": "재생",
     "Category": "Career",
     "CanGet": false,
@@ -127,6 +145,7 @@
   },
   {
     "ID": "Skill_Career_7",
+    "EnName": "Construction",
     "Name": "건축",
     "Category": "Career",
     "CanGet": false,
@@ -134,6 +153,7 @@
   },
   {
     "ID": "Skill_Career_8",
+    "EnName": "Education",
     "Name": "교육",
     "Category": "Career",
     "CanGet": false,
@@ -141,6 +161,7 @@
   },
   {
     "ID": "Skill_Career_9",
+    "EnName": "Law",
     "Name": "법률",
     "Category": "Career",
     "CanGet": false,
@@ -148,6 +169,7 @@
   },
   {
     "ID": "Skill_Career_10",
+    "EnName": "Administration",
     "Name": "행정",
     "Category": "Career",
     "CanGet": false,
@@ -155,6 +177,7 @@
   },
   {
     "ID": "Skill_Career_11",
+    "EnName": "Driving",
     "Name": "운전",
     "Category": "Career",
     "CanGet": false,
@@ -162,6 +185,7 @@
   },
   {
     "ID": "Skill_Career_12",
+    "EnName": "Finance",
     "Name": "금융",
     "Category": "Career",
     "CanGet": false,
@@ -169,6 +193,7 @@
   },
   {
     "ID": "Skill_Nature_1",
+    "EnName": "Selfish",
     "Name": "이기적",
     "Category": "Nature",
     "CanGet": true,
@@ -176,6 +201,7 @@
   },
   {
     "ID": "Skill_Nature_2",
+    "EnName": "Fragile",
     "Name": "유악",
     "Category": "Nature",
     "CanGet": true,
@@ -183,6 +209,7 @@
   },
   {
     "ID": "Skill_Nature_3",
+    "EnName": "Stubborn",
     "Name": "고집",
     "Category": "Nature",
     "CanGet": true,
@@ -190,6 +217,7 @@
   },
   {
     "ID": "Skill_Nature_4",
+    "EnName": "Vanity",
     "Name": "허영",
     "Category": "Nature",
     "CanGet": true,
@@ -197,6 +225,7 @@
   },
   {
     "ID": "Skill_Nature_5",
+    "EnName": "Suspiction",
     "Name": "의심",
     "Category": "Nature",
     "CanGet": true,
@@ -204,6 +233,7 @@
   },
   {
     "ID": "Skill_Nature_6",
+    "EnName": "Impulsive",
     "Name": "충동",
     "Category": "Nature",
     "CanGet": true,
@@ -211,6 +241,7 @@
   },
   {
     "ID": "Skill_Nature_7",
+    "EnName": "Pessimistic",
     "Name": "비관",
     "Category": "Nature",
     "CanGet": true,
@@ -218,6 +249,7 @@
   },
   {
     "ID": "Skill_Nature_8",
+    "EnName": "Hypocrisy",
     "Name": "위선",
     "Category": "Nature",
     "CanGet": true,
@@ -225,6 +257,7 @@
   },
   {
     "ID": "Skill_Nature_9",
+    "EnName": "Lethargy",
     "Name": "무기력",
     "Category": "Nature",
     "CanGet": true,
@@ -232,6 +265,7 @@
   },
   {
     "ID": "Skill_Nature_10",
+    "EnName": "Greedy",
     "Name": "탐욕",
     "Category": "Nature",
     "CanGet": true,
@@ -239,6 +273,7 @@
   },
   {
     "ID": "Skill_Nature_11",
+    "EnName": "Control",
     "Name": "통제",
     "Category": "Nature",
     "CanGet": true,
@@ -246,6 +281,7 @@
   },
   {
     "ID": "Skill_Nature_12",
+    "EnName": "Cynical",
     "Name": "냉소",
     "Category": "Nature",
     "CanGet": true,
@@ -253,6 +289,7 @@
   },
   {
     "ID": "Skill_Wisdom_1",
+    "EnName": "Negotiation",
     "Name": "협상",
     "Category": "Wisdom",
     "CanGet": false,
@@ -260,6 +297,7 @@
   },
   {
     "ID": "Skill_Wisdom_2",
+    "EnName": "Flattery",
     "Name": "아첨",
     "Category": "Wisdom",
     "CanGet": false,
@@ -267,6 +305,7 @@
   },
   {
     "ID": "Skill_Wisdom_3",
+    "EnName": "Acting",
     "Name": "연기",
     "Category": "Wisdom",
     "CanGet": false,
@@ -274,6 +313,7 @@
   },
   {
     "ID": "Skill_Wisdom_4",
+    "EnName": "Incitement",
     "Name": "선동",
     "Category": "Wisdom",
     "CanGet": false,
@@ -281,6 +321,7 @@
   },
   {
     "ID": "Skill_Wisdom_5",
+    "EnName": "Intimidation",
     "Name": "협박",
     "Category": "Wisdom",
     "CanGet": false,
@@ -288,6 +329,7 @@
   },
   {
     "ID": "Skill_Wisdom_6",
+    "EnName": "Evasion",
     "Name": "회피",
     "Category": "Wisdom",
     "CanGet": false,
@@ -295,6 +337,7 @@
   },
   {
     "ID": "Skill_Wisdom_7",
+    "EnName": "Charm",
     "Name": "매혹",
     "Category": "Wisdom",
     "CanGet": false,
@@ -302,6 +345,7 @@
   },
   {
     "ID": "Skill_Wisdom_8",
+    "EnName": "Brainwashing",
     "Name": "세뇌",
     "Category": "Wisdom",
     "CanGet": false,
@@ -309,6 +353,7 @@
   },
   {
     "ID": "Skill_Wisdom_9",
+    "EnName": "Slander",
     "Name": "음해",
     "Category": "Wisdom",
     "CanGet": false,
@@ -316,6 +361,7 @@
   },
   {
     "ID": "Skill_Wisdom_10",
+    "EnName": "BlameShifting",
     "Name": "전가",
     "Category": "Wisdom",
     "CanGet": false,
@@ -323,6 +369,7 @@
   },
   {
     "ID": "Skill_Wisdom_11",
+    "EnName": "Silence",
     "Name": "침묵",
     "Category": "Wisdom",
     "CanGet": false,
@@ -330,6 +377,7 @@
   },
   {
     "ID": "Skill_Wisdom_12",
+    "EnName": "Tact",
     "Name": "눈치",
     "Category": "Wisdom",
     "CanGet": false,
@@ -337,6 +385,7 @@
   },
   {
     "ID": "Skill_Method_1",
+    "EnName": "Combat",
     "Name": "격투",
     "Category": "Method",
     "CanGet": false,
@@ -344,6 +393,7 @@
   },
   {
     "ID": "Skill_Method_2",
+    "EnName": "Might",
     "Name": "괴력",
     "Category": "Method",
     "CanGet": false,
@@ -351,6 +401,7 @@
   },
   {
     "ID": "Skill_Method_3",
+    "EnName": "Durability",
     "Name": "지구력",
     "Category": "Method",
     "CanGet": false,
@@ -358,6 +409,7 @@
   },
   {
     "ID": "Skill_Method_4",
+    "EnName": "Agility",
     "Name": "민첩",
     "Category": "Method",
     "CanGet": false,
@@ -365,6 +417,7 @@
   },
   {
     "ID": "Skill_Method_5",
+    "EnName": "Reflex",
     "Name": "순발력",
     "Category": "Method",
     "CanGet": false,
@@ -372,6 +425,7 @@
   },
   {
     "ID": "Skill_Method_6",
+    "EnName": "Enhancement",
     "Name": "강화",
     "Category": "Method",
     "CanGet": false,
@@ -379,6 +433,7 @@
   },
   {
     "ID": "Skill_Method_7",
+    "EnName": "Sensation",
     "Name": "감각",
     "Category": "Method",
     "CanGet": false,
@@ -386,6 +441,7 @@
   },
   {
     "ID": "Skill_Method_8",
+    "EnName": "Perseverance",
     "Name": "인내",
     "Category": "Method",
     "CanGet": false,
@@ -393,6 +449,7 @@
   },
   {
     "ID": "Skill_Method_9",
+    "EnName": "Stealth",
     "Name": "은신",
     "Category": "Method",
     "CanGet": false,
@@ -400,6 +457,7 @@
   },
   {
     "ID": "Skill_Method_10",
+    "EnName": "Detection",
     "Name": "감지",
     "Category": "Method",
     "CanGet": false,
@@ -407,6 +465,7 @@
   },
   {
     "ID": "Skill_Method_11",
+    "EnName": "Dexterity",
     "Name": "손재주",
     "Category": "Method",
     "CanGet": false,
@@ -414,6 +473,7 @@
   },
   {
     "ID": "Skill_Method_12",
+    "EnName": "Resourcefulness",
     "Name": "수완",
     "Category": "Method",
     "CanGet": false,
@@ -421,6 +481,7 @@
   },
   {
     "ID": "Skill_Resistance_1",
+    "EnName": "Predation",
     "Name": "포식",
     "Category": "Resistance",
     "CanGet": false,
@@ -428,6 +489,7 @@
   },
   {
     "ID": "Skill_Resistance_2",
+    "EnName": "Parasitism",
     "Name": "기생",
     "Category": "Resistance",
     "CanGet": false,
@@ -435,6 +497,7 @@
   },
   {
     "ID": "Skill_Resistance_3",
+    "EnName": "Infection",
     "Name": "감염",
     "Category": "Resistance",
     "CanGet": false,
@@ -442,6 +505,7 @@
   },
   {
     "ID": "Skill_Resistance_4",
+    "EnName": "Mutation",
     "Name": "변이",
     "Category": "Resistance",
     "CanGet": false,
@@ -449,6 +513,7 @@
   },
   {
     "ID": "Skill_Resistance_5",
+    "EnName": "Hallucination",
     "Name": "환각",
     "Category": "Resistance",
     "CanGet": false,
@@ -456,6 +521,7 @@
   },
   {
     "ID": "Skill_Resistance_6",
+    "EnName": "Mental",
     "Name": "정신",
     "Category": "Resistance",
     "CanGet": false,
@@ -463,6 +529,7 @@
   },
   {
     "ID": "Skill_Resistance_7",
+    "EnName": "Death",
     "Name": "죽음",
     "Category": "Resistance",
     "CanGet": false,
@@ -470,6 +537,7 @@
   },
   {
     "ID": "Skill_Resistance_8",
+    "EnName": "Space",
     "Name": "공간",
     "Category": "Resistance",
     "CanGet": false,
@@ -477,6 +545,7 @@
   },
   {
     "ID": "Skill_Resistance_9",
+    "EnName": "Time",
     "Name": "시간",
     "Category": "Resistance",
     "CanGet": false,
@@ -484,6 +553,7 @@
   },
   {
     "ID": "Skill_Resistance_10",
+    "EnName": "Void",
     "Name": "공허",
     "Category": "Resistance",
     "CanGet": false,
@@ -491,6 +561,7 @@
   },
   {
     "ID": "Skill_Resistance_11",
+    "EnName": "Divine",
     "Name": "신성",
     "Category": "Resistance",
     "CanGet": false,
@@ -498,6 +569,7 @@
   },
   {
     "ID": "Skill_Resistance_12",
+    "EnName": "Knowledge",
     "Name": "지식",
     "Category": "Resistance",
     "CanGet": false,

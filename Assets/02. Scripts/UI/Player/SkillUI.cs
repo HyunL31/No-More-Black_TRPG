@@ -1,9 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
-using System;
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
-using static Character;
 
 public class SkillUI : ViewBase
 {
@@ -13,7 +10,7 @@ public class SkillUI : ViewBase
     [SerializeField] private Transform Parent_Right;
     [SerializeField] private GameObject Prefab_SkillSlot;
 
-    private CharacterViewModel _characterVM;
+    private CharacterViewModel _characterVM => ServiceManager.Inst.GetCharacterViewModel();
     private SkillCategory _currentCategory = SkillCategory.None;
 
     private List<SkillSlot> _leftSlots = new List<SkillSlot>();
@@ -21,30 +18,38 @@ public class SkillUI : ViewBase
 
     public int CheckCount { get; private set; } = 1;
 
-    private void Start()
+    private void Awake()
     {
-        _characterVM = ServiceManager.Inst.GetCharacterViewModel();
-
-        Init();
+        InitButtons();
+        CreateSkillSlot();
     }
 
-    public void Init()
+    private void OnEnable()
     {
-        if (_characterVM == null)
+        if (_leftSlots.Count == 0)
         {
-            _characterVM = ServiceManager.Inst.GetCharacterViewModel();
+            return;
         }
 
+        RefreshCategory();
+        SetDefaultCategory();
+        SwitchCategory(_currentCategory);
+    }
+
+    private void InitButtons()
+    {
         for (int i = 0; i < Buttons_SkillCategory.Count; i++)
         {
-            SkillButton button = Buttons_SkillCategory[i];
-            button.Init(OnClickCategory);
-            button.SetCategoryIcon().Forget();
+            Buttons_SkillCategory[i].Init(OnClickCategory);
         }
+    }
 
-        SetDefaultCategory();
-        CreateSkillSlot();
-        SwitchCategory(_currentCategory);
+    private void RefreshCategory()
+    {
+        for (int i = 0; i < Buttons_SkillCategory.Count; i++)
+        {
+            Buttons_SkillCategory[i].SetCategoryIcon().Forget();
+        }
     }
 
     private void SetDefaultCategory()
@@ -66,14 +71,30 @@ public class SkillUI : ViewBase
         for (int i = 0; i < 6; i++)
         {
             SkillSlot slot = Instantiate(Prefab_SkillSlot, Parent_Left).GetComponent<SkillSlot>();
+            int index = i + 1;
+            slot.InitSlot((isOn) => OnClickSkillToggle(_currentCategory, index, isOn));
             _leftSlots.Add(slot);
         }
 
         for (int i = 0; i < 6; i++)
         {
             SkillSlot slot = Instantiate(Prefab_SkillSlot, Parent_Right).GetComponent<SkillSlot>();
+            int index = i + (_leftSlots.Count + 1);
+            slot.InitSlot((isOn) => OnClickSkillToggle(_currentCategory, index, isOn));
             _rightSlots.Add(slot);
         }
+    }
+
+    private void OnClickSkillToggle(SkillCategory category, int index, bool isOn)
+    {
+        string skillID = $"Skill_{category}_{index}";
+
+        if (isOn == true)
+        {
+            _characterVM.GetSkill(skillID);
+        }
+
+        UpdateSlots();
     }
 
     private void OnClickCategory(SkillCategory category)
@@ -96,6 +117,8 @@ public class SkillUI : ViewBase
 
     private void UpdateSlots()
     {
+        RefreshCategory();
+
         for (int i = 0; i < _leftSlots.Count; i++)
         {
             string skillID = $"Skill_{_currentCategory}_{i + 1}";
@@ -104,9 +127,11 @@ public class SkillUI : ViewBase
 
             bool canCheck = data.CanGet;
             bool isAbandon = CheckAbandon(skillID);
+            bool isSelected = CheckSelect(_currentCategory, skillID);
 
-            _leftSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + 1));
-            _leftSlots[i].CheckInteractable(canCheck && isAbandon == false);
+            bool canInteract = canCheck && !isAbandon;
+
+            _leftSlots[i].SetSlot(skillName, isSelected, canInteract);
         }
 
         for (int i = 0; i < _rightSlots.Count; i++)
@@ -117,20 +142,22 @@ public class SkillUI : ViewBase
 
             bool canCheck = data.CanGet;
             bool isAbandon = CheckAbandon(skillID);
+            bool isSelected = CheckSelect(_currentCategory, skillID);
 
-            _rightSlots[i].SetSlot(skillName, CheckSelect(_currentCategory, i + (_leftSlots.Count + 1)));
-            _rightSlots[i].CheckInteractable(canCheck && isAbandon == false);
+            bool canInteract = canCheck && !isAbandon;
+
+            _rightSlots[i].SetSlot(skillName, isSelected, canInteract);
         }
     }
 
-    private bool CheckSelect(SkillCategory category, int index)
+    private bool CheckSelect(SkillCategory category, string skillID)
     {
         if (_characterVM == null)
         {
             return false;
         }
 
-        return _characterVM.CheckSkill(category, index);
+        return _characterVM.CheckSkill(category, skillID);
     }
 
     private bool CheckAbandon(string skillID)

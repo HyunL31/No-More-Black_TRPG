@@ -73,6 +73,7 @@ public class Character : GameDataBase
 [System.Serializable]
 public class Skill : GameDataBase
 {
+    public string EnName;
     public string Name;
     public string Category;
     public bool CanGet;

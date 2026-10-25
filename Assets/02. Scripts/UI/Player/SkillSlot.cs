@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,19 +8,27 @@ public class SkillSlot : MonoBehaviour
     [SerializeField] private Toggle Toggle_Skill;
     [SerializeField] private TextMeshProUGUI Text_SkillName;
 
-    public void SetSlot(string skillName, bool isActive)
-    {
-        Text_SkillName.text = skillName;
-        Toggle_Skill.isOn = isActive;
+    private Action<bool> _onValueChanged;
 
-        if (isActive == true)
-        {
-            Toggle_Skill.interactable = false;
-        }
+    public void InitSlot(Action<bool> onValueChanged)
+    {
+        _onValueChanged = onValueChanged;
+        Toggle_Skill.onValueChanged.AddListener(OnToggleChanged);
     }
 
-    public void CheckInteractable(bool canInteractable)
+    private void OnToggleChanged(bool isOn)
     {
-        Toggle_Skill.interactable = canInteractable;
+        _onValueChanged?.Invoke(isOn);
+    }
+
+    public void SetSlot(string skillName, bool isActive, bool canInteract)
+    {
+        Text_SkillName.text = skillName;
+
+        Toggle_Skill.onValueChanged.RemoveListener(OnToggleChanged);
+        Toggle_Skill.isOn = isActive;
+        Toggle_Skill.onValueChanged.AddListener(OnToggleChanged);
+
+        Toggle_Skill.interactable = !isActive && canInteract;
     }
 }

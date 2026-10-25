@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using UnityEngine;
 
-public class ViewModelBase : MonoBehaviour, INotifyPropertyChanged
+public class ViewModelBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
