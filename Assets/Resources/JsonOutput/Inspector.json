@@ -14,7 +14,9 @@
       "smile",
       "active"
     ],
-    "Result": "Result_01"
+    "ResultID": [
+      "Result_01"
+    ]
   },
   {
     "ID": "Inspect_01_2",
@@ -31,7 +33,9 @@
       "smile",
       "active"
     ],
-    "Result": "Result_06"
+    "ResultID": [
+      "Result_06"
+    ]
   },
   {
     "ID": "Inspect_01_3",
@@ -48,6 +52,8 @@
       "default",
       "active"
     ],
-    "Result": "Result_01"
+    "ResultID": [
+      "Result_01"
+    ]
   }
 ]

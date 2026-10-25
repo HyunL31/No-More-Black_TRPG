@@ -119,6 +119,8 @@ public class SkillUI : ViewBase
     {
         RefreshCategory();
 
+        bool isNewGame = SaveManager.Inst.PlayerModel.IsNewGame;
+
         for (int i = 0; i < _leftSlots.Count; i++)
         {
             string skillID = $"Skill_{_currentCategory}_{i + 1}";
@@ -129,7 +131,15 @@ public class SkillUI : ViewBase
             bool isAbandon = CheckAbandon(skillID);
             bool isSelected = CheckSelect(_currentCategory, skillID);
 
-            bool canInteract = canCheck && !isAbandon;
+            bool canInteract;
+            if (_currentCategory == SkillCategory.Nature)
+            {
+                canInteract = isNewGame;
+            }
+            else
+            {
+                canInteract = canCheck && !isAbandon;
+            }
 
             _leftSlots[i].SetSlot(skillName, isSelected, canInteract);
         }
@@ -144,7 +154,15 @@ public class SkillUI : ViewBase
             bool isAbandon = CheckAbandon(skillID);
             bool isSelected = CheckSelect(_currentCategory, skillID);
 
-            bool canInteract = canCheck && !isAbandon;
+            bool canInteract;
+            if (_currentCategory == SkillCategory.Nature)
+            {
+                canInteract = isNewGame;
+            }
+            else
+            {
+                canInteract = canCheck && !isAbandon;
+            }
 
             _rightSlots[i].SetSlot(skillName, isSelected, canInteract);
         }

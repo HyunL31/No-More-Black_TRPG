@@ -39,7 +39,7 @@ public class ChoiceUI : ViewBase
                 string content = GameDataManager.Inst.GetData<Choice>(slot.ID).Content;
 
                 choiceSlot.SetSlot(content);
-                choiceSlot.SetReturnID(slot.Result, slot.NextID);
+                choiceSlot.SetReturnID(slot.ResultID, slot.NextID);
             }
         }
     }

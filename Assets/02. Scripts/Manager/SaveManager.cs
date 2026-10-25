@@ -45,6 +45,7 @@ public class SaveManager : SingletonBase<SaveManager>
     {
         PlayerModel newPlayerData = new PlayerModel();
         newPlayerData.PlayerName = "";
+        newPlayerData.IsNewGame = true;
 
         string[] characterKeys = { "Player_01", "Elysia_01", "July_01", "Taehyun_01", "Labresa_01" };
 

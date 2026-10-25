@@ -93,7 +93,13 @@ public class DialogueUI : ViewBase
             }
 
             TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
-            TextAdventureManager.Inst.ApplyResult(data.Result);
+
+            string[] results = data.ResultID;
+            foreach (string result in results)
+            {
+                TextAdventureManager.Inst.ApplyResult(result);
+            }
+
             TextAdventureManager.Inst.SetCurrentID(nextID);
 
             data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
@@ -124,9 +130,12 @@ public class DialogueUI : ViewBase
         TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(currentID);
         TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
 
-        if (string.IsNullOrEmpty(data.Result) == false)
+        if (data.ResultID.Length != 0)
         {
-            TextAdventureManager.Inst.ApplyResult(data.Result);
+            foreach (string result in data.ResultID)
+            {
+                TextAdventureManager.Inst.ApplyResult(result);
+            }
         }
 
         TextAdventureManager.Inst.SetCurrentID(data.NextID);

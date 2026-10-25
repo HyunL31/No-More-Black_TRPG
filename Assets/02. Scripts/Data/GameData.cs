@@ -94,7 +94,7 @@ public class Dialogue : GameDataBase
     public string BGM;
     public string SFX;
     public string Background;
-    public string Result;
+    public string[] ResultID;
 }
 
 [System.Serializable]
@@ -102,7 +102,7 @@ public class Choice : GameDataBase
 {
     public string NextID;
     public string Content;
-    public string Result;
+    public string[] ResultID;
 }
 
 [System.Serializable]
@@ -111,7 +111,7 @@ public class Polygraph : GameDataBase
     public string NextID;
     public string CharacterID;
     public bool Answer;
-    public string Result;
+    public string[] ResultID;
 }
 
 [System.Serializable]
@@ -124,7 +124,7 @@ public class Inspector : GameDataBase
     public string Background;
     public string[] DefaultAnim;
     public string[] ClickAnim;
-    public string Result;
+    public string[] ResultID;
 }
 
 [System.Serializable]

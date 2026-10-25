@@ -46,7 +46,7 @@ public class CharacterModel
     // 역량
     public List<MajorType> SelectedMajor = new List<MajorType>();
     public List<CareerType> SelectedCareer = new List<CareerType>();
-    public List<NatureType> SelectedNature = new List<NatureType>();
+    public NatureType SelectedNature = NatureType.None;
     public List<WisdomType> SelectedWisdom = new List<WisdomType>();
     public List<MethodType> SelectedMethod = new List<MethodType>();
     public List<ResistanceType> SelectedResistance = new List<ResistanceType>();
@@ -75,10 +75,14 @@ public class CharacterModel
 
         AddParsed(SelectedMajor, character.MajorCategory);
         AddParsed(SelectedCareer, character.Career);
-        AddParsed(SelectedNature, character.Nature);
         AddParsed(SelectedWisdom, character.Wisdom);
         AddParsed(SelectedMethod, character.Method);
         AddParsed(SelectedResistance, character.Resistance);
+
+        if (Enum.TryParse(character.Nature, out NatureType result))
+        {
+            SelectedNature = result;
+        }
 
         CategoryUnlock.Add(SkillCategory.Nature);
     }

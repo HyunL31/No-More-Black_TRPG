@@ -45,7 +45,10 @@ public class CharacterViewModel : ViewModelBase
     public bool CheckSkill(SkillCategory category, string skillID)
     {
         var skill = GameDataManager.Inst.GetData<Skill>(skillID);
-        if (skill == null) return false;
+        if (skill == null)
+        {
+            return false;
+        }
 
         switch (category)
         {
@@ -66,7 +69,7 @@ public class CharacterViewModel : ViewModelBase
             case SkillCategory.Nature:
                 if (Enum.TryParse<NatureType>(skill.EnName, out var natureType))
                 {
-                    return CurrentCharacterModel.SelectedNature.Contains(natureType);
+                    return CurrentCharacterModel.SelectedNature == natureType;
                 }
                 break;
 
@@ -154,10 +157,6 @@ public class CharacterViewModel : ViewModelBase
                 AddEnum(model.SelectedCareer, skill.EnName);
                 break;
             
-            case "Nature":
-                AddEnum(model.SelectedNature, skill.EnName);
-                break;
-            
             case "Wisdom":
                 AddEnum(model.SelectedWisdom, skill.EnName);
                 break;
@@ -168,6 +167,13 @@ public class CharacterViewModel : ViewModelBase
             
             case "Resistance":
                 AddEnum(model.SelectedResistance, skill.EnName);
+                break;
+
+            case "Nature":
+                if (Enum.TryParse<NatureType>(skill.EnName, true, out var natureParsed))
+                {
+                    model.SelectedNature = natureParsed;
+                }
                 break;
         }
     }

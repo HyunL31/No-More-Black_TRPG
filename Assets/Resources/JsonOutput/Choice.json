@@ -3,12 +3,16 @@
     "ID": "Choice_01_01",
     "NextID": "Dialogue_07",
     "Content": "선택지 A",
-    "Result": "Result_04"
+    "ResultID": [
+      "Result_04"
+    ]
   },
   {
     "ID": "Choice_01_02",
     "NextID": "Dialogue_08",
     "Content": "선택지 B",
-    "Result": "Result_03"
+    "ResultID": [
+      "Result_03"
+    ]
   }
 ]
