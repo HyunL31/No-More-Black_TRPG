@@ -30,6 +30,7 @@ public class TitleUI : ViewBase
     [SerializeField] private PanelSlideController Controller_Setting;
     [SerializeField] private PanelSlideController Controller_Sound;
     [SerializeField] private PanelSlideController Controller_Display;
+    [SerializeField] private PanelSlideController Controller_Save;
 
     [Header("설정")]
     [SerializeField] private SoundSetting SoundSetting;
@@ -76,11 +77,17 @@ public class TitleUI : ViewBase
 
     private void OnClickLoadGame()
     {
-
+        Controller_Save.gameObject.SetActive(true);
     }
 
     private void OnClickConfig()
     {
+        if (Controller_Save.gameObject.activeSelf)
+        {
+            Controller_Save.SlideOut(Vector2.left);
+            Controller_Save.gameObject.SetActive(false);
+        }
+
         SwitchSetting().Forget();
     }
 

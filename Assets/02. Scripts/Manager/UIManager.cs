@@ -14,8 +14,10 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
-        this.OpenVisualNovelUI();
-        this.OpenDialogueUI();
+        this.OpenTitleUI();
+
+        //this.OpenVisualNovelUI();
+        //this.OpenDialogueUI();
 
         //this.OpenResumeUI();
 
