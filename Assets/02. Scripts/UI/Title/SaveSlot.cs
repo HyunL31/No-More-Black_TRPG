@@ -11,7 +11,7 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private Button Button_Select;
     [SerializeField] private Button Button_Delete;
 
-    private int _saveIndex;
+    private string _saveDate;
 
     private void Awake()
     {
@@ -26,21 +26,21 @@ public class SaveSlot : MonoBehaviour
 
     private void OnClickDiscard()
     {
-        string path = Path.Combine(Application.persistentDataPath, $"NoMoreBlack{_saveIndex}.json");
+        string path = Path.Combine(Application.persistentDataPath, $"NoMoreBlack{_saveDate}.json");
 
         if (File.Exists(path))
         {
             File.Delete(path);
         }
 
-        SaveManager.Inst.SlotIndex.Remove(_saveIndex);
+        SaveManager.Inst.SlotDate.Remove(_saveDate);
 
         Destroy(this.gameObject);
     }
 
-    public async UniTask SetSaveSlot(int index, PlayerModel player)
+    public async UniTask SetSaveSlot(string date, PlayerModel player)
     {
-        _saveIndex = index;
+        _saveDate = date;
 
         //Image_Thumbnail.sprite = await ResourceManager.Inst.LoadSprite($"Sprite/Thumbnail/{player.SaveChapter}");
         Text_Date.text = player.SaveDate;

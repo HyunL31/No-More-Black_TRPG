@@ -24,20 +24,20 @@ public class SaveUI : MonoBehaviour
     {
         ClearSaveSlot();
 
-        if (SaveManager.Inst.SlotIndex.Count == 0)
+        if (SaveManager.Inst.SlotDate.Count == 0)
         {
             // 인포 텍스트 처리
             return;
         }
 
-        foreach (int index in SaveManager.Inst.SlotIndex)
+        foreach (string date in SaveManager.Inst.SlotDate)
         {
-            PlayerModel player = SaveManager.Inst.RequestLoadData(index);
+            PlayerModel player = SaveManager.Inst.RequestLoadData(date);
 
             SaveSlot saveSlot = _savePool.Get();
             _activeSlots.Add(saveSlot);
 
-            saveSlot.SetSaveSlot(index, player).Forget();
+            saveSlot.SetSaveSlot(date, player).Forget();
         }
     }
 

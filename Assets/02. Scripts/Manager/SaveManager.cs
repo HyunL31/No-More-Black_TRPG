@@ -7,17 +7,14 @@ public class SaveManager : SingletonBase<SaveManager>
 {
     public PlayerModel PlayerModel { get; private set; }
 
-    public SortedSet<int> SlotIndex { get; private set; } = new SortedSet<int>();
-    public int CurrentSlotIndex { get; private set; } = 0;
+    public SortedSet<string> SlotDate { get; private set; } = new SortedSet<string>();
+    public string CurrentSlotDate { get; private set; } = "";
 
     private bool _isInit = true;
 
     private void Start()
     {
         Initialize();
-
-        // 임시
-        PlayerModel = RequestLoadData(0);
     }
 
     public void Initialize()
@@ -27,36 +24,44 @@ public class SaveManager : SingletonBase<SaveManager>
             return;
         }
 
-        SlotIndex.Clear();
+        SlotDate.Clear();
 
-        for (int i = 0; i < 10; i++)
+        string folderPath = Application.persistentDataPath;
+
+        if (Directory.Exists(folderPath) == true)
         {
-            if (HasSaveFile(i) == true)
+            string[] files = Directory.GetFiles(folderPath, "NoMoreBlack*.json");
+
+            foreach (string file in files)
             {
-                SlotIndex.Add(i);
+                string fileName = Path.GetFileNameWithoutExtension(file);
+                string dateStr = fileName.Replace("NoMoreBlack", "");
+
+                SlotDate.Add(dateStr);
             }
         }
 
         _isInit = false;
     }
 
-    private string GetPath(int slotIndex)
+    private string GetPath(string slotDate)
     {
-        return Path.Combine(Application.persistentDataPath, $"NoMoreBlack{slotIndex}.json");
+        return Path.Combine(Application.persistentDataPath, $"NoMoreBlack{slotDate}.json");
     }
 
     public void RequestSaveData(PlayerModel data)
     {
+        string fileDate = DateTime.Now.ToString("yyyyMMdd_HHmmss");
         data.SaveDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(GetPath(CurrentSlotIndex), json);
+        File.WriteAllText(GetPath(fileDate), json);
     }
 
-    public PlayerModel RequestLoadData(int slotIndex)
+    public PlayerModel RequestLoadData(string slotDate)
     {
-        string path = GetPath(slotIndex);
-        CurrentSlotIndex = slotIndex;
+        string path = GetPath(slotDate);
+        CurrentSlotDate = slotDate;
 
         if (File.Exists(path))
         {
@@ -95,24 +100,8 @@ public class SaveManager : SingletonBase<SaveManager>
         return newPlayerData;
     }
 
-    public int GetEmptyIndex()
+    public bool HasSaveFile(string slotDate)
     {
-        if (SlotIndex.Count < 30)
-        {
-            for (int i = 0; i < 30; i++)
-            {
-                if (SlotIndex.Contains(i) == false)
-                {
-                    return i;
-                }
-            }
-        }
-
-        return 31;
-    }
-
-    public bool HasSaveFile(int slotIndex)
-    {
-        return File.Exists(GetPath(slotIndex));
+        return File.Exists(GetPath(slotDate));
     }
 }

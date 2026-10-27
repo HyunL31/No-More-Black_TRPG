@@ -73,21 +73,14 @@ public class TitleUI : ViewBase
     private void OnClickNewGame()
     {
         // 예비
-        int saveIndex = SaveManager.Inst.GetEmptyIndex();
+        string date = DateTime.Now.ToString("yyyyMMdd_HHmmss");
 
-        if (saveIndex > 31)
-        {
-            return;
-        }
-        else
-        {
-            PlayerModel player = SaveManager.Inst.RequestLoadData(saveIndex);
-            SaveManager.Inst.RequestSaveData(player);
+        PlayerModel player = SaveManager.Inst.RequestLoadData(date);
+        SaveManager.Inst.RequestSaveData(player);
 
-            UIManager.Inst.OpenVisualNovelUI();
-            UIManager.Inst.OpenDialogueUI();
-            UIManager.Inst.CloseTitleUI();
-        }
+        UIManager.Inst.OpenVisualNovelUI();
+        UIManager.Inst.OpenDialogueUI();
+        UIManager.Inst.CloseTitleUI();
     }
 
     private void OnClickLoadGame()
