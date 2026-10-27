@@ -72,7 +72,22 @@ public class TitleUI : ViewBase
 
     private void OnClickNewGame()
     {
-        
+        // 예비
+        int saveIndex = SaveManager.Inst.GetEmptyIndex();
+
+        if (saveIndex > 31)
+        {
+            return;
+        }
+        else
+        {
+            PlayerModel player = SaveManager.Inst.RequestLoadData(saveIndex);
+            SaveManager.Inst.RequestSaveData(player);
+
+            UIManager.Inst.OpenVisualNovelUI();
+            UIManager.Inst.OpenDialogueUI();
+            UIManager.Inst.CloseTitleUI();
+        }
     }
 
     private void OnClickLoadGame()

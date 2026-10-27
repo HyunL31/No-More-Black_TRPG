@@ -8,7 +8,7 @@ public class PlayerModel
     public bool IsNewGame;
 
     public string SaveChapter;
-    public DateTime SaveDate;
+    public string SaveDate;
 
     public List<CharacterModel> Characters = new List<CharacterModel>();
 }

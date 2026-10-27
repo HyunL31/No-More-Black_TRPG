@@ -2393,13 +2393,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 4933395686577712484}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 8
   m_Viewport: {fileID: 7373444328728121903}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 6592935995067857624}
@@ -9361,7 +9361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d68334521df52c488294d9df2c44354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab_SaveSlot: {fileID: 8016244180855298121, guid: 637e2e69f15cd5c47a4de496a64365ca, type: 3}
+  Prefab_SaveSlot: {fileID: 8840298752360277916, guid: 637e2e69f15cd5c47a4de496a64365ca, type: 3}
   Transform_SlotParent: {fileID: 4933395686577712484}
 --- !u!114 &8870787218727594183
 MonoBehaviour:
