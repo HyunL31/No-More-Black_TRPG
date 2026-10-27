@@ -206,6 +206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1213253033634677057, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033575427660568996, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0

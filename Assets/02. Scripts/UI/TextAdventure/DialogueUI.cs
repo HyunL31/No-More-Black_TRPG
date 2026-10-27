@@ -35,8 +35,6 @@ public class DialogueUI : ViewBase
 
     private void OnEnable()
     {
-        _typingSpeed = PlayerPrefs.GetFloat("TextSpeed", 0.03f);
-
         ShowDialogue();
     }
 
@@ -166,6 +164,7 @@ public class DialogueUI : ViewBase
 
     private async UniTask TypingEffect(string content, CancellationToken token)
     {
+        _typingSpeed = PlayerPrefs.GetFloat("TextCPS", 0.06f);
         _isTyping = true;
 
         Text_Dialogue.text = content;
@@ -173,7 +172,7 @@ public class DialogueUI : ViewBase
 
         while (Text_Dialogue.maxVisibleCharacters < content.Length)
         {
-            if (_isTyping == false)
+            if (_isTyping == false || _typingSpeed <= 0f)
             {
                 break;
             }

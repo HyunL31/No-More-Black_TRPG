@@ -31,7 +31,7 @@ public class DisplaySetting : MonoBehaviour
         new Resolution { width = 2560, height = 1440 }
     };
 
-    private float[] _textSpeed = { 20f, 40f, 80f, 9999f };
+    private float[] _textSpeed = { 0.09f, 0.06f, 0.03f, 0f };
 
     private void Start()
     {
@@ -119,7 +119,7 @@ public class DisplaySetting : MonoBehaviour
 
         Toggle_Vibration.isOn = _defaultVibration;
 
-        Dropdown_Resolution.value = _defaultResolution;
+        Dropdown_TextSpeed.value = 1;
         Dropdown_TextSpeed.RefreshShownValue();
 
         SetResolution(Dropdown_Resolution.value);
