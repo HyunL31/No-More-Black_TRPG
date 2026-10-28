@@ -342,7 +342,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": [
+      "Result_07"
+    ]
   },
   {
     "ID": "Dialogue_16",

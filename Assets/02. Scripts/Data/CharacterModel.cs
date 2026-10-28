@@ -72,6 +72,7 @@ public class CharacterModel
         Stamina = character.Stamina;
         Crazy = character.Crazy;
         Oblivion = character.Oblivion;
+        Relations = character.GetRelations();
 
         AddParsed(SelectedMajor, character.MajorCategory);
         AddParsed(SelectedCareer, character.Career);
@@ -100,7 +101,7 @@ public class CharacterModel
         }
     }
 
-    public Relation GetRelation(string targetID)
+    public Relation GetRelation(string targetID, RelationType type)
     {
         if (Relations == null)
         {
@@ -111,7 +112,7 @@ public class CharacterModel
         {
             Relation relation = Relations[i];
 
-            if (relation != null && relation.TargetID == targetID)
+            if (relation != null && relation.TargetID == targetID && relation.Type == type)
             {
                 return relation;
             }
@@ -122,7 +123,7 @@ public class CharacterModel
 
     public void SetRelation(string targetId, RelationType type)
     {
-        Relation info = GetRelation(targetId);
+        Relation info = GetRelation(targetId, type);
 
         if (info != null)
         {
@@ -132,6 +133,20 @@ public class CharacterModel
         {
             Relations.Add(new Relation(targetId, type));
         }
+    }
+
+    public bool RemoveRelation(string targetID, RelationType type)
+    {
+        Relation relation = GetRelation(targetID, type);
+
+        if (relation == null)
+        {
+            return false;
+        }
+
+        Relations.Remove(relation);
+
+        return true;
     }
 }
 

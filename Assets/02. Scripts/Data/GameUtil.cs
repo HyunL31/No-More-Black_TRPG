@@ -54,6 +54,22 @@ public static class GameUtil
                 Debug.Log($"[Result] {resultID} | Skill {(result.IsGet ? "획득" : "포기")}: {result.SkillID} | 캐릭터: {characterVM.CurrentCharacter}");
                 break;
 
+            case "Relationship":
+
+                Enum.TryParse<RelationType>(result.RelationType, out RelationType type);
+
+                if (result.IsGet == true)
+                {
+                    characterVM.CurrentCharacterModel.SetRelation(result.SkillID, type);
+                }
+                else
+                {
+                    characterVM.CurrentCharacterModel.RemoveRelation(result.SkillID, type);
+                }
+
+                Debug.Log($"[Result] {resultID} | Relationship {(result.IsGet ? "획득" : "포기")}: {result.SkillID} | 인연: {result.RelationType}");
+                break;
+
             default:
                 break;
         }

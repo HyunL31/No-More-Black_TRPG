@@ -194,7 +194,6 @@ public class CharacterViewModel : ViewModelBase
         }
     }
 
-
     public CharacterModel CurrentCharacterModel
     {
         get

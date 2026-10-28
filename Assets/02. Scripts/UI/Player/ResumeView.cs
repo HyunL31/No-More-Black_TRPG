@@ -82,7 +82,10 @@ public class ResumeView : ViewBase
     private void Refresh()
     {
         _data = GameDataManager.Inst.GetData<Character>(_characterVM.CurrentCharacter);
-        _relations = _data.GetRelations();
+
+        _relations = _characterVM.CurrentCharacterModel.Relations;
+        _relations.Sort((a, b) => a.Type.CompareTo(b.Type));
+
         _relationIndex = 0;
 
         Debug.Log($"ID:{_data.ID} 관계수:{_relations.Count} 체력:{_characterVM.Stamina} 열광:{_characterVM.Crazy} 망각:{_characterVM.Oblivion} 이념:{_characterVM.Ideology}");

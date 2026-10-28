@@ -4,6 +4,7 @@
     "Type": "Stamina",
     "Value": -1,
     "SkillID": null,
+    "RelationType": null,
     "IsGet": null
   },
   {
@@ -11,6 +12,7 @@
     "Type": "Crazy",
     "Value": -1,
     "SkillID": null,
+    "RelationType": null,
     "IsGet": null
   },
   {
@@ -18,6 +20,7 @@
     "Type": "Oblivion",
     "Value": 1,
     "SkillID": null,
+    "RelationType": null,
     "IsGet": null
   },
   {
@@ -25,6 +28,7 @@
     "Type": "Ideology",
     "Value": -2,
     "SkillID": null,
+    "RelationType": null,
     "IsGet": null
   },
   {
@@ -32,6 +36,7 @@
     "Type": "Skill",
     "Value": null,
     "SkillID": "Skill_Wisdom_1",
+    "RelationType": null,
     "IsGet": true
   },
   {
@@ -39,6 +44,15 @@
     "Type": "Stamina",
     "Value": 1,
     "SkillID": null,
+    "RelationType": null,
     "IsGet": null
+  },
+  {
+    "ID": "Result_07",
+    "Type": "Relationship",
+    "Value": null,
+    "SkillID": "Taehyun_01",
+    "RelationType": "Friction",
+    "IsGet": true
   }
 ]

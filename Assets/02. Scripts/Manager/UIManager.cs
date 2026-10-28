@@ -38,6 +38,10 @@ public class UIManager : SingletonBase<UIManager>
         {
             this.CloseSkillUI();
         }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.CloseResumeUI();
+        }
     }
 
     public UIBase OpenUI(UIRoot root, UIType type)
