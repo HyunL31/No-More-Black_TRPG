@@ -1,7 +1,9 @@
 [
   {
     "ID": "Dialogue_01",
-    "NextID": "Dialogue_02",
+    "NextID": [
+      "Dialogue_02"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -19,11 +21,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_02",
-    "NextID": "Dialogue_03",
+    "NextID": [
+      "Dialogue_03"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -41,11 +47,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_03",
-    "NextID": "Dialogue_04",
+    "NextID": [
+      "Dialogue_04"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -63,11 +73,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_04",
-    "NextID": "Dialogue_05",
+    "NextID": [
+      "Dialogue_05"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -85,11 +99,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_05",
-    "NextID": "Dialogue_06",
+    "NextID": [
+      "Dialogue_06"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -107,11 +125,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_06",
-    "NextID": "Choice_01",
+    "NextID": [
+      "Choice_01"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01"
@@ -129,11 +151,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_07",
-    "NextID": "Dialogue_09",
+    "NextID": [
+      "Dialogue_09"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01",
@@ -155,11 +181,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_08",
-    "NextID": "Dialogue_09",
+    "NextID": [
+      "Dialogue_09"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01",
@@ -184,11 +214,15 @@
     "ResultID": [
       "Result_05",
       "Result_04"
-    ]
+    ],
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_09",
-    "NextID": "Dialogue_10",
+    "NextID": [
+      "Dialogue_10"
+    ],
     "Speaker": "Elysia_01",
     "Character": [
       "Elysia_01",
@@ -210,11 +244,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_10",
-    "NextID": "Poly_01",
+    "NextID": [
+      "Poly_01"
+    ],
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -232,11 +270,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_11",
-    "NextID": "Dialogue_10",
+    "NextID": [
+      "Dialogue_10"
+    ],
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -254,11 +296,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_12",
-    "NextID": "Dialogue_13",
+    "NextID": [
+      "Dialogue_13"
+    ],
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -276,11 +322,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_13",
-    "NextID": "Dialogue_14",
+    "NextID": [
+      "Dialogue_14"
+    ],
     "Speaker": "July_01",
     "Character": [
       "July_01"
@@ -298,11 +348,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_14",
-    "NextID": "Dialogue_15",
+    "NextID": [
+      "Dialogue_15"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -320,11 +374,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_15",
-    "NextID": "Dialogue_16",
+    "NextID": [
+      "Dialogue_16"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -344,11 +402,15 @@
     "Background": "White",
     "ResultID": [
       "Result_07"
-    ]
+    ],
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_16",
-    "NextID": "Inspect_01",
+    "NextID": [
+      "Inspect_01"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -366,11 +428,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_17",
-    "NextID": "Dialogue_16",
+    "NextID": [
+      "Dialogue_16"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -388,11 +454,15 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_18",
-    "NextID": "Dialogue_19",
+    "NextID": [
+      "Dialogue_19"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -410,11 +480,16 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   },
   {
     "ID": "Dialogue_19",
-    "NextID": "0",
+    "NextID": [
+      "Dialogue_20",
+      "Dialogue_21"
+    ],
     "Speaker": "Taehyun_01",
     "Character": [
       "Taehyun_01"
@@ -432,6 +507,146 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null
+    "ResultID": null,
+    "Condition": [
+      "Condition_01"
+    ],
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_20",
+    "NextID": [
+      "Dialogue_22"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "협상 있을 때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_21",
+    "NextID": [
+      "Dialogue_22"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "협상 없을 때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_22",
+    "NextID": [
+      "Dialogue_23",
+      "Dialogue_24"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "이념, 인연 검사",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": [
+      "Condition_02",
+      "Condition_03"
+    ],
+    "Operation": [
+      "AND"
+    ]
+  },
+  {
+    "ID": "Dialogue_23",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "이념 -2 이상, 엘리시아 적대일때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_24",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "아닐때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   }
 ]

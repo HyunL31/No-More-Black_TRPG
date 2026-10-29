@@ -31,22 +31,22 @@ public static class UIExtension
 
     public static void OpenResumeUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Content, UIType.ResumeUI);
+        uiManager.OpenUI(UIRoot.Popup, UIType.ResumeUI);
     }
 
     public static void CloseResumeUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Content, UIType.ResumeUI);
+        uiManager.CloseUI(UIRoot.Popup, UIType.ResumeUI);
     }
 
     public static void OpenSkillUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Content, UIType.SkillUI);
+        uiManager.OpenUI(UIRoot.Popup, UIType.SkillUI);
     }
 
     public static void CloseSkillUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Content, UIType.SkillUI);
+        uiManager.CloseUI(UIRoot.Popup, UIType.SkillUI);
     }
 
     public static void OpenVisualNovelUI(this UIManager uiManager)

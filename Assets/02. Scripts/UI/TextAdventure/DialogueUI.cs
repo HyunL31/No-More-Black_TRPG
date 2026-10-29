@@ -81,7 +81,7 @@ public class DialogueUI : ViewBase
 
         CancelTyping();
 
-        string nextID = data.NextID;
+        string nextID = GetNextID(data.NextID, data.Condition, data.Operation);
 
         while (true)
         {
@@ -101,7 +101,7 @@ public class DialogueUI : ViewBase
             TextAdventureManager.Inst.SetCurrentID(nextID);
 
             data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
-            nextID = data.NextID;
+            nextID = GetNextID(data.NextID, data.Condition, data.Operation);
         }
 
         ShowDialogue();
@@ -136,7 +136,7 @@ public class DialogueUI : ViewBase
             }
         }
 
-        TextAdventureManager.Inst.SetCurrentID(data.NextID);
+        TextAdventureManager.Inst.SetCurrentID(GetNextID(data.NextID, data.Condition, data.Operation));
     }
 
     private void MoveToNextContent()
@@ -160,6 +160,12 @@ public class DialogueUI : ViewBase
             UIManager.Inst.CloseVisualNovelUI();
             UIManager.Inst.CloseDialogueUI();
         }
+    }
+
+    private string GetNextID(string[] nextID, string[] conditions, string[] operations)
+    {
+        int condition = TextAdventureManager.Inst.CheckCondition(conditions, operations) ? 0 : 1;
+        return nextID[condition];
     }
 
     private async UniTask TypingEffect(string content, CancellationToken token)

@@ -84,7 +84,7 @@ public class Skill : GameDataBase
 [System.Serializable]
 public class Dialogue : GameDataBase
 {
-    public string NextID;
+    public string[] NextID;
     public string Speaker;
     public string[] Character;
     public string[] Slot;
@@ -95,6 +95,8 @@ public class Dialogue : GameDataBase
     public string SFX;
     public string Background;
     public string[] ResultID;
+    public string[] Condition;
+    public string[] Operation;
 }
 
 [System.Serializable]
@@ -135,4 +137,14 @@ public class Result : GameDataBase
     public string SkillID;
     public string RelationType;
     public bool IsGet;
+}
+
+[System.Serializable]
+public class Condition : GameDataBase
+{
+    public string ConditionType;
+    public string TargetID;
+    public string RelationType;
+    public string Operation;
+    public float Value;
 }
