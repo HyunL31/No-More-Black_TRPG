@@ -10,7 +10,7 @@
   {
     "ID": "Result_02",
     "Type": "Crazy",
-    "Value": -1,
+    "Value": 1,
     "SkillID": null,
     "RelationType": null,
     "IsGet": null
@@ -53,6 +53,14 @@
     "Value": null,
     "SkillID": "Taehyun_01",
     "RelationType": "Friction",
+    "IsGet": true
+  },
+  {
+    "ID": "Result_08",
+    "Type": "Relationship",
+    "Value": null,
+    "SkillID": "Taehyun_01",
+    "RelationType": "Pact",
     "IsGet": true
   }
 ]

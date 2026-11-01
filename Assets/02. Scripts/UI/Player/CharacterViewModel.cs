@@ -127,6 +127,28 @@ public class CharacterViewModel : ViewModelBase
         Ideology = Mathf.Clamp(Ideology + delta, -3, 3);
     }
 
+    public void CheckOperationValue()
+    {
+        if (Stamina <= 0 || Crazy >= 10)
+        {
+            AddOblivion(1);
+            InitOperationValue();
+
+            // TODO : Info UI, 역량 포기 UI
+        }
+
+        if (Oblivion == 10)
+        {
+            UIManager.Inst.OpenUI(UIRoot.Popup, UIType.GameOverUI);
+        }
+    }
+
+    private void InitOperationValue()
+    {
+        Stamina = GameDataManager.Inst.GetData<Character>(CurrentCharacter).Stamina;
+        Crazy = GameDataManager.Inst.GetData<Character>(CurrentCharacter).Crazy;
+    }
+
     public void GetSkill(string skillID)
     {
         Skill skill = GameDataManager.Inst.GetData<Skill>(skillID);

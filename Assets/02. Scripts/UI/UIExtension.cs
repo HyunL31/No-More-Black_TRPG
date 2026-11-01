@@ -19,7 +19,8 @@ public enum UIType
     ChoiceUI,
     PolygraphUI,
     InspectorUI,
-    DialogueLog
+    DialogueLog,
+    GameOverUI
 }
 
 public static class UIExtension
@@ -117,5 +118,15 @@ public static class UIExtension
     public static void CloseTitleUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Main, UIType.TitleUI);
+    }
+
+    public static void OpenGameOverUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.GameOverUI);
+    }
+
+    public static void CloseGameOverUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.GameOverUI);
     }
 }

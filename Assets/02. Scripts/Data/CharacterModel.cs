@@ -121,17 +121,33 @@ public class CharacterModel
         return null;
     }
 
-    public void SetRelation(string targetId, RelationType type)
+    public void SetRelation(string targetID, RelationType type)
     {
-        Relation info = GetRelation(targetId, type);
+        Relation info = GetRelation(targetID, type);
 
-        if (info != null)
+        if (info == null)
         {
-            info.Type = type;
-        }
-        else
-        {
-            Relations.Add(new Relation(targetId, type));
+            bool hasPact = false;
+            string pactID = null;
+
+            foreach (Relation relation in Relations)
+            {
+                if (relation.Type == RelationType.Pact)
+                {
+                    hasPact = true;
+                    pactID = relation.TargetID;
+
+                    break;
+                }
+            }
+
+            if (type == RelationType.Pact && hasPact)
+            {
+                Relations.Add(new Relation(pactID, RelationType.Friendship));
+                RemoveRelation(pactID, RelationType.Pact);
+            }
+
+            Relations.Add(new Relation(targetID, type));
         }
     }
 

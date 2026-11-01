@@ -47,7 +47,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_08"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -99,7 +101,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -125,7 +129,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -151,7 +157,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -181,7 +189,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -212,8 +222,7 @@
     "SFX": null,
     "Background": "Space",
     "ResultID": [
-      "Result_05",
-      "Result_04"
+      "Result_03"
     ],
     "Condition": null,
     "Operation": null
@@ -244,7 +253,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -270,7 +281,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -296,7 +309,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },
@@ -322,7 +337,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_03"
+    ],
     "Condition": null,
     "Operation": null
   },

@@ -55,12 +55,14 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
             case "Stamina":
                 int a = _characterVM.Stamina;
                 _characterVM.AddStamina(value);
+                _characterVM.CheckOperationValue();
                 Debug.Log($"[Result] {resultID} | Stamina: {a} → {_characterVM.Stamina} (변화량 {value})");
                 break;
 
             case "Crazy":
                 int b = _characterVM.Crazy;
                 _characterVM.AddCrazy(value);
+                _characterVM.CheckOperationValue();
                 Debug.Log($"[Result] {resultID} | Crazy: {b} → {_characterVM.Crazy} (변화량 {value})");
                 break;
 
