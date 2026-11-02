@@ -14,10 +14,37 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
-        // 시작용 UI
+        this.OpenTitleUI();
+
+        //this.OpenVisualNovelUI();
+        //this.OpenDialogueUI();
+
+        //this.OpenResumeUI();
+
+        //this.OpenSkillUI();
     }
 
-    private UIBase OpenUI(UIRoot root, UIType type)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            this.OpenResumeUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            this.OpenSkillUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            this.CloseSkillUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.CloseResumeUI();
+        }
+    }
+
+    public UIBase OpenUI(UIRoot root, UIType type)
     {
         UIBase openedUI = GetOpenedUI(root, type);
 
@@ -30,7 +57,7 @@ public class UIManager : SingletonBase<UIManager>
         return openedUI;
     }
 
-    private void CloseUI(UIRoot root, UIType type)
+    public void CloseUI(UIRoot root, UIType type)
     {
         if (_activeUI.Contains(type))
         {
@@ -101,5 +128,15 @@ public class UIManager : SingletonBase<UIManager>
         }
 
         return rootTransform;
+    }
+
+    public bool IsOpend(UIType type)
+    {
+        if (_activeUI.Contains(type))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

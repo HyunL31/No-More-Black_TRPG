@@ -1,0 +1,18 @@
+[
+  {
+    "ID": "Choice_01_01",
+    "NextID": "Dialogue_07",
+    "Content": "선택지 A",
+    "ResultID": [
+      "Result_04"
+    ]
+  },
+  {
+    "ID": "Choice_01_02",
+    "NextID": "Dialogue_08",
+    "Content": "선택지 B",
+    "ResultID": [
+      "Result_03"
+    ]
+  }
+]

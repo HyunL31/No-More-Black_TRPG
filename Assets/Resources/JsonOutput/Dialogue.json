@@ -1,0 +1,653 @@
+[
+  {
+    "ID": "Dialogue_01",
+    "NextID": [
+      "Dialogue_02"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "안녕하세요.",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_02",
+    "NextID": [
+      "Dialogue_03"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "엘리시아입니다.",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": [
+      "Result_05"
+    ],
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_03",
+    "NextID": [
+      "Dialogue_04"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "반갑습니다.",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_04",
+    "NextID": [
+      "Dialogue_05"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "오늘은 ------를 진행해야합니다.",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_05",
+    "NextID": [
+      "Dialogue_06"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "바로 -------로 가시면 돼요.",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_06",
+    "NextID": [
+      "Choice_01"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "L"
+    ],
+    "Content": "혹시 ~~~가 어디있는지 모르시나요?",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_07",
+    "NextID": [
+      "Dialogue_09"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "우주선 맵을 활용해주세요.",
+    "Emotion": [
+      "smile",
+      "smile"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_08",
+    "NextID": [
+      "Dialogue_09"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "도움이 필요하신가요?",
+    "Emotion": [
+      "smile",
+      "normal"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_09",
+    "NextID": [
+      "Dialogue_10"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01",
+      "July_01"
+    ],
+    "Slot": [
+      "L",
+      "R"
+    ],
+    "Content": "언제든 말을 걸어주세요.",
+    "Emotion": [
+      "smile",
+      "smile"
+    ],
+    "Animation": [
+      "basic",
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "Space",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_10",
+    "NextID": [
+      "Poly_01"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "과연 누가 거짓말을 하고 있을까요?",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_11",
+    "NextID": [
+      "Dialogue_10"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "아뇨, 그 사람은 '진실'을 말하고 있습니다.",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_12",
+    "NextID": [
+      "Dialogue_13"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "네! 바로 그 사람이 거짓말을 한 거에요!",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_13",
+    "NextID": [
+      "Dialogue_14"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "거짓말은 아주 나쁜 짓이죠!",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": [
+      "Result_09"
+    ],
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_14",
+    "NextID": [
+      "Dialogue_15"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "안녕하세요.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_15",
+    "NextID": [
+      "Dialogue_16"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "온태현입니다.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": [
+      "Result_07"
+    ],
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_16",
+    "NextID": [
+      "Inspect_01"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "당신은 누가 범인이라고 생각하나요?",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_17",
+    "NextID": [
+      "Dialogue_16"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "정말 그렇게 생각하나요...? 다시 한 번 기회를 드리죠.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_18",
+    "NextID": [
+      "Dialogue_19"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "네, 저도 동의합니다.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_19",
+    "NextID": [
+      "Dialogue_20",
+      "Dialogue_21"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "항상 의심스러운 사람이었어요.",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": [
+      "Condition_01"
+    ],
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_20",
+    "NextID": [
+      "Dialogue_22"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "협상 있을 때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_21",
+    "NextID": [
+      "Dialogue_22"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "협상 없을 때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_22",
+    "NextID": [
+      "Dialogue_23",
+      "Dialogue_24"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "이념, 인연 검사",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": [
+      "Condition_02",
+      "Condition_03"
+    ],
+    "Operation": [
+      "AND"
+    ]
+  },
+  {
+    "ID": "Dialogue_23",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "이념 -2 이상, 엘리시아 적대일때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_24",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "아닐때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  }
+]

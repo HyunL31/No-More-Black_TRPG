@@ -1,0 +1,26 @@
+[
+  {
+    "ID": "Condition_01",
+    "ConditionType": "Skill",
+    "TargetID": "Skill_Wisdom_1",
+    "RelationType": null,
+    "Operation": "==",
+    "Value": null
+  },
+  {
+    "ID": "Condition_02",
+    "ConditionType": "Ideology",
+    "TargetID": "Player_01",
+    "RelationType": null,
+    "Operation": "<=",
+    "Value": -2
+  },
+  {
+    "ID": "Condition_03",
+    "ConditionType": "Relationship",
+    "TargetID": "Elysia_01",
+    "RelationType": "Hostile",
+    "Operation": "==",
+    "Value": null
+  }
+]

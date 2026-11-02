@@ -1,5 +1,4 @@
-﻿using NUnit.Framework.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +20,14 @@ public class GameDataManager : SingletonBase<GameDataManager>
 
     public void LoadAllData()
     {
-        //LoadData<Dialogue>("Dialogue");
+        LoadData<Character>("Character");
+        LoadData<Skill>("Skill");
+        LoadData<Dialogue>("Dialogue");
+        LoadData<Choice>("Choice");
+        LoadData<Polygraph>("Polygraph");
+        LoadData<Inspector>("Inspector");
+        LoadData<Result>("Result");
+        LoadData<Condition>("Condition");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase
