@@ -23,7 +23,8 @@ public enum UIType
     InspectorUI,
     DialogueLog,
     GameOverUI,
-    InfoUI
+    InfoUI,
+    Background
 }
 
 public static class UIExtension
@@ -31,6 +32,16 @@ public static class UIExtension
     public static string GetUIPath(this UIManager uiManager, UIRoot root, UIType type)
     {
         return $"Prefabs/UI/{root}/{type}";
+    }
+
+    public static void OpenBackground(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Background, UIType.Background);
+    }
+
+    public static void CloseBackground(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Background, UIType.Background);
     }
 
     public static void OpenResumeUI(this UIManager uiManager)

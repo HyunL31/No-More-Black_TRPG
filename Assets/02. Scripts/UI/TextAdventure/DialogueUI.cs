@@ -51,6 +51,7 @@ public class DialogueUI : ViewBase
         }
         else
         {
+            GetCurrentID();
             MoveToNextContent();
         }
     }
@@ -159,6 +160,10 @@ public class DialogueUI : ViewBase
             UIManager.Inst.OpenInspectorUI();
             UIManager.Inst.CloseVisualNovelUI();
             UIManager.Inst.CloseDialogueUI();
+        }
+        else if (GetCurrentID() == "0")
+        {
+            GameObjectManager.Inst.InitMap();
         }
     }
 

@@ -14,6 +14,7 @@ public class UIManager : SingletonBase<UIManager>
 
     private void Start()
     {
+        this.OpenBackground();
         this.OpenTitleUI();
 
         //this.OpenVisualNovelUI();
