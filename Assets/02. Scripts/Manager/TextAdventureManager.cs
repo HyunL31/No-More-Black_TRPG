@@ -8,7 +8,8 @@ public enum ResultType
     Stamina,
     Crazy,
     Oblivion,
-    Skill
+    Skill,
+    Impart
 }
 
 public class TextAdventureManager : SingletonBase<TextAdventureManager>
@@ -56,6 +57,7 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
                 int a = _characterVM.Stamina;
                 _characterVM.AddStamina(value);
                 _characterVM.CheckOperationValue();
+
                 Debug.Log($"[Result] {resultID} | Stamina: {a} → {_characterVM.Stamina} (변화량 {value})");
                 break;
 
@@ -79,33 +81,49 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
                 break;
 
             case "Skill":
-                if (result.IsGet == true)
                 {
-                    _characterVM.GetSkill(result.SkillID);
-                }
-                else
-                {
-                    _characterVM.AbandonSkill(result.SkillID);
+                    string skill = GameDataManager.Inst.GetData<Skill>(result.SkillID).Name;
+
+                    if (result.IsGet == true)
+                    {
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("역량 {0}을(를) 획득했습니다.", skill), () => _characterVM.GetSkill(result.SkillID));
+                    }
+                    else
+                    {
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("역량 {0}을(를) 잃었습니다.", skill), () => _characterVM.AbandonSkill(result.SkillID));
+                    }
+
+                    break;
                 }
 
-                Debug.Log($"[Result] {resultID} | Skill {(result.IsGet ? "획득" : "포기")}: {result.SkillID} | 캐릭터: {_characterVM.CurrentCharacter}");
-                break;
+            case "Impart":
+                {
+                    string npc = GameDataManager.Inst.GetData<Character>(result.TargetID).Name;
+                    string skill = GameDataManager.Inst.GetData<Skill>(result.SkillID).Name;
+
+                    UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}의 역량: {1}을(를) 획득하시겠습니까?", npc, skill), () => _characterVM.GetSkill(result.SkillID), false);
+
+                    break;
+                }
 
             case "Relationship":
-
-                Enum.TryParse<RelationType>(result.RelationType, out RelationType type);
-
-                if (result.IsGet == true)
                 {
-                    _characterVM.CurrentCharacterModel.SetRelation(result.SkillID, type);
-                }
-                else
-                {
-                    _characterVM.CurrentCharacterModel.RemoveRelation(result.SkillID, type);
-                }
+                    string npc = GameDataManager.Inst.GetData<Character>(result.TargetID).Name;
 
-                Debug.Log($"[Result] {resultID} | Relationship {(result.IsGet ? "획득" : "포기")}: {result.SkillID} | 인연: {result.RelationType}");
-                break;
+                    Enum.TryParse<RelationType>(result.RelationType, out RelationType type);
+                    string relation = GameUtil.GetRelationText(type);
+
+                    if (result.IsGet == true)
+                    {
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}와 {1}의 인연을 맺었습니다.", npc, relation), () => _characterVM.CurrentCharacterModel.SetRelation(result.TargetID, type));
+                    }
+                    else
+                    {
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}와 {1}의 인연을 잃었습니다.", npc, relation), () => _characterVM.CurrentCharacterModel.RemoveRelation(result.TargetID, type));
+                    }
+
+                    break;
+                }
 
             default:
                 break;

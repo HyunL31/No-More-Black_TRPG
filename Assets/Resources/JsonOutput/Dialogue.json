@@ -48,7 +48,7 @@
     "SFX": null,
     "Background": "White",
     "ResultID": [
-      "Result_08"
+      "Result_05"
     ],
     "Condition": null,
     "Operation": null
@@ -101,9 +101,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -129,9 +127,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -157,9 +153,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -189,9 +183,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -221,9 +213,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -253,9 +243,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -281,9 +269,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -309,9 +295,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -337,9 +321,7 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": [
-      "Result_03"
-    ],
+    "ResultID": null,
     "Condition": null,
     "Operation": null
   },
@@ -365,7 +347,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "White",
-    "ResultID": null,
+    "ResultID": [
+      "Result_09"
+    ],
     "Condition": null,
     "Operation": null
   },

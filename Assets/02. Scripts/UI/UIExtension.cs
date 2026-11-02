@@ -1,4 +1,6 @@
-﻿public enum UIRoot
+﻿using System;
+
+public enum UIRoot
 {
     None,
     Background,
@@ -20,7 +22,8 @@ public enum UIType
     PolygraphUI,
     InspectorUI,
     DialogueLog,
-    GameOverUI
+    GameOverUI,
+    InfoUI
 }
 
 public static class UIExtension
@@ -128,5 +131,20 @@ public static class UIExtension
     public static void CloseGameOverUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.GameOverUI);
+    }
+
+    public static void OpenInfoUI(this UIManager uiManager, string info, Action accept, bool justInfo = true)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.InfoUI);
+
+        if (uiBase is InfoUI infoUI)
+        {
+            infoUI.SetInfoText(info, accept, justInfo);
+        }
+    }
+
+    public static void CloseInfoUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.InfoUI);
     }
 }

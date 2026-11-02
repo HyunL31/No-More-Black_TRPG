@@ -191,7 +191,7 @@ public class ResumeView : ViewBase
 
         if (Text_CurrentNPCRelationship != null)
         {
-            Text_CurrentNPCRelationship.text = GetRelationText(current.Type);
+            Text_CurrentNPCRelationship.text = GameUtil.GetRelationText(current.Type);
         }
 
         await SetImage(Image_PrevNPC, prev.TargetID);
@@ -233,20 +233,6 @@ public class ResumeView : ViewBase
 
         _relationIndex = (_relationIndex + 1) % total;
         RefreshRelationshipUI().Forget();
-    }
-
-    private string GetRelationText(RelationType relation)
-    {
-        switch (relation)
-        {
-            case RelationType.Hostile: return "적대";
-            case RelationType.Friction: return "불화";
-            case RelationType.Neutral: return "중립";
-            case RelationType.Friendly: return "우호";
-            case RelationType.Friendship: return "우정";
-            case RelationType.Pact: return "맹약";
-            default: return "중립";
-        }
     }
 
     private void UpdateIdeology(float ideology)

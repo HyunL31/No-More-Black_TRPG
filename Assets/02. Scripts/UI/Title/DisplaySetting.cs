@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class DisplaySetting : MonoBehaviour
@@ -74,7 +75,13 @@ public class DisplaySetting : MonoBehaviour
     private void GetTextSpeedOptions()
     {
         Dropdown_TextSpeed.ClearOptions();
-        Dropdown_TextSpeed.AddOptions(new List<string> { "느림", "보통", "빠름", "즉시" });
+        Dropdown_TextSpeed.AddOptions(new List<string>
+        {
+            LocalizationSettings.StringDatabase.GetLocalizedString("UI", "UI.Setting.Speed1"),
+            LocalizationSettings.StringDatabase.GetLocalizedString("UI", "UI.Setting.Speed2"),
+            LocalizationSettings.StringDatabase.GetLocalizedString("UI", "UI.Setting.Speed3"),
+            LocalizationSettings.StringDatabase.GetLocalizedString("UI", "UI.Setting.Speed4")
+        });
     }
 
     private void SetResolution(int idx)

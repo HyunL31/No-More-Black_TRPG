@@ -134,6 +134,7 @@ public class Result : GameDataBase
 {
     public string Type;
     public float Value;
+    public string TargetID;
     public string SkillID;
     public string RelationType;
     public bool IsGet;
