@@ -3,7 +3,7 @@
 public class GameObjectManager : SingletonBase<GameObjectManager>
 {
     [SerializeField] private GameObject SpaceshipMap;
-    [SerializeField] private PlayerController Player;
+    [SerializeField] private GameObject Player;
 
     private GameObject _spaceship;
 
@@ -25,6 +25,6 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
 
     private void InitPlayer()
     {
-        Player = Instantiate(Player).GetComponent<PlayerController>();
+        Player = Instantiate(Player);
     }
 }

@@ -17,22 +17,25 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private Rigidbody Rigidbody;
+    [SerializeField] private LayerMask Layer_ground;
+    [SerializeField] private Transform Transform_GroundCheck;
 
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _runSpeed = 5f;
-    [SerializeField] private float _jumpForce = 3f;
+    [SerializeField] private float _jumpForce = 2f;
 
-    [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.1f;
 
     private PlayerDirection _currentDirection = PlayerDirection.Front;
 
     private Vector2 _moveInput;
+
     private bool _isGround = true;
     private bool _isJumping = false;
+
     private int _maxJumpCount = 2;
     private int _currentJumpCount = 0;
+
     private string _currentAnimation = "";
     private bool _currentLoop = true;
 
@@ -120,23 +123,27 @@ public class PlayerController : MonoBehaviour
         PlayAnimation(jumpAnimation, false);
     }
 
+    private bool IsJumpAnimationFinished()
+    {
+        var entry = GetCurrentSkeleton().AnimationState.GetCurrent(0);
+        return entry == null || entry.IsComplete;
+    }
+
     private void CheckGround()
     {
-        bool grounded = Physics.CheckSphere(_groundCheck.position, _groundCheckRadius, _groundLayer, QueryTriggerInteraction.Ignore);
+        bool grounded = Physics.CheckSphere(Transform_GroundCheck.position, _groundCheckRadius, Layer_ground, QueryTriggerInteraction.Ignore);
 
-        if (grounded && Rigidbody.linearVelocity.y <= 0f)
+        if (!_isJumping)
         {
-            if (!_isGround)
-            {
-                _currentJumpCount = 0;
-                _isJumping = false;
-            }
-
-            _isGround = true;
+            _isGround = grounded;
+            return;
         }
-        else
+
+        if (grounded && IsJumpAnimationFinished())
         {
-            _isGround = false;
+            _currentJumpCount = 0;
+            _isJumping = false;
+            _isGround = true;
         }
     }
 
@@ -181,14 +188,7 @@ public class PlayerController : MonoBehaviour
 
         if (directionChanged && !string.IsNullOrEmpty(_currentAnimation))
         {
-            string anim = _currentAnimation;
-            bool loop = _currentLoop;
-
-            _currentAnimation = "";
-
-            GetCurrentSkeleton().AnimationState.SetAnimation(0, anim, loop);
-
-            _currentAnimation = anim;
+            GetCurrentSkeleton().AnimationState.SetAnimation(0, _currentAnimation, _currentLoop);
         }
     }
 
@@ -222,17 +222,20 @@ public class PlayerController : MonoBehaviour
 
         SkeletonAnimation skeleton = GetCurrentSkeleton();
 
+        Debug.Log($"Play Animation: {anim}");
+
         skeleton.AnimationState.SetAnimation(0, anim, isLoop);
     }
 
     private void OnDrawGizmos()
     {
-        if (_groundCheck == null)
+        if (Transform_GroundCheck == null)
         {
             return;
         }
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
+
+        Gizmos.DrawWireSphere(Transform_GroundCheck.position, _groundCheckRadius);
     }
 }

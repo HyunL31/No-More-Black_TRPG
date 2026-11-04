@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpaceshipMap: {fileID: 6774273027020157035, guid: 861019d7138e36d479bd7e4a62e732e4, type: 3}
+  Player: {fileID: 3259953725484289647, guid: 8eb4f9f5010752840aaacc22b3ae9b94, type: 3}
