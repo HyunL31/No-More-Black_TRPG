@@ -117,6 +117,7 @@ public class DialogueUI : ViewBase
         var data = GameDataManager.Inst.GetData<Dialogue>(currentID);
 
         string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
+        Debug.Log(speaker);
         Text_Speaker.text = speaker;
 
         CancelTyping();
@@ -142,11 +143,7 @@ public class DialogueUI : ViewBase
 
     private void MoveToNextContent()
     {
-        if (GetCurrentID().Contains("Dialogue"))
-        {
-            ShowDialogue();
-        }
-        else if(GetCurrentID().Contains("Choice"))
+        if(GetCurrentID().Contains("Choice"))
         {
             UIManager.Inst.OpenChoiceUI();
         }
@@ -164,6 +161,10 @@ public class DialogueUI : ViewBase
         else if (GetCurrentID() == "0")
         {
             GameObjectManager.Inst.InitMap();
+        }
+        else
+        {
+            ShowDialogue();
         }
     }
 

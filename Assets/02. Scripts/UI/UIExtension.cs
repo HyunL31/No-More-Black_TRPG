@@ -160,9 +160,14 @@ public static class UIExtension
         uiManager.CloseUI(UIRoot.Popup, UIType.InfoUI);
     }
 
-    public static void OpenPersonalEventUI(this UIManager uiManager)
+    public static void OpenPersonalEventUI(this UIManager uiManager, string characterID, int num)
     {
-        uiManager.OpenUI(UIRoot.Popup, UIType.PersonalEventUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.PersonalEventUI);
+
+        if (uiBase is PersonalEventUI personalEventUI)
+        {
+            personalEventUI.SetText(characterID, num);
+        }
     }
 
     public static void ClosePersonalEventUI(this UIManager uiManager)

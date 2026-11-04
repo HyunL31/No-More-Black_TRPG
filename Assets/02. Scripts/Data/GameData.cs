@@ -19,6 +19,7 @@ public class Character : GameDataBase
     public string Organization;
     public string Command;
     public string Justice;
+    public string RoomNumber;
     public int Stamina;
     public int Crazy;
     public int Oblivion;

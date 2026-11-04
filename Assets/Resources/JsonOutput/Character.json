@@ -11,12 +11,14 @@
     "Organization": null,
     "Command": null,
     "Justice": null,
+    "RoomNumber": "111",
     "Stamina": 10,
     "Crazy": 5,
     "Oblivion": 3,
-    "Ideology": 0,
+    "Ideology": 1,
     "Hostile": [
-      "Elysia_01"
+      "Elysia_01",
+      "July_01"
     ],
     "Friction": [
       "July_01"
@@ -50,6 +52,7 @@
     "Organization": null,
     "Command": null,
     "Justice": null,
+    "RoomNumber": "1234",
     "Stamina": 10,
     "Crazy": 5,
     "Oblivion": 3,
@@ -79,6 +82,7 @@
     "Organization": null,
     "Command": null,
     "Justice": null,
+    "RoomNumber": "2222",
     "Stamina": 10,
     "Crazy": 5,
     "Oblivion": 3,
@@ -108,6 +112,7 @@
     "Organization": null,
     "Command": null,
     "Justice": null,
+    "RoomNumber": "3333",
     "Stamina": 10,
     "Crazy": 5,
     "Oblivion": 3,
@@ -137,6 +142,7 @@
     "Organization": null,
     "Command": null,
     "Justice": null,
+    "RoomNumber": "5555",
     "Stamina": 10,
     "Crazy": 5,
     "Oblivion": 3,

@@ -649,5 +649,395 @@
     "ResultID": null,
     "Condition": null,
     "Operation": null
+  },
+  {
+    "ID": "Elysia_01_01_01",
+    "NextID": [
+      "Elysia_01_01_02"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "1",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_01_02",
+    "NextID": [
+      "Elysia_01_01_03"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "2",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_01_03",
+    "NextID": [
+      "Elysia_01_01_04"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "3",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_01_04",
+    "NextID": [
+      "Elysia_01_01_05"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "4",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_01_05",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "5",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_02_01",
+    "NextID": [
+      "Elysia_01_02_02"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "6",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_02_02",
+    "NextID": [
+      "Elysia_01_02_03"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "7",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_02_03",
+    "NextID": [
+      "Elysia_01_02_04"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "8",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_02_04",
+    "NextID": [
+      "Elysia_01_02_05"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "9",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_02_05",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "10",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_03_01",
+    "NextID": [
+      "Elysia_01_03_02"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "11",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_03_02",
+    "NextID": [
+      "Elysia_01_03_03"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "11",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_03_03",
+    "NextID": [
+      "Elysia_01_03_04"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "11",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_03_04",
+    "NextID": [
+      "Elysia_01_03_05"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "11",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Elysia_01_03_05",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "11",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
   }
 ]
