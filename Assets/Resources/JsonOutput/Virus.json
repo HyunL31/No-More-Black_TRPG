@@ -1,0 +1,152 @@
+[
+  {
+    "ID": "Virus_1",
+    "Content": "Loading....",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_2",
+    "Content": "[Warning] System clock drift: unstable",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_3",
+    "Content": "AI > Call stack updated",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_4",
+    "Content": "AI > Self-diagnostics started",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_5",
+    "Content": "SYS > Reactor Output: 82%",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_6",
+    "Content": "SYS > Life Support Status: stable",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_7",
+    "Content": "[Error] PowerGrid at 114% load",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_8",
+    "Content": "[Error] Cannot resolve pointer 0x0000-00FF",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_9",
+    "Content": "SYS > r3b00t seque <<FAILED>>",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_10",
+    "Content": "ERR> VIRUS overrideCall() inserted",
+    "Answer": true
+  },
+  {
+    "ID": "Virus_11",
+    "Content": "ERR> V1RUS anomaly flagged in memory block A7",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_12",
+    "Content": "ERR> virus signature detected at sector 3C",
+    "Answer": true
+  },
+  {
+    "ID": "Virus_13",
+    "Content": "NET> shadow routine detected",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_14",
+    "Content": "AI > behavior drift exceeded 0.94%",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_15",
+    "Content": "AI > TaskQueue: 14 pending jobs",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_16",
+    "Content": "SYS > Decrypting anomaly packet... FAIL",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_17",
+    "Content": "ERR > ### V1R-5 worm sequence detected ###",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_18",
+    "Content": "SYS > decode... decode... deco--ERROR",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_19",
+    "Content": "SYS > Hull Integrity Scan passed",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_20",
+    "Content": "Warning....",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_21",
+    "Content": "The end is coming...",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_22",
+    "Content": "!!! WARNING !!!",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_23",
+    "Content": "You can't access.",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_24",
+    "Content": "Set the Password.",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_25",
+    "Content": "AI > ResposeTime drift detected: +34ms",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_26",
+    "Content": "LOG > ■▒▤▦ corrupted entry ■▒▤▦",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_27",
+    "Content": "ERR > VIRUS_PAYLOAD injection attempt blocked",
+    "Answer": true
+  },
+  {
+    "ID": "Virus_28",
+    "Content": "SYS > Fuel Cell A : nominal",
+    "Answer": false
+  },
+  {
+    "ID": "Virus_29",
+    "Content": "ERR> VIRUS_THREAD spawned in memory lane 3",
+    "Answer": true
+  },
+  {
+    "ID": "Virus_30",
+    "Content": "ERR> V1RUS anomaly flagged",
+    "Answer": false
+  }
+]

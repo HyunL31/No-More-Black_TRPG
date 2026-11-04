@@ -28,6 +28,8 @@ public class GameDataManager : SingletonBase<GameDataManager>
         LoadData<Inspector>("Inspector");
         LoadData<Result>("Result");
         LoadData<Condition>("Condition");
+        LoadData<Germ>("Germ");
+        LoadData<Virus>("Virus");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase

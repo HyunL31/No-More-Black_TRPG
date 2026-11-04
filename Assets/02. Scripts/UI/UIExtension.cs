@@ -25,7 +25,8 @@ public enum UIType
     GameOverUI,
     InfoUI,
     Background,
-    PersonalEventUI
+    PersonalEventUI,
+    GermUI
 }
 
 public static class UIExtension
@@ -173,5 +174,15 @@ public static class UIExtension
     public static void ClosePersonalEventUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.PersonalEventUI);
+    }
+
+    public static void OpenGermUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.GermUI);
+    }
+
+    public static void CloseGermUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.GermUI);
     }
 }

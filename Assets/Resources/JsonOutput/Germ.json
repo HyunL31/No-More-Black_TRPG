@@ -1,0 +1,182 @@
+[
+  {
+    "ID": "Germ_1",
+    "Name": "헤일로 셀",
+    "Description": "옅은 원형 세포 핵 주변에 얇은 빛의 고리가 형성된 무해한 세포",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_2",
+    "Name": "클리어 플로우 스트림",
+    "Description": "투명한 액체 줄기가 하나 흐르는 것처럼 보이는 단순 유동 샘플",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_3",
+    "Name": "감마 포식자 세포",
+    "Description": "중앙에 짙은 보라색 핵이 있고 주변의 다른 미생물을 흡수한 흔적처럼 얼룩진 공격적 세포",
+    "Answer": true
+  },
+  {
+    "ID": "Germ_4",
+    "Name": "실키 스트랜드",
+    "Description": "하얀 실 같은 구조가 느슨하게 퍼져 있는 무해한 섬유성 미생물",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_5",
+    "Name": "코발트 타원 샘플",
+    "Description": "코발트색 핵이 일정 간격으로 나 있는 규칙적인 패턴",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_6",
+    "Name": "크림슨 포자",
+    "Description": "붉은 점들이 덩어리져 있고 가장자리에 가시처럼 뻗은 독성 포자",
+    "Answer": true
+  },
+  {
+    "ID": "Germ_7",
+    "Name": "네온 바이러스 군집",
+    "Description": "형광 녹색 핵이 일정한 간격으로 깜빡이며 주변 세포 구조를 붕괴시키는 바이러스 군집",
+    "Answer": true
+  },
+  {
+    "ID": "Germ_8",
+    "Name": "실버 샤드 플라크",
+    "Description": "은빛 조각처럼 보이지만 실제로는 광물성 잔여물에 가까운 샘플",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_9",
+    "Name": "하프문 셀 크레스트",
+    "Description": "반달 모양 세포들이 일정 방향으로 나란히 정렬된 패턴",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_10",
+    "Name": "스카이 스팟 링",
+    "Description": "푸른색 점들이 고리 모양으로만 배치되어 있는 단순 패턴",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_11",
+    "Name": "셀룰리언 웨이브 클러스트",
+    "Description": "푸른 물견 모양이 겹쳐 보이는 파동형 세포 집합체",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_12",
+    "Name": "블랙 러스트",
+    "Description": "금속 표면에 검은 얼룩처럼 번지며 표면을 서서히 부식시키는 곰팡이",
+    "Answer": true
+  },
+  {
+    "ID": "Germ_13",
+    "Name": "펄스 도트 필드",
+    "Description": "매우 약한 빛을 내는 작은 점들이 필드처럼 퍼져 있는 안정적인 입자군",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_14",
+    "Name": "모자이크 플랫 스포어",
+    "Description": "색색의 작은 조각들이 모여 평평한 판처럼 보이는 장식적인 포자 구조",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_15",
+    "Name": "애시드 필라멘트",
+    "Description": "가느다란 노란 실들이 한 방향으로 엉켜 있고 푸른 핵에 닿은 물질을 산처럼 녹이는 성질을 가짐",
+    "Answer": true
+  },
+  {
+    "ID": "Germ_16",
+    "Name": "미스트 베인 패턴",
+    "Description": "뿌연 안개 사이로 아주 옅은 혈관이 지나가는 듯한 희미한 구조",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_17",
+    "Name": "더스트 스팟",
+    "Description": "잿빛 점들이 균일하게 퍼져있는 단순 먼지성 샘플",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_18",
+    "Name": "펄 스파클 비즈",
+    "Description": "작은 진주 알갱이처럼 동그란 입자가 드문드문 박혀 있는 구조",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_19",
+    "Name": "골드 더스트 필름",
+    "Description": "금빛 가루가 얇게 깔려 있는 막 같은 샘플로 화학 반응성이 거의 없음",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_20",
+    "Name": "블루 버블 콜로니",
+    "Description": "파란 방울이 여러 개 모여 있는 형태로 스스로만 분열하며 주변 조직에는 영향을 주지 않음",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_21",
+    "Name": "모노톤 그리드 셀",
+    "Description": "회색 점들이 격자 형태로 일정하게 배열된 무해한 샘플",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_22",
+    "Name": "코랄 패턴 스포어",
+    "Description": "산호 모양으로 퍼져 있는 분지형 세포 구조로 성장 속도가 매우 느림",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_23",
+    "Name": "민트 도트 매트릭스",
+    "Description": "민트색 점들이 격자처럼 일정한 간격으로 배치된 온순한 균류",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_24",
+    "Name": "소프트 리본 플로라",
+    "Description": "얇은 띠 모양 세포가 부드럽게 휘어 있는 식물성 미생물",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_25",
+    "Name": "샌드 리본 콜로니",
+    "Description": "모래색 띠들이 느슨하게 배열된 마찰 흔적에 가까운 샘플",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_26",
+    "Name": "스프링 라인 스택",
+    "Description": "얇은 선들이 완만한 곡선으로 겹겹이 쌓인 층상 구조",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_27",
+    "Name": "콤팩트 링 스포어",
+    "Description": "둥근 고리 모양 세포가 겹겹이 쌓여 있는 안정적인 포자",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_28",
+    "Name": "클리어 드롭 플로트",
+    "Description": "거의 투명한 방울 형태로 배경과 섞여 보이는 단순 액체 입자",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_29",
+    "Name": "젤 클러스터",
+    "Description": "여러 개의 젤 덩어리가 규칙적으로 모여 있는 중성 젤 구조",
+    "Answer": false
+  },
+  {
+    "ID": "Germ_30",
+    "Name": "바닐라 셀 패드",
+    "Description": "연한 크림색 판 모양으로 붙어 있는 얇은 세포 층",
+    "Answer": false
+  }
+]

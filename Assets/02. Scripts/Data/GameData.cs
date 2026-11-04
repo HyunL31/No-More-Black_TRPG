@@ -150,3 +150,18 @@ public class Condition : GameDataBase
     public string Operation;
     public float Value;
 }
+
+[System.Serializable]
+public class Germ : GameDataBase
+{
+    public string Name;
+    public string Content;
+    public bool Answer;
+}
+
+[System.Serializable]
+public class Virus : GameDataBase
+{
+    public string Content;
+    public bool Answer;
+}
