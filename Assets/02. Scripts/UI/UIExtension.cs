@@ -24,7 +24,8 @@ public enum UIType
     DialogueLog,
     GameOverUI,
     InfoUI,
-    Background
+    Background,
+    PersonalEventUI
 }
 
 public static class UIExtension
@@ -157,5 +158,15 @@ public static class UIExtension
     public static void CloseInfoUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.InfoUI);
+    }
+
+    public static void OpenPersonalEventUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.PersonalEventUI);
+    }
+
+    public static void ClosePersonalEventUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.PersonalEventUI);
     }
 }
