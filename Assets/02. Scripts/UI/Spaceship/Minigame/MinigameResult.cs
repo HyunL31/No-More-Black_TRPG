@@ -13,6 +13,7 @@ public class MinigameResult : ViewBase
     private void OnClickClose()
     {
         UIManager.Inst.CloseGermUI();
+        UIManager.Inst.CloseVirusUI();
 
         UIManager.Inst.CloseFailPanel();
         UIManager.Inst.CloseWinPanel();

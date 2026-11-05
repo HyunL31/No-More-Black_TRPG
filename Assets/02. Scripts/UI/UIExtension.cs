@@ -27,6 +27,7 @@ public enum UIType
     Background,
     PersonalEventUI,
     GermUI,
+    VirusUI,
     WinPanel,
     FailPanel
 }
@@ -186,6 +187,16 @@ public static class UIExtension
     public static void CloseGermUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.GermUI);
+    }
+
+    public static void OpenVirusUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.VirusUI);
+    }
+
+    public static void CloseVirusUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.VirusUI);
     }
 
     public static void OpenWinPanel(this UIManager uiManager)
