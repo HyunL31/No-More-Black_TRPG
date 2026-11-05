@@ -15,7 +15,9 @@ public class UIManager : SingletonBase<UIManager>
     private void Start()
     {
         this.OpenBackground();
-        this.OpenPressureUI();
+
+        this.OpenRadarUI();
+        //this.OpenPressureUI();
         //this.OpenVirusUI();
         //this.OpenGermUI();
         //this.OpenTitleUI();

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class VirusUI : MonoBehaviour
 {
     [SerializeField] private VirusSlot Prefab_Slot;
-    [SerializeField] private Transform Tramsform_Parent;
+    [SerializeField] private Transform Transform_Parent;
     [SerializeField] private ScrollRect Scroll_Rect;
     [SerializeField] private float Speed_Slot;
 
@@ -19,7 +19,7 @@ public class VirusUI : MonoBehaviour
 
     private void Awake()
     {
-        _virusPool = new ObjectPooling<VirusSlot>(Prefab_Slot, Tramsform_Parent, 30, 100);
+        _virusPool = new ObjectPooling<VirusSlot>(Prefab_Slot, Transform_Parent, 30, 100);
     }
 
     private void OnEnable()

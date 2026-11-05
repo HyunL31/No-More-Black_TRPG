@@ -29,6 +29,7 @@ public enum UIType
     GermUI,
     VirusUI,
     PressureUI,
+    RadarUI,
     WinPanel,
     FailPanel
 }
@@ -208,6 +209,16 @@ public static class UIExtension
     public static void ClosePressureUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.PressureUI);
+    }
+
+    public static void OpenRadarUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.RadarUI);
+    }
+
+    public static void CloseRadarUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.RadarUI);
     }
 
     public static void OpenWinPanel(this UIManager uiManager)

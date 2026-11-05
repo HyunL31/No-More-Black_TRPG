@@ -15,6 +15,7 @@ public class MinigameResult : ViewBase
         UIManager.Inst.CloseGermUI();
         UIManager.Inst.CloseVirusUI();
         UIManager.Inst.ClosePressureUI();
+        UIManager.Inst.CloseRadarUI();
 
         UIManager.Inst.CloseFailPanel();
         UIManager.Inst.CloseWinPanel();

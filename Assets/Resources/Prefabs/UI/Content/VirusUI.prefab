@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab_Slot: {fileID: 5239113351740877105, guid: 956b70080158c7c4ba8462c9523f69e0, type: 3}
-  Tramsform_Parent: {fileID: 8409359668607407071}
+  Transform_Parent: {fileID: 8409359668607407071}
   Scroll_Rect: {fileID: 1986267298427628399}
   Speed_Slot: 0.6
 --- !u!1 &1623255766605707412
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab_Slot: {fileID: 5239113351740877105, guid: 956b70080158c7c4ba8462c9523f69e0, type: 3}
-  Tramsform_Parent: {fileID: 5644347422708755662}
+  Transform_Parent: {fileID: 5644347422708755662}
   Scroll_Rect: {fileID: 3758512847769411773}
   Speed_Slot: 1
 --- !u!1 &2866787678656243375
