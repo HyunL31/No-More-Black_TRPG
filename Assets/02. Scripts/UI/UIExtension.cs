@@ -26,7 +26,9 @@ public enum UIType
     InfoUI,
     Background,
     PersonalEventUI,
-    GermUI
+    GermUI,
+    WinPanel,
+    FailPanel
 }
 
 public static class UIExtension
@@ -178,11 +180,31 @@ public static class UIExtension
 
     public static void OpenGermUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Popup, UIType.GermUI);
+        uiManager.OpenUI(UIRoot.Content, UIType.GermUI);
     }
 
     public static void CloseGermUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Popup, UIType.GermUI);
+        uiManager.CloseUI(UIRoot.Content, UIType.GermUI);
+    }
+
+    public static void OpenWinPanel(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.WinPanel);
+    }
+
+    public static void CloseWinPanel(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.WinPanel);
+    }
+
+    public static void OpenFailPanel(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.FailPanel);
+    }
+
+    public static void CloseFailPanel(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.FailPanel);
     }
 }

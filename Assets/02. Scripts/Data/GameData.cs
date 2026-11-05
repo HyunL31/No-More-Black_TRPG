@@ -155,7 +155,7 @@ public class Condition : GameDataBase
 public class Germ : GameDataBase
 {
     public string Name;
-    public string Content;
+    public string Description;
     public bool Answer;
 }
 
