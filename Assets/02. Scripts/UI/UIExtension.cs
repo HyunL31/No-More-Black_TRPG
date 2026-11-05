@@ -28,6 +28,7 @@ public enum UIType
     PersonalEventUI,
     GermUI,
     VirusUI,
+    PressureUI,
     WinPanel,
     FailPanel
 }
@@ -197,6 +198,16 @@ public static class UIExtension
     public static void CloseVirusUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.VirusUI);
+    }
+
+    public static void OpenPressureUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.PressureUI);
+    }
+
+    public static void ClosePressureUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.PressureUI);
     }
 
     public static void OpenWinPanel(this UIManager uiManager)

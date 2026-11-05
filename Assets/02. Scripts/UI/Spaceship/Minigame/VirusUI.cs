@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class VirusUI : MonoBehaviour
 {
     [SerializeField] private VirusSlot Prefab_Slot;
     [SerializeField] private Transform Tramsform_Parent;
+    [SerializeField] private ScrollRect Scroll_Rect;
     [SerializeField] private float Speed_Slot;
 
     private ObjectPooling<VirusSlot> _virusPool;
@@ -32,6 +34,9 @@ public class VirusUI : MonoBehaviour
         while (true)
         {
             ShowLog();
+
+            Canvas.ForceUpdateCanvases();
+            Scroll_Rect.verticalNormalizedPosition = 0f;
 
             await UniTask.Delay(TimeSpan.FromSeconds(Speed_Slot));
         }
