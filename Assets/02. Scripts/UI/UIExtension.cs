@@ -30,6 +30,7 @@ public enum UIType
     VirusUI,
     PressureUI,
     RadarUI,
+    WaveUI,
     WinPanel,
     FailPanel
 }
@@ -219,6 +220,16 @@ public static class UIExtension
     public static void CloseRadarUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.RadarUI);
+    }
+
+    public static void OpenWaveUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.WaveUI);
+    }
+
+    public static void CloseWaveUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.WaveUI);
     }
 
     public static void OpenWinPanel(this UIManager uiManager)

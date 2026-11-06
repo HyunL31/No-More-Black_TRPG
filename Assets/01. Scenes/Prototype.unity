@@ -298,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3455092251181563789, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3483663427964037291, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_Name
@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5682545094681625865, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_Color.a
@@ -389,6 +389,10 @@ PrefabInstance:
     - target: {fileID: 4628428897623272635, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
       propertyPath: field of view
       value: 63.10332
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398894109415043889, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8826320376186979567, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
       propertyPath: m_LocalPosition.x
