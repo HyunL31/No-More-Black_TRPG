@@ -32,6 +32,7 @@ public enum UIType
     RadarUI,
     WaveUI,
     IgnitionUI,
+    PipeUI,
     WinPanel,
     FailPanel
 }
@@ -241,6 +242,16 @@ public static class UIExtension
     public static void CloseIgnitionUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.IgnitionUI);
+    }
+
+    public static void OpenPipeUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Content, UIType.PipeUI);
+    }
+
+    public static void ClosePipeUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Content, UIType.PipeUI);
     }
 
     public static void OpenWinPanel(this UIManager uiManager)

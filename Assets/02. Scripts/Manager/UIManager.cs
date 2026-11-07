@@ -16,7 +16,7 @@ public class UIManager : SingletonBase<UIManager>
     {
         this.OpenBackground();
 
-        this.OpenIgnitionUI();
+        this.OpenPipeUI();
         //this.OpenWaveUI();
         //this.OpenRadarUI();
         //this.OpenPressureUI();
