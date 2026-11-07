@@ -165,3 +165,11 @@ public class Virus : GameDataBase
     public string Content;
     public bool Answer;
 }
+
+[System.Serializable]
+public class Item : GameDataBase
+{
+    public string Name;
+    public string Description;
+    public string ItemType;
+}

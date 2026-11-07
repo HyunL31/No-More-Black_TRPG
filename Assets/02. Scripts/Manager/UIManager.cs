@@ -16,13 +16,14 @@ public class UIManager : SingletonBase<UIManager>
     {
         this.OpenBackground();
 
-        this.OpenPipeUI();
+        //this.OpenPipeUI();
         //this.OpenWaveUI();
         //this.OpenRadarUI();
         //this.OpenPressureUI();
         //this.OpenVirusUI();
         //this.OpenGermUI();
-        //this.OpenTitleUI();
+
+        this.OpenTitleUI();
 
         //this.OpenVisualNovelUI();
         //this.OpenDialogueUI();

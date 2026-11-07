@@ -117,7 +117,6 @@ public class DialogueUI : ViewBase
         var data = GameDataManager.Inst.GetData<Dialogue>(currentID);
 
         string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
-        Debug.Log(speaker);
         Text_Speaker.text = speaker;
 
         CancelTyping();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 
 public enum UIRoot
 {
@@ -26,6 +27,8 @@ public enum UIType
     InfoUI,
     Background,
     PersonalEventUI,
+    ItemUI,
+    InventoryUI,
     GermUI,
     VirusUI,
     PressureUI,
@@ -182,6 +185,31 @@ public static class UIExtension
     public static void ClosePersonalEventUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.PersonalEventUI);
+    }
+
+    public static void OpenItemUI(this UIManager uiManager, string itemID)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.ItemUI);
+
+        if (uiBase is ItemUI itemUI)
+        {
+            itemUI.SetItemInfo(itemID).Forget();
+        }
+    }
+
+    public static void CloseItemUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.ItemUI);
+    }
+
+    public static void OpenInventoryUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Popup, UIType.InventoryUI);
+    }
+
+    public static void CloseInventoryUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.InventoryUI);
     }
 
     public static void OpenGermUI(this UIManager uiManager)

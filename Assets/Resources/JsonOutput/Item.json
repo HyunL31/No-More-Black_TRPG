@@ -1,0 +1,20 @@
+[
+  {
+    "ID": "Item_01",
+    "Name": "전화기",
+    "Description": "일반 전화기입니다.",
+    "ItemType": "Item"
+  },
+  {
+    "ID": "Item_02",
+    "Name": "전화기1",
+    "Description": "일반 전화기 입니다.",
+    "ItemType": "Clue"
+  },
+  {
+    "ID": "Item_03",
+    "Name": "전화기2",
+    "Description": "일반 전화기 입니다.",
+    "ItemType": "Clue"
+  }
+]

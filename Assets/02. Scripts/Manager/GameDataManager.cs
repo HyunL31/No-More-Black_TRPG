@@ -30,6 +30,7 @@ public class GameDataManager : SingletonBase<GameDataManager>
         LoadData<Condition>("Condition");
         LoadData<Germ>("Germ");
         LoadData<Virus>("Virus");
+        LoadData<Item>("Item");
     }
 
     private void LoadData<T>(string table) where T : GameDataBase

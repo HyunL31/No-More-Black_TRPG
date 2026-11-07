@@ -4,8 +4,8 @@ using UnityEngine;
 public class GameObjectManager : SingletonBase<GameObjectManager>
 {
     [SerializeField] private GameObject SpaceshipMap;
-    [SerializeField] private GameObject Player;
     [SerializeField] private CinemachineCamera Camera_Cinemachine;
+    [SerializeField] private GameObject Player;
 
     private GameObject _spaceship;
 
@@ -29,5 +29,10 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
     {
         Player = Instantiate(Player);
         Camera_Cinemachine.Target.TrackingTarget = Player.transform;
+    }
+
+    public GameObject GetPlayer()
+    {
+        return Player;
     }
 }
