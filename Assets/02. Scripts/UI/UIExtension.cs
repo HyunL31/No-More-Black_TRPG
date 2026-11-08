@@ -37,7 +37,8 @@ public enum UIType
     IgnitionUI,
     PipeUI,
     WinPanel,
-    FailPanel
+    FailPanel,
+    DiceUI
 }
 
 public static class UIExtension
@@ -300,5 +301,21 @@ public static class UIExtension
     public static void CloseFailPanel(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.FailPanel);
+    }
+
+    public static void OpenDiceUI(this UIManager uiManager, string diceID)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.DiceUI);
+
+        if (uiBase is DiceUI diceUI)
+        {
+            diceUI.SetDiceID(diceID);
+            diceUI.SetOpponent();
+        }
+    }
+
+    public static void CloseDiceUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.DiceUI);
     }
 }

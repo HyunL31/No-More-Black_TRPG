@@ -86,7 +86,7 @@ public class DialogueUI : ViewBase
 
         while (true)
         {
-            if (nextID.Contains("Choice") || nextID.Contains("Poly") || nextID.Contains("Inspect") || nextID == "0")
+            if (nextID.Contains("Choice") || nextID.Contains("Poly") || nextID.Contains("Inspect") || nextID.Contains("Dice") || nextID == "0")
             {
                 break;
             }
@@ -155,6 +155,11 @@ public class DialogueUI : ViewBase
         {
             UIManager.Inst.OpenInspectorUI();
             UIManager.Inst.CloseVisualNovelUI();
+            UIManager.Inst.CloseDialogueUI();
+        }
+        else if (GetCurrentID().Contains("Dice"))
+        {
+            UIManager.Inst.OpenDiceUI(GetCurrentID());
             UIManager.Inst.CloseDialogueUI();
         }
         else if (GetCurrentID() == "0")

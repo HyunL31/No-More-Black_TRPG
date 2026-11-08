@@ -173,3 +173,15 @@ public class Item : GameDataBase
     public string Description;
     public string ItemType;
 }
+
+[System.Serializable]
+public class Dice : GameDataBase
+{
+    public string WinID;
+    public string FailID;
+    public string Opponent;
+    public string Type;
+    public string TargetID;
+    public string CharacterID;
+    public string Result;
+}

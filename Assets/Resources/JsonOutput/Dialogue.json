@@ -601,7 +601,7 @@
   {
     "ID": "Dialogue_23",
     "NextID": [
-      "0"
+      "Dialogue_25"
     ],
     "Speaker": "July_01",
     "Character": [
@@ -627,7 +627,7 @@
   {
     "ID": "Dialogue_24",
     "NextID": [
-      "0"
+      "Dialogue_25"
     ],
     "Speaker": "July_01",
     "Character": [
@@ -639,6 +639,422 @@
     "Content": "아닐때",
     "Emotion": [
       "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_25",
+    "NextID": [
+      "Dialogue_26"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "다이스 판정 테스트 / 민첩 역량 여부 / ",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_26",
+    "NextID": [
+      "Dice_01"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "시스템과 다이스 판정 / ",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_27",
+    "NextID": [
+      "Dialogue_29"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "이겼을 때",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_28",
+    "NextID": [
+      "Dialogue_29"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "졌을 때",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_29",
+    "NextID": [
+      "Dialogue_30"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "엘리시아와 다이스 판정 / 협상 역량 여부 / 실패 시 체력 하락",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_30",
+    "NextID": [
+      "Dice_02"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "다이스 판정 시작",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_31",
+    "NextID": [
+      "Dialogue_33"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "성공",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_32",
+    "NextID": [
+      "Dialogue_33"
+    ],
+    "Speaker": "Elysia_01",
+    "Character": [
+      "Elysia_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "실패 : 체력 하락",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_33",
+    "NextID": [
+      "Dialogue_34"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "줄라이와 다이스 판정 / 엘리시아와 적대 여부 / 실패 시 열광 상승",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_34",
+    "NextID": [
+      "Dice_03"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "다이스 판정 시작",
+    "Emotion": [
+      "normal"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_35",
+    "NextID": [
+      "Dialogue_37"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "성공",
+    "Emotion": [
+      "smile"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_36",
+    "NextID": [
+      "Dialogue_37"
+    ],
+    "Speaker": "July_01",
+    "Character": [
+      "July_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "실패 : 열광 상승",
+    "Emotion": [
+      "angry"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_37",
+    "NextID": [
+      "Dialogue_38"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "온태현과 다이스 판정 / 이념 -1 / 실패 시 열광 상승",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_38",
+    "NextID": [
+      "Dice_04"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "다이스 판정 시작",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "basic"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_39",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "성공",
+    "Emotion": [
+      "default"
+    ],
+    "Animation": [
+      "active"
+    ],
+    "BGM": null,
+    "SFX": null,
+    "Background": "White",
+    "ResultID": null,
+    "Condition": null,
+    "Operation": null
+  },
+  {
+    "ID": "Dialogue_40",
+    "NextID": [
+      "0"
+    ],
+    "Speaker": "Taehyun_01",
+    "Character": [
+      "Taehyun_01"
+    ],
+    "Slot": [
+      "M"
+    ],
+    "Content": "실패 : 열광 상승",
+    "Emotion": [
+      "default"
     ],
     "Animation": [
       "basic"

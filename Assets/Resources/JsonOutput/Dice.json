@@ -1,0 +1,42 @@
+[
+  {
+    "ID": "Dice_01",
+    "WinID": "Dialogue_27",
+    "FailID": "Dialogue_28",
+    "Opponent": "System",
+    "Type": "Skill",
+    "TargetID": "Skill_Method_4",
+    "CharacterID": null,
+    "Result": "Stamina"
+  },
+  {
+    "ID": "Dice_02",
+    "WinID": "Dialogue_31",
+    "FailID": "Dialogue_32",
+    "Opponent": "Elysia_01",
+    "Type": "Skill",
+    "TargetID": "Skill_Wisdom_1",
+    "CharacterID": null,
+    "Result": "Stamina"
+  },
+  {
+    "ID": "Dice_03",
+    "WinID": "Dialogue_35",
+    "FailID": "Dialogue_36",
+    "Opponent": "July_01",
+    "Type": "Relation",
+    "TargetID": "Hostile",
+    "CharacterID": "Elysia_01",
+    "Result": "Crazy"
+  },
+  {
+    "ID": "Dice_04",
+    "WinID": "Dialogue_39",
+    "FailID": "Dialogue_40",
+    "Opponent": "Taehyun_01",
+    "Type": "Ideology",
+    "TargetID": "-1",
+    "CharacterID": null,
+    "Result": "Crazy"
+  }
+]

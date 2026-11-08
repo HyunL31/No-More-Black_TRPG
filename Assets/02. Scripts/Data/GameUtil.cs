@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Localization.Settings;
+﻿using UnityEngine;
 
 public static class GameUtil
 {
@@ -49,5 +47,25 @@ public static class GameUtil
             case RelationType.Pact: return "맹약";
             default: return "중립";
         }
+    }
+
+    public static int Roll(int side)
+    {
+        return Random.Range(1, side + 1);
+    }
+
+    public static int RollNormal()
+    {
+        return Roll(20);
+    }
+
+    public static int RollFail()
+    {
+        return Roll(3);
+    }
+
+    public static int RollSpecial()
+    {
+        return Mathf.Min(Roll(20), Roll(20));
     }
 }
