@@ -29,6 +29,20 @@ public class DiceUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_PlayerDice;
     [SerializeField] private TextMeshProUGUI Text_PlayerResult;
 
+    [Header("테스트용")]
+    [SerializeField] private GameObject Panel_TestResult;
+    [SerializeField] private Button Button_TestClose;
+    [SerializeField] private TextMeshProUGUI Text_Opponent;
+    [SerializeField] private TextMeshProUGUI Text_PlayerOriginDice;
+    [SerializeField] private TextMeshProUGUI Text_OpponentOriginDice;
+    [SerializeField] private TextMeshProUGUI Text_PlayerEdit;
+    [SerializeField] private TextMeshProUGUI Text_OpponentEdit;
+    [SerializeField] private TextMeshProUGUI Text_PlayerEditResult;
+    [SerializeField] private TextMeshProUGUI Text_OpponentEditResult;
+    [SerializeField] private TextMeshProUGUI Text_PlayerFinal;
+    [SerializeField] private TextMeshProUGUI Text_FailResult;
+    [SerializeField] private TextMeshProUGUI Text_FailApply;
+
     private CharacterViewModel _characterVM;
 
     private string _diceID;
@@ -41,11 +55,14 @@ public class DiceUI : ViewBase
 
     private DiceResult _diceResult;
 
+
     private void Awake()
     {
         Button_Close.onClick.AddListener(OnClickClose);
         Button_NormalDice.onClick.AddListener(OnClickDice);
         Button_FailDice.onClick.AddListener(OnClickFailDice);
+        Button_Result.onClick.AddListener(OnClickResult);
+        Button_TestClose.onClick.AddListener(OnClickTestClose);
 
         _characterVM = ServiceManager.Inst.GetCharacterViewModel();
     }
@@ -62,6 +79,19 @@ public class DiceUI : ViewBase
         Text_OpponentResult.text = "";
         Text_PlayerDice.text = "";
         Text_PlayerResult.text = "";
+
+        Panel_TestResult.gameObject.SetActive(false);
+
+        Text_Opponent.text = "";
+        Text_PlayerOriginDice.text = "";
+        Text_OpponentOriginDice.text = "";
+        Text_PlayerEdit.text = "";
+        Text_OpponentEdit.text = "";
+        Text_PlayerEditResult.text = "";
+        Text_OpponentEditResult.text = "";
+        Text_PlayerFinal.text = "";
+        Text_FailResult.text = "";
+        Text_FailApply.text = "";
     }
 
     private void OnClickDice()
@@ -80,6 +110,16 @@ public class DiceUI : ViewBase
         UIManager.Inst.CloseDiceUI();
     }
 
+    private void OnClickResult()
+    {
+        Panel_TestResult.gameObject.SetActive(true);
+    }
+
+    private void OnClickTestClose()
+    {
+        Panel_TestResult.gameObject.SetActive(false);
+    }
+
     public void SetDiceID(string diceID)
     {
         _diceID = diceID;
@@ -92,30 +132,53 @@ public class DiceUI : ViewBase
         if (opponent == "System")
         {
             Text_OpponentTitle.text = $"시스템 다이스";
+            Text_Opponent.text = "상대 : 시스템";
 
             return;
         }
 
         Text_OpponentTitle.text = $"{GameDataManager.Inst.GetData<Character>(opponent).Name} 다이스";
+        Text_Opponent.text = $"상대 : {GameDataManager.Inst.GetData<Character>(opponent).Name}";
     }
 
     private void RollNormalDice()
     {
         if (_special == true)
         {
-            _playerDice = EditDice(GameUtil.RollSpecial(), true);
-            _opponentDice = EditDice(GameUtil.RollSpecial(), false);
+            //_playerDice = EditDice(GameUtil.RollSpecial(), true);
+            //_opponentDice = EditDice(GameUtil.RollSpecial(), false);
+
+            _playerDice = GameUtil.RollSpecial();
+            _opponentDice = GameUtil.RollSpecial();
+            Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerDice}";
+            Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentDice}";
+
+            _playerDice = EditDice(_playerDice, true);
+            _opponentDice = EditDice(_opponentDice, false);
+            Text_PlayerEditResult.text = $"플레이어 보정 적용: {_playerDice}";
+            Text_OpponentEditResult.text = $"상대방 보정 적용: {_opponentDice}";
         }
         else
         {
-            _playerDice = EditDice(GameUtil.RollNormal(), true);
-            _opponentDice = EditDice(GameUtil.RollNormal(), false);
+            //_playerDice = EditDice(GameUtil.RollNormal(), true);
+            //_opponentDice = EditDice(GameUtil.RollNormal(), false);
+
+            _playerDice = GameUtil.RollNormal();
+            _opponentDice = GameUtil.RollNormal();
+            Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerDice}";
+            Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentDice}";
+
+            _playerDice = EditDice(_playerDice, true);
+            _opponentDice = EditDice(_opponentDice, false);
+            Text_PlayerEditResult.text = $"플레이어 보정 적용: {_playerDice}";
+            Text_OpponentEditResult.text = $"상대방 보정 적용: {_opponentDice}";
         }
 
         Text_OpponentDice.text = $"{_opponentDice}";
         Text_PlayerDice.text = $"{_playerDice}";
 
         _diceResult = CheckResult();
+        Text_PlayerFinal.text = _diceResult.ToString();
 
         if (_playerDice == _opponentDice)
         {
@@ -158,6 +221,7 @@ public class DiceUI : ViewBase
         Text_PlayerResult.text = "";
 
         _playerDice = GameUtil.RollFail();
+        Text_FailResult.text = $"실패 결과: {_playerDice}";
 
         ApplyDiceResult(_playerDice);
 
@@ -168,12 +232,11 @@ public class DiceUI : ViewBase
 
     private int EditDice(int dice, bool isPlayer)
     {
-        Debug.Log(dice);
-
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
 
         if (data.Opponent == "System")
         {
+            Text_OpponentEdit.text = "시스템: 적용 불가";
             return dice;
         }
 
@@ -195,6 +258,16 @@ public class DiceUI : ViewBase
                 {
                     canEdit = true;
                 }
+
+                if (isPlayer)
+                {
+                    Text_PlayerEdit.text = $"보정 검사: Skill / {skillID}";
+                }
+                else
+                {
+                    Text_OpponentEdit.text = $"보정 검사: Skill / {skillID}";
+                }
+
                 break;
 
             case "Relation":
@@ -207,6 +280,16 @@ public class DiceUI : ViewBase
                 {
                     canEdit = true;
                 }
+
+                if (isPlayer)
+                {
+                    Text_PlayerEdit.text = $"보정 검사: Relation / {targetID} / {character}";
+                }
+                else
+                {
+                    Text_OpponentEdit.text = $"보정 검사: Relation / {targetID} / {character}";
+                }
+
                 break;
 
             case "Ideology":
@@ -216,6 +299,16 @@ public class DiceUI : ViewBase
                 {
                     canEdit = true;
                 }
+
+                if (isPlayer)
+                {
+                    Text_PlayerEdit.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
+                }
+                else
+                {
+                    Text_Opponent.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
+                }
+
                 break;
         }
 
@@ -241,11 +334,13 @@ public class DiceUI : ViewBase
         switch (result)
         {
             case "Stamina":
-                _characterVM.AddStamina(dice);
+                _characterVM.AddStamina(-dice);
+                Text_FailApply.text = "실패 적용 수치: Stamina";
                 break;
 
             case "Crazy":
                 _characterVM.AddCrazy(dice);
+                Text_FailApply.text = "실패 적용 수치: Crazy";
                 break;
         }
     }
