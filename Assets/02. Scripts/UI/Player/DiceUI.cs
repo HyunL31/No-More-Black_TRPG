@@ -53,6 +53,9 @@ public class DiceUI : ViewBase
     private bool _special = false;
     private int _nullCount = 0;
 
+    private int _playerOriginDice;
+    private int _opponentOriginDice;
+
     private int _playerDice;
     private int _opponentDice;
 
@@ -155,36 +158,17 @@ public class DiceUI : ViewBase
 
     private void RollNormalDice()
     {
-        if (_special == true)
-        {
-            //_playerDice = EditDice(GameUtil.RollSpecial(), true);
-            //_opponentDice = EditDice(GameUtil.RollSpecial(), false);
+        _playerOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
+        _opponentOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
 
-            _playerDice = GameUtil.RollSpecial();
-            _opponentDice = GameUtil.RollSpecial();
-            Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerDice}";
-            Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentDice}";
+        _playerDice = EditDice(_playerOriginDice, true);
+        _opponentDice = EditDice(_opponentOriginDice, false);
 
-            _playerDice = EditDice(_playerDice, true);
-            _opponentDice = EditDice(_opponentDice, false);
-            Text_PlayerEditResult.text = $"플레이어 보정 적용: {_playerDice}";
-            Text_OpponentEditResult.text = $"상대방 보정 적용: {_opponentDice}";
-        }
-        else
-        {
-            //_playerDice = EditDice(GameUtil.RollNormal(), true);
-            //_opponentDice = EditDice(GameUtil.RollNormal(), false);
+        Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerOriginDice}";
+        Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentOriginDice}";
 
-            _playerDice = GameUtil.RollNormal();
-            _opponentDice = GameUtil.RollNormal();
-            Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerDice}";
-            Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentDice}";
-
-            _playerDice = EditDice(_playerDice, true);
-            _opponentDice = EditDice(_opponentDice, false);
-            Text_PlayerEditResult.text = $"플레이어 보정 적용: {_playerDice}";
-            Text_OpponentEditResult.text = $"상대방 보정 적용: {_opponentDice}";
-        }
+        Text_PlayerEditResult.text = $"플레이어 보정 적용: {_playerDice}";
+        Text_OpponentEditResult.text = $"상대방 보정 적용: {_opponentDice}";
 
         Text_OpponentDice.text = $"{_opponentDice}";
         Text_PlayerDice.text = $"{_playerDice}";
@@ -207,24 +191,7 @@ public class DiceUI : ViewBase
             return;
         }
 
-        Text_OpponentResult.text = _opponentDice > _playerDice ? "승" : "패";
-        Text_PlayerResult.text = _opponentDice < _playerDice ? "승" : "패";
-
-        var data = GameDataManager.Inst.GetData<Dice>(_diceID);
-        bool isWin = _opponentDice < _playerDice;
-
-        if (isWin == true)
-        {
-            TextAdventureManager.Inst.SetCurrentID(data.WinID);
-            _canClose = true;
-        }
-        else
-        {
-            TextAdventureManager.Inst.SetCurrentID(data.FailID);
-        }
-
-        Button_NormalDice.gameObject.SetActive(false);
-        Button_FailDice.gameObject.SetActive(isWin == false);
+        CheckWin();
     }
 
     private void RollFailDice()
@@ -242,6 +209,42 @@ public class DiceUI : ViewBase
 
         Button_FailDice.gameObject.SetActive(false);
         _canClose = true;
+    }
+
+    private void CheckWin()
+    {
+        var data = GameDataManager.Inst.GetData<Dice>(_diceID);
+
+        Text_OpponentResult.text = _opponentDice > _playerDice ? "승" : "패";
+        Text_PlayerResult.text = _opponentDice < _playerDice ? "승" : "패";
+
+        bool isWin;
+
+        if (_playerOriginDice == 20)
+        {
+            isWin = true;
+        }
+        else if (_playerOriginDice == 1)
+        {
+            isWin = false;
+        }
+        else
+        {
+            isWin = _opponentDice < _playerDice;
+        }
+
+        if (isWin == true)
+        {
+            TextAdventureManager.Inst.SetCurrentID(data.WinID);
+            _canClose = true;
+        }
+        else
+        {
+            TextAdventureManager.Inst.SetCurrentID(data.FailID);
+        }
+
+        Button_NormalDice.gameObject.SetActive(false);
+        Button_FailDice.gameObject.SetActive(isWin == false);
     }
 
     private int EditDice(int dice, bool isPlayer)
@@ -319,7 +322,7 @@ public class DiceUI : ViewBase
                 }
                 else
                 {
-                    Text_Opponent.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
+                    Text_OpponentEdit.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
                 }
 
                 break;

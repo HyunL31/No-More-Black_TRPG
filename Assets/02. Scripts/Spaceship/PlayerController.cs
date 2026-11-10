@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         }
 
         UpdateDirection();
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
@@ -76,7 +77,10 @@ public class PlayerController : MonoBehaviour
         velocity.z = movement.z * currentSpeed;
 
         Rigidbody.linearVelocity = velocity;
+    }
 
+    private void UpdateAnimation()
+    {
         if (!_isGround || _isJumping)
         {
             return;
