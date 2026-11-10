@@ -330,15 +330,20 @@ public class DiceUI : ViewBase
             _characterVM.SetCurrentCharacter("Player_01");
         }
 
-        bool isMatch = (canEdit == data.IsPlus);
-
-        if (isMatch)
+        if (canEdit == true)
         {
-            return dice + data.EditValue;
+            if (data.IsPlus == true)
+            {
+                return dice + data.EditValue;
+            }
+            else
+            {
+                return dice - data.EditValue;
+            }
         }
         else
         {
-            return dice - data.EditValue;
+            return dice;
         }
     }
 

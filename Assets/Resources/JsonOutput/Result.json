@@ -1,6 +1,7 @@
 [
   {
     "ID": "Result_01",
+    "ApplyTarget": "Elysia_01",
     "Type": "Stamina",
     "Value": -1,
     "TargetID": null,
@@ -10,6 +11,7 @@
   },
   {
     "ID": "Result_02",
+    "ApplyTarget": "Player_01",
     "Type": "Crazy",
     "Value": 1,
     "TargetID": null,
@@ -19,6 +21,7 @@
   },
   {
     "ID": "Result_03",
+    "ApplyTarget": "Player_01",
     "Type": "Oblivion",
     "Value": 1,
     "TargetID": null,
@@ -28,6 +31,7 @@
   },
   {
     "ID": "Result_04",
+    "ApplyTarget": "Player_01",
     "Type": "Ideology",
     "Value": -2,
     "TargetID": null,
@@ -37,6 +41,7 @@
   },
   {
     "ID": "Result_05",
+    "ApplyTarget": "Elysia_01",
     "Type": "Skill",
     "Value": null,
     "TargetID": null,
@@ -46,6 +51,7 @@
   },
   {
     "ID": "Result_06",
+    "ApplyTarget": "Player_01",
     "Type": "Stamina",
     "Value": 1,
     "TargetID": null,
@@ -55,6 +61,7 @@
   },
   {
     "ID": "Result_07",
+    "ApplyTarget": "Player_01",
     "Type": "Relationship",
     "Value": null,
     "TargetID": "Taehyun_01",
@@ -64,6 +71,7 @@
   },
   {
     "ID": "Result_08",
+    "ApplyTarget": "Player_01",
     "Type": "Relationship",
     "Value": null,
     "TargetID": "Taehyun_01",
@@ -73,6 +81,7 @@
   },
   {
     "ID": "Result_09",
+    "ApplyTarget": "Player_01",
     "Type": "Impart",
     "Value": null,
     "TargetID": "July_01",

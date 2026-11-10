@@ -243,7 +243,9 @@
     "BGM": null,
     "SFX": null,
     "Background": "Space",
-    "ResultID": null,
+    "ResultID": [
+      "Result_01"
+    ],
     "Condition": null,
     "Operation": null
   },

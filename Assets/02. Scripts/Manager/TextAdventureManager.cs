@@ -49,6 +49,8 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
             _characterVM = ServiceManager.Inst.GetCharacterViewModel();
         }
 
+        _characterVM.SetCurrentCharacter(result.ApplyTarget);
+
         int value = Mathf.RoundToInt(result.Value);
 
         switch (result.Type)
@@ -83,14 +85,15 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
             case "Skill":
                 {
                     string skill = GameDataManager.Inst.GetData<Skill>(result.SkillID).Name;
+                    string characterName = GameDataManager.Inst.GetData<Character>(_characterVM.CurrentCharacter).Name;
 
                     if (result.IsGet == true)
                     {
-                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("역량 {0}을(를) 획득했습니다.", skill), () => _characterVM.GetSkill(result.SkillID));
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}이(가) 역량 {1}을(를) 획득했습니다.", characterName, skill), () => _characterVM.GetSkill(result.SkillID));
                     }
                     else
                     {
-                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("역량 {0}을(를) 잃었습니다.", skill), () => _characterVM.AbandonSkill(result.SkillID));
+                        UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}이(가) 역량 {1}을(를) 잃었습니다.", characterName, skill), () => _characterVM.AbandonSkill(result.SkillID));
                     }
 
                     break;

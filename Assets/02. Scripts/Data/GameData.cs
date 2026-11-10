@@ -133,6 +133,7 @@ public class Inspector : GameDataBase
 [System.Serializable]
 public class Result : GameDataBase
 {
+    public string ApplyTarget;
     public string Type;
     public float Value;
     public string TargetID;

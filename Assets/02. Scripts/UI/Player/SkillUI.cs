@@ -31,6 +31,8 @@ public class SkillUI : ViewBase
             return;
         }
 
+        _characterVM.SetCurrentCharacter("Player_01");
+
         RefreshCategory();
         SetDefaultCategory();
         SwitchCategory(_currentCategory);
