@@ -29,6 +29,7 @@ public class InfoUI : ViewBase
 
     private void OnClickConfirm()
     {
+        _onAccept?.Invoke();
         UIManager.Inst.CloseInfoUI();
     }
 

@@ -183,5 +183,7 @@ public class Dice : GameDataBase
     public string Type;
     public string TargetID;
     public string CharacterID;
+    public bool IsPlus;
+    public int EditValue;
     public string Result;
 }

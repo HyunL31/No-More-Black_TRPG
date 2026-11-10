@@ -7,6 +7,8 @@
     "Type": "Skill",
     "TargetID": "Skill_Method_4",
     "CharacterID": null,
+    "IsPlus": true,
+    "EditValue": 1,
     "Result": "Stamina"
   },
   {
@@ -17,6 +19,8 @@
     "Type": "Skill",
     "TargetID": "Skill_Wisdom_1",
     "CharacterID": null,
+    "IsPlus": true,
+    "EditValue": 2,
     "Result": "Stamina"
   },
   {
@@ -27,6 +31,8 @@
     "Type": "Relation",
     "TargetID": "Hostile",
     "CharacterID": "Elysia_01",
+    "IsPlus": false,
+    "EditValue": 3,
     "Result": "Crazy"
   },
   {
@@ -37,6 +43,8 @@
     "Type": "Ideology",
     "TargetID": "-1",
     "CharacterID": null,
+    "IsPlus": true,
+    "EditValue": 4,
     "Result": "Crazy"
   }
 ]

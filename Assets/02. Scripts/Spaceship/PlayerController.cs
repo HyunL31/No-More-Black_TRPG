@@ -222,8 +222,6 @@ public class PlayerController : MonoBehaviour
 
         SkeletonAnimation skeleton = GetCurrentSkeleton();
 
-        Debug.Log($"Play Animation: {anim}");
-
         skeleton.AnimationState.SetAnimation(0, anim, isLoop);
     }
 

@@ -42,8 +42,11 @@ public class DiceUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_PlayerFinal;
     [SerializeField] private TextMeshProUGUI Text_FailResult;
     [SerializeField] private TextMeshProUGUI Text_FailApply;
+    [SerializeField] private TextMeshProUGUI Text_Boost;
 
     private CharacterViewModel _characterVM;
+
+    private bool _canClose = false;
 
     private string _diceID;
     private bool _boost = false;
@@ -71,6 +74,7 @@ public class DiceUI : ViewBase
     {
         _nullCount = 0;
         _special = false;
+        _canClose = false;
 
         Button_NormalDice.gameObject.SetActive(true);
         Button_FailDice.gameObject.SetActive(false);
@@ -106,13 +110,21 @@ public class DiceUI : ViewBase
 
     private void OnClickClose()
     {
-        UIManager.Inst.OpenDialogueUI();
-        UIManager.Inst.CloseDiceUI();
+        if (_canClose == true)
+        {
+            UIManager.Inst.OpenDialogueUI();
+            UIManager.Inst.CloseDiceUI();
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void OnClickResult()
     {
         Panel_TestResult.gameObject.SetActive(true);
+        Text_Boost.text = $"고양 상태 여부: {_boost}";
     }
 
     private void OnClickTestClose()
@@ -204,6 +216,7 @@ public class DiceUI : ViewBase
         if (isWin == true)
         {
             TextAdventureManager.Inst.SetCurrentID(data.WinID);
+            _canClose = true;
         }
         else
         {
@@ -228,6 +241,7 @@ public class DiceUI : ViewBase
         Text_PlayerDice.text = $"{_playerDice}";
 
         Button_FailDice.gameObject.SetActive(false);
+        _canClose = true;
     }
 
     private int EditDice(int dice, bool isPlayer)
@@ -240,7 +254,6 @@ public class DiceUI : ViewBase
             return dice;
         }
 
-        int editProperty = 3;
         bool canEdit = false;
 
         if (isPlayer == false)
@@ -317,13 +330,15 @@ public class DiceUI : ViewBase
             _characterVM.SetCurrentCharacter("Player_01");
         }
 
-        if (canEdit == true)
+        bool isMatch = (canEdit == data.IsPlus);
+
+        if (isMatch)
         {
-            return dice + editProperty;
+            return dice + data.EditValue;
         }
         else
         {
-            return dice - editProperty;
+            return dice - data.EditValue;
         }
     }
 
