@@ -34,6 +34,8 @@ public class ResumeView : ViewBase
     [SerializeField] private TextMeshProUGUI Text_CurrentNPCName;
     [SerializeField] private TextMeshProUGUI Text_CurrentNPCRelationship;
 
+    [SerializeField] private Button Button_Skill;
+
     private const int MaxGaugeCount = 10;
 
     private GuageSlot[] _staminaSlots;
@@ -49,6 +51,7 @@ public class ResumeView : ViewBase
     {
         Button_Left.onClick.AddListener(OnClickLeft);
         Button_Right.onClick.AddListener(OnClickRight);
+        Button_Skill.onClick.AddListener(OnClickSkill);
     }
 
     private void OnEnable()
@@ -77,6 +80,12 @@ public class ResumeView : ViewBase
         {
             _characterVM.PropertyChanged -= OnPropertyChanged;
         }
+    }
+
+    private void OnClickSkill()
+    {
+        UIManager.Inst.OpenSkillUI();
+        UIManager.Inst.CloseResumeUI();
     }
 
     private void Refresh()

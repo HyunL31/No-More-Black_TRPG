@@ -37,19 +37,13 @@ public class UIManager : SingletonBase<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            this.OpenSkillUI();
             this.OpenResumeUI();
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            this.OpenSkillUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            this.CloseSkillUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
             this.CloseResumeUI();
+            this.CloseSkillUI();
         }
     }
 

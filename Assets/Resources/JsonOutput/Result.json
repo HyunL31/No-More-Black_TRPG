@@ -41,7 +41,7 @@
   },
   {
     "ID": "Result_05",
-    "ApplyTarget": "Elysia_01",
+    "ApplyTarget": "Player_01",
     "Type": "Skill",
     "Value": null,
     "TargetID": null,

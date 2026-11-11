@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillUI : ViewBase
 {
@@ -9,6 +10,8 @@ public class SkillUI : ViewBase
     [SerializeField] private Transform Parent_Left;
     [SerializeField] private Transform Parent_Right;
     [SerializeField] private GameObject Prefab_SkillSlot;
+    [SerializeField] private Button Button_Resume;
+    [SerializeField] private Button Button_NatureConfirm;
 
     private CharacterViewModel _characterVM => ServiceManager.Inst.GetCharacterViewModel();
     private SkillCategory _currentCategory = SkillCategory.None;
@@ -16,16 +19,32 @@ public class SkillUI : ViewBase
     private List<SkillSlot> _leftSlots = new List<SkillSlot>();
     private List<SkillSlot> _rightSlots = new List<SkillSlot>();
 
+    private string _natureSkill = "";
+
     public int CheckCount { get; private set; } = 1;
 
     private void Awake()
     {
         InitButtons();
         CreateSkillSlot();
+
+        Button_Resume.onClick.AddListener(OnClickResume);
+        Button_NatureConfirm.onClick.AddListener(OnClickNatureConfirm);
     }
 
     private void OnEnable()
     {
+        if (SaveManager.Inst.PlayerModel.IsNewGame == true)
+        {
+            Button_Resume.gameObject.SetActive(false);
+            Button_NatureConfirm.gameObject.SetActive(true);
+        }
+        else
+        {
+            Button_Resume.gameObject.SetActive(true);
+            Button_NatureConfirm.gameObject.SetActive(false);
+        }
+
         if (_leftSlots.Count == 0)
         {
             return;
@@ -36,6 +55,27 @@ public class SkillUI : ViewBase
         RefreshCategory();
         SetDefaultCategory();
         SwitchCategory(_currentCategory);
+    }
+
+    private void OnClickResume()
+    {
+        UIManager.Inst.OpenResumeUI();
+        UIManager.Inst.CloseSkillUI();
+    }
+
+    private void OnClickNatureConfirm()
+    {
+        if (_natureSkill == "")
+        {
+            return;
+        }
+
+        AddNatureSkill();
+
+        UIManager.Inst.OpenVisualNovelUI();
+        UIManager.Inst.OpenDialogueUI();
+
+        UIManager.Inst.CloseSkillUI();
     }
 
     private void InitButtons()
@@ -93,7 +133,7 @@ public class SkillUI : ViewBase
 
         if (isOn == true)
         {
-            _characterVM.GetSkill(skillID);
+            _natureSkill = skillID;
         }
 
         UpdateSlots();
@@ -131,7 +171,7 @@ public class SkillUI : ViewBase
 
             bool canCheck = data.CanGet;
             bool isAbandon = CheckAbandon(skillID);
-            bool isSelected = CheckSelect(_currentCategory, skillID);
+            bool isSelected = (_currentCategory == SkillCategory.Nature && skillID == _natureSkill) || CheckSelect(_currentCategory, skillID);
 
             bool canInteract;
             if (_currentCategory == SkillCategory.Nature)
@@ -154,7 +194,7 @@ public class SkillUI : ViewBase
 
             bool canCheck = data.CanGet;
             bool isAbandon = CheckAbandon(skillID);
-            bool isSelected = CheckSelect(_currentCategory, skillID);
+            bool isSelected = (_currentCategory == SkillCategory.Nature && skillID == _natureSkill) || CheckSelect(_currentCategory, skillID);
 
             bool canInteract;
             if (_currentCategory == SkillCategory.Nature)
@@ -168,6 +208,13 @@ public class SkillUI : ViewBase
 
             _rightSlots[i].SetSlot(skillName, isSelected, canInteract);
         }
+    }
+
+    private void AddNatureSkill()
+    {
+        _characterVM.GetSkill(_natureSkill);
+
+        SaveManager.Inst.PlayerModel.IsNewGame = false;
     }
 
     private bool CheckSelect(SkillCategory category, string skillID)

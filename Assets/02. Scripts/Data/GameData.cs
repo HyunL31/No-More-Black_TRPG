@@ -182,9 +182,9 @@ public class Dice : GameDataBase
     public string FailID;
     public string Opponent;
     public string Type;
-    public string TargetID;
-    public string CharacterID;
-    public bool IsPlus;
+    public string[] TrueTarget;
+    public string[] FalseTarget;
+    public string[] RelationType;
     public int EditValue;
     public string Result;
 }

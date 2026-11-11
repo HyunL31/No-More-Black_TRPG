@@ -44,12 +44,12 @@ public class CharacterModel
     public List<Relation> Relations = new List<Relation>();
 
     // 역량
-    public List<MajorType> SelectedMajor = new List<MajorType>();
-    public List<CareerType> SelectedCareer = new List<CareerType>();
-    public NatureType SelectedNature = NatureType.None;
-    public List<WisdomType> SelectedWisdom = new List<WisdomType>();
-    public List<MethodType> SelectedMethod = new List<MethodType>();
-    public List<ResistanceType> SelectedResistance = new List<ResistanceType>();
+    public List<string> SelectedMajor = new List<string>();
+    public List<string> SelectedCareer = new List<string>();
+    public string SelectedNature = "";
+    public List<string> SelectedWisdom = new List<string>();
+    public List<string> SelectedMethod = new List<string>();
+    public List<string> SelectedResistance = new List<string>();
 
     public List<SkillCategory> CategoryUnlock = new List<SkillCategory>();
 
@@ -74,30 +74,27 @@ public class CharacterModel
         Oblivion = character.Oblivion;
         Relations = character.GetRelations();
 
-        AddParsed(SelectedMajor, character.MajorCategory);
-        AddParsed(SelectedCareer, character.Career);
-        AddParsed(SelectedWisdom, character.Wisdom);
-        AddParsed(SelectedMethod, character.Method);
-        AddParsed(SelectedResistance, character.Resistance);
+        AddList(SelectedMajor, character.MajorCategory);
+        AddList(SelectedCareer, character.Career);
+        AddList(SelectedWisdom, character.Wisdom);
+        AddList(SelectedMethod, character.Method);
+        AddList(SelectedResistance, character.Resistance);
 
-        if (Enum.TryParse(character.Nature, out NatureType result))
-        {
-            SelectedNature = result;
-        }
+        SelectedNature = character.Nature;
 
         CategoryUnlock.Add(SkillCategory.Nature);
     }
 
-    private static void AddParsed<T>(List<T> list, string value) where T : struct
+    private static void AddList(List<string> list, string value)
     {
         if (string.IsNullOrEmpty(value))
         {
             return;
         }
 
-        if (Enum.TryParse<T>(value, out var parsed) && !list.Contains(parsed))
+        if (!list.Contains(value))
         {
-            list.Add(parsed);
+            list.Add(value);
         }
     }
 
@@ -186,106 +183,4 @@ public enum SkillCategory
     Wisdom,
     Method,
     Resistance
-}
-
-public enum MajorType
-{
-    None,
-    Medical,
-    Physics,
-    Astronomy,
-    Chemistry,
-    Biology,
-    History,
-    Economics,
-    Religion,
-    Arts,
-    Language,
-    Humanities,
-    Engineering
-}
-
-public enum CareerType
-{
-    None,
-    Repair,
-    Manufacturing,
-    Information,
-    Medical,
-    Agriculture,
-    Regeneration,
-    Construction,
-    Education,
-    Law,
-    Administration,
-    Driving,
-    Finance
-}
-
-public enum NatureType
-{
-    None,
-    Selfish,
-    Fragile,
-    Stubborn,
-    Vanity,
-    Suspicion,
-    Impulsive,
-    Pessimistic,
-    Hypocrisy,
-    Lethargy,
-    Greedy,
-    Control,
-    Cynical
-}
-
-public enum WisdomType
-{
-    None,
-    Negotiation,
-    Flattery,
-    Acting,
-    Incitement,
-    Intimidation,
-    Evasion,
-    Charm,
-    Brainwashing,
-    Slander,
-    BlameShifting,
-    Silence,
-    Tact
-}
-
-public enum MethodType
-{
-    None,
-    Combat,
-    Might,
-    Durability,
-    Agility,
-    Reflex,
-    Enhancement,
-    Sensation,
-    Perseverance,
-    Stealth,
-    Detection,
-    Dexterity,
-    Resourcefulness
-}
-
-public enum ResistanceType
-{
-    None,
-    Predation,
-    Parasitism,
-    Infection,
-    Mutation,
-    Hallucination,
-    Mental,
-    Death,
-    Space,
-    Time,
-    Void,
-    Divine,
-    Knowledge
 }

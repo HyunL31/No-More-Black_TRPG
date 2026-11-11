@@ -78,8 +78,7 @@ public class TitleUI : ViewBase
         PlayerModel player = SaveManager.Inst.RequestLoadData(date);
         SaveManager.Inst.RequestSaveData(player);
 
-        UIManager.Inst.OpenVisualNovelUI();
-        UIManager.Inst.OpenDialogueUI();
+        UIManager.Inst.OpenSkillUI();
         UIManager.Inst.CloseTitleUI();
     }
 

@@ -1,6 +1,10 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public enum DiceResult
@@ -28,6 +32,8 @@ public class DiceUI : ViewBase
 
     [SerializeField] private TextMeshProUGUI Text_PlayerDice;
     [SerializeField] private TextMeshProUGUI Text_PlayerResult;
+
+    [SerializeField] private TMP_Dropdown Dropdown_Skill;
 
     [Header("테스트용")]
     [SerializeField] private GameObject Panel_TestResult;
@@ -60,6 +66,7 @@ public class DiceUI : ViewBase
     private int _opponentDice;
 
     private DiceResult _diceResult;
+    private List<string> _skillID = new List<string>();
 
 
     private void Awake()
@@ -104,6 +111,7 @@ public class DiceUI : ViewBase
     private void OnClickDice()
     {
         RollNormalDice();
+        Dropdown_Skill.interactable = false;
     }
 
     private void OnClickFailDice()
@@ -138,6 +146,7 @@ public class DiceUI : ViewBase
     public void SetDiceID(string diceID)
     {
         _diceID = diceID;
+        InitDropdown();
     }
 
     public void SetOpponent()
@@ -154,6 +163,50 @@ public class DiceUI : ViewBase
 
         Text_OpponentTitle.text = $"{GameDataManager.Inst.GetData<Character>(opponent).Name} 다이스";
         Text_Opponent.text = $"상대 : {GameDataManager.Inst.GetData<Character>(opponent).Name}";
+    }
+
+    private void InitDropdown()
+    {
+        _characterVM.SetCurrentCharacter("Player_01");
+        _skillID.Clear();
+
+        if (GameDataManager.Inst.GetData<Dice>(_diceID).Type != "Skill")
+        {
+            Dropdown_Skill.gameObject.SetActive(false);
+            return;
+        }
+
+        Dropdown_Skill.interactable = true;
+        Dropdown_Skill.ClearOptions();
+
+        string natureSkill = GameDataManager.Inst.GetData<Skill>(_characterVM.CurrentCharacterModel.SelectedNature).Name;
+        Dropdown_Skill.options.Add(new TMP_Dropdown.OptionData(natureSkill));
+        _skillID.Add(_characterVM.CurrentCharacterModel.SelectedNature);
+        
+        SetSkillDropdown(_characterVM.CurrentCharacterModel.SelectedMajor);
+        SetSkillDropdown(_characterVM.CurrentCharacterModel.SelectedCareer);
+        SetSkillDropdown(_characterVM.CurrentCharacterModel.SelectedWisdom);
+        SetSkillDropdown(_characterVM.CurrentCharacterModel.SelectedMethod);
+        SetSkillDropdown(_characterVM.CurrentCharacterModel.SelectedResistance);
+
+        Dropdown_Skill.value = 0;
+        Dropdown_Skill.RefreshShownValue();
+    }
+
+    private void SetSkillDropdown(List<string> skills)
+    {
+        foreach (string skillID in skills)
+        {
+            Skill skill = GameDataManager.Inst.GetData<Skill>(skillID);
+
+            if (skill == null)
+            {
+                continue;
+            }
+
+            Dropdown_Skill.options.Add(new TMP_Dropdown.OptionData(skill.Name));
+            _skillID.Add(skillID);
+        }
     }
 
     private void RollNormalDice()
@@ -251,13 +304,14 @@ public class DiceUI : ViewBase
     {
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
 
-        if (data.Opponent == "System")
+        if (data.Opponent == "System" && isPlayer == false)
         {
             Text_OpponentEdit.text = "시스템: 적용 불가";
             return dice;
         }
 
         bool canEdit = false;
+        bool isBonus = false;
 
         if (isPlayer == false)
         {
@@ -267,62 +321,138 @@ public class DiceUI : ViewBase
         switch (data.Type)
         {
             case "Skill":
-                string skillID = data.TargetID;
-                Enum.TryParse(GameDataManager.Inst.GetData<Skill>(skillID).Category, out SkillCategory category);
+                string[] bonusSkill = data.TrueTarget;
+                string[] minusSkill = data.FalseTarget;
 
-                if (_characterVM.CheckSkill(category, skillID) == true)
+                if (isPlayer == true)
                 {
-                    canEdit = true;
+                    if (Dropdown_Skill.value >= 0 && Dropdown_Skill.value < _skillID.Count)
+                    {
+                        string selectedSkill = _skillID[Dropdown_Skill.value];
+
+                        if (bonusSkill.Contains(selectedSkill))
+                        {
+                            canEdit = true;
+                            isBonus = true;
+                        }
+                        else if (minusSkill.Contains(selectedSkill))
+                        {
+                            canEdit = true;
+                            isBonus = false;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (string skill in bonusSkill)
+                    {
+                        Enum.TryParse(GameDataManager.Inst.GetData<Skill>(skill).Category, out SkillCategory category);
+
+                        if (_characterVM.CheckSkill(category, skill) == true)
+                        {
+                            canEdit = true;
+                            isBonus = true;
+
+                            break;
+                        }
+                    }
+
+                    foreach (string skill in minusSkill)
+                    {
+                        Enum.TryParse(GameDataManager.Inst.GetData<Skill>(skill).Category, out SkillCategory category);
+
+                        if (_characterVM.CheckSkill(category, skill) == true)
+                        {
+                            canEdit = true;
+                            isBonus = false;
+
+                            break;
+                        }
+                    }
                 }
 
                 if (isPlayer)
                 {
-                    Text_PlayerEdit.text = $"보정 검사: Skill / {skillID}";
+                    Text_PlayerEdit.text = $"보정 검사: Skill";
                 }
                 else
                 {
-                    Text_OpponentEdit.text = $"보정 검사: Skill / {skillID}";
+                    Text_OpponentEdit.text = $"보정 검사: Skill";
                 }
 
                 break;
 
             case "Relation":
-                string targetID = data.TargetID;
-                Enum.TryParse(targetID, out RelationType relation);
+                string[] relations = data.RelationType;
 
-                string character = data.CharacterID;
+                string[] bonusCharacter = data.TrueTarget;
+                string[] minusCharacter = data.FalseTarget;
 
-                if (_characterVM.CurrentCharacterModel.GetRelation(character, relation) != null)
+                foreach (string relationName in relations)
                 {
-                    canEdit = true;
+                    Enum.TryParse(relationName, out RelationType relation);
+
+                    foreach (string target in bonusCharacter)
+                    {
+                        if (_characterVM.CurrentCharacterModel.GetRelation(target, relation) != null)
+                        {
+                            canEdit = true;
+                            isBonus = true;
+                            break;
+                        }
+                    }
+
+                    foreach (string target in minusCharacter)
+                    {
+                        if (_characterVM.CurrentCharacterModel.GetRelation(target, relation) != null)
+                        {
+                            canEdit = true;
+                            isBonus = false;
+                            break;
+                        }
+                    }
+
+                    if (canEdit == true)
+                    {
+                        break;
+                    }
                 }
 
                 if (isPlayer)
                 {
-                    Text_PlayerEdit.text = $"보정 검사: Relation / {targetID} / {character}";
+                    Text_PlayerEdit.text = $"보정 검사: Relation";
                 }
                 else
                 {
-                    Text_OpponentEdit.text = $"보정 검사: Relation / {targetID} / {character}";
+                    Text_OpponentEdit.text = $"보정 검사: Relation";
                 }
 
                 break;
 
             case "Ideology":
-                int ideology = int.Parse(data.TargetID);
+                string[] bonusIdeology = data.TrueTarget;
+                string[] minusIdeology = data.FalseTarget;
 
-                if (_characterVM.Ideology == ideology)
+                string currentIdeology = _characterVM.Ideology.ToString();
+
+                if (bonusIdeology.Contains(currentIdeology))
                 {
                     canEdit = true;
+                    isBonus = true;
+                }
+                else if (minusIdeology.Contains(currentIdeology))
+                {
+                    canEdit = true;
+                    isBonus = false;
                 }
 
                 if (isPlayer)
                 {
-                    Text_PlayerEdit.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
+                    Text_PlayerEdit.text = $"보정 검사: Ideology";
                 }
                 else
                 {
-                    Text_OpponentEdit.text = $"보정 검사: Ideology / {ideology} / {_characterVM.Ideology}";
+                    Text_OpponentEdit.text = $"보정 검사: Ideology";
                 }
 
                 break;
@@ -335,7 +465,7 @@ public class DiceUI : ViewBase
 
         if (canEdit == true)
         {
-            if (data.IsPlus == true)
+            if (isBonus == true)
             {
                 return dice + data.EditValue;
             }

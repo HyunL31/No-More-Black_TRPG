@@ -1,7 +1,7 @@
 [
   {
     "ID": "Player_01",
-    "Name": "{Player}",
+    "Name": "캡틴",
     "Gender": true,
     "Age": null,
     "Height": null,

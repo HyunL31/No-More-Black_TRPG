@@ -53,46 +53,22 @@ public class CharacterViewModel : ViewModelBase
         switch (category)
         {
             case SkillCategory.Major:
-                if (Enum.TryParse<MajorType>(skill.EnName, out var majorType))
-                {
-                    return CurrentCharacterModel.SelectedMajor.Contains(majorType);
-                }
-                break;
+                return CurrentCharacterModel.SelectedMajor.Contains(skillID);
 
             case SkillCategory.Career:
-                if (Enum.TryParse<CareerType>(skill.EnName, out var careerType))
-                {
-                    return CurrentCharacterModel.SelectedCareer.Contains(careerType);
-                }
-                break;
+                return CurrentCharacterModel.SelectedCareer.Contains(skillID);
 
             case SkillCategory.Nature:
-                if (Enum.TryParse<NatureType>(skill.EnName, out var natureType))
-                {
-                    return CurrentCharacterModel.SelectedNature == natureType;
-                }
-                break;
+                return CurrentCharacterModel.SelectedNature == skillID;
 
             case SkillCategory.Wisdom:
-                if (Enum.TryParse<WisdomType>(skill.EnName, out var wisdomType))
-                {
-                    return CurrentCharacterModel.SelectedWisdom.Contains(wisdomType);
-                }
-                break;
+                return CurrentCharacterModel.SelectedWisdom.Contains(skillID);
 
             case SkillCategory.Method:
-                if (Enum.TryParse<MethodType>(skill.EnName, out var methodType))
-                {
-                    return CurrentCharacterModel.SelectedMethod.Contains(methodType);
-                }
-                break;
+                return CurrentCharacterModel.SelectedMethod.Contains(skillID);
 
             case SkillCategory.Resistance:
-                if (Enum.TryParse<ResistanceType>(skill.EnName, out var resistanceType))
-                {
-                    return CurrentCharacterModel.SelectedResistance.Contains(resistanceType);
-                }
-                break;
+                return CurrentCharacterModel.SelectedResistance.Contains(skillID);
         }
         return false;
     }
@@ -172,30 +148,27 @@ public class CharacterViewModel : ViewModelBase
         switch (skill.Category)
         {
             case "Major":
-                AddEnum(model.SelectedMajor, skill.EnName);
+                AddList(model.SelectedMajor, skillID);
                 break;
             
             case "Career":
-                AddEnum(model.SelectedCareer, skill.EnName);
+                AddList(model.SelectedCareer, skillID);
                 break;
             
             case "Wisdom":
-                AddEnum(model.SelectedWisdom, skill.EnName);
+                AddList(model.SelectedWisdom, skillID);
                 break;
             
             case "Method":
-                AddEnum(model.SelectedMethod, skill.EnName);
+                AddList(model.SelectedMethod, skillID);
                 break;
             
             case "Resistance":
-                AddEnum(model.SelectedResistance, skill.EnName);
+                AddList(model.SelectedResistance, skillID);
                 break;
 
             case "Nature":
-                if (Enum.TryParse<NatureType>(skill.EnName, true, out var natureParsed))
-                {
-                    model.SelectedNature = natureParsed;
-                }
+                model.SelectedNature = skillID;
                 break;
         }
     }
@@ -208,11 +181,11 @@ public class CharacterViewModel : ViewModelBase
         }
     }
 
-    private static void AddEnum<T>(List<T> list, string value) where T : struct
+    private static void AddList(List<string> list, string value)
     {
-        if (Enum.TryParse<T>(value, out var parsed) && !list.Contains(parsed))
+        if (!list.Contains(value))
         {
-            list.Add(parsed);
+            list.Add(value);
         }
     }
 

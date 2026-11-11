@@ -5,9 +5,13 @@
     "FailID": "Dialogue_28",
     "Opponent": "System",
     "Type": "Skill",
-    "TargetID": "Skill_Method_4",
-    "CharacterID": null,
-    "IsPlus": true,
+    "TrueTarget": [
+      "Skill_Method_4"
+    ],
+    "FalseTarget": [
+      "Skill_Major_3"
+    ],
+    "RelationType": null,
     "EditValue": 1,
     "Result": "Stamina"
   },
@@ -17,9 +21,12 @@
     "FailID": "Dialogue_32",
     "Opponent": "Elysia_01",
     "Type": "Skill",
-    "TargetID": "Skill_Wisdom_1",
-    "CharacterID": null,
-    "IsPlus": true,
+    "TrueTarget": [
+      "Skill_Wisdom_1",
+      "Skill_Career_5"
+    ],
+    "FalseTarget": null,
+    "RelationType": null,
     "EditValue": 2,
     "Result": "Stamina"
   },
@@ -29,9 +36,13 @@
     "FailID": "Dialogue_36",
     "Opponent": "July_01",
     "Type": "Relation",
-    "TargetID": "Hostile",
-    "CharacterID": "Elysia_01",
-    "IsPlus": false,
+    "TrueTarget": [
+      "Elysia_01"
+    ],
+    "FalseTarget": null,
+    "RelationType": [
+      "Hostile"
+    ],
     "EditValue": 3,
     "Result": "Crazy"
   },
@@ -41,9 +52,11 @@
     "FailID": "Dialogue_40",
     "Opponent": "Taehyun_01",
     "Type": "Ideology",
-    "TargetID": "-1",
-    "CharacterID": null,
-    "IsPlus": true,
+    "TrueTarget": [
+      "-1"
+    ],
+    "FalseTarget": null,
+    "RelationType": null,
     "EditValue": 4,
     "Result": "Crazy"
   }
