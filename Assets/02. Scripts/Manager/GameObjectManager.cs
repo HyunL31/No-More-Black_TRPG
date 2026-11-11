@@ -17,6 +17,7 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
             InitPlayer();
         }
 
+        UIManager.Inst.OpenMainUI();
         UIManager.Inst.CloseDialogueUI();
         UIManager.Inst.CloseDialogueLog();
         UIManager.Inst.CloseVisualNovelUI();

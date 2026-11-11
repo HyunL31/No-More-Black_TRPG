@@ -34,11 +34,11 @@ public class CharacterState : MonoBehaviour
         CancelBlink();
     }
 
-    private void ChangeAnimation(string currentAnim)
+    private void ChangeAnimation(string currentAnim, bool loop)
     {
         if (_currentAnim != currentAnim && !string.IsNullOrEmpty(currentAnim))
         {
-            SkeletonGraphic.AnimationState.SetAnimation(0, currentAnim, true);
+            SkeletonGraphic.AnimationState.SetAnimation(0, currentAnim, loop);
             _currentAnim = currentAnim;
         }
 
@@ -88,10 +88,20 @@ public class CharacterState : MonoBehaviour
         _skeleton.SetSlotsToSetupPose();
     }
 
-    public void ApplyEmotion(string currentAnim, string currentSkin)
+    public void ApplyEmotion(string currentAnim, string currentSkin, bool loop = true)
     {
-        ChangeAnimation(currentAnim);
+        ChangeAnimation(currentAnim, loop);
         ChangeSkin(currentSkin);
+    }
+
+    public void PlayAnimOnce(string first, string second, string skin)
+    {
+        SkeletonGraphic.AnimationState.SetAnimation(0, first, false);
+        SkeletonGraphic.AnimationState.AddAnimation(0, second, true, 0f);
+
+        _currentAnim = second;
+
+        ChangeSkin(skin);
     }
 
     private async UniTask BlinkRoutine()

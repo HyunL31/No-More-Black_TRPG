@@ -10,6 +10,7 @@ public class ItemDetect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private GameObject _player;
     private bool _canInteract;
+    private bool _isCollected = false;
 
     private float _requireDis = 3f;
 
@@ -47,14 +48,27 @@ public class ItemDetect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return;
         }
 
-        // 아이템 추가
+        if (_isCollected == false)
+        {
+            if (SaveManager.Inst.PlayerModel.Inventory.ContainsKey(ItemID) == false)
+            {
+                SaveManager.Inst.PlayerModel.Inventory.Add(ItemID, 1);
+            }
+            else
+            {
+                SaveManager.Inst.PlayerModel.Inventory[ItemID]++;
+            }
+
+            SaveManager.Inst.PlayerModel.CollectedItem.Add(ItemID);
+
+            _isCollected = true;
+        }
+
         UIManager.Inst.OpenItemUI(ItemID);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("마우스 진입");
-
         if (_canInteract == true)
         {
             Cursor.SetCursor(Cursor_Clue, Vector2.zero, CursorMode.Auto);

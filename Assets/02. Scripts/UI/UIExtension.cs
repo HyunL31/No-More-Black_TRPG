@@ -38,7 +38,8 @@ public enum UIType
     PipeUI,
     WinPanel,
     FailPanel,
-    DiceUI
+    DiceUI,
+    MainUI
 }
 
 public static class UIExtension
@@ -317,5 +318,15 @@ public static class UIExtension
     public static void CloseDiceUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Popup, UIType.DiceUI);
+    }
+
+    public static void OpenMainUI(this UIManager uiManager)
+    {
+        uiManager.OpenUI(UIRoot.Main, UIType.MainUI);
+    }
+
+    public static void CloseMainUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Main, UIType.MainUI);
     }
 }
