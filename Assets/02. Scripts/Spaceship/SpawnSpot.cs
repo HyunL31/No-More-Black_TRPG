@@ -11,12 +11,26 @@ public class SpawnSpot : MonoBehaviour
     [SerializeField] private SpawnType SpawnType_Type;
     [SerializeField] private string String_SpawnID;
 
+    private bool _isEnter = false;
+
     private void OnTriggerEnter(Collider other)
     {
+        if (_isEnter == true)
+        {
+            return;
+        }
+
+        _isEnter = true;
+
         if (other.CompareTag("Player"))
         {
             StartSpawn();
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _isEnter = false;
     }
 
     private void StartSpawn()

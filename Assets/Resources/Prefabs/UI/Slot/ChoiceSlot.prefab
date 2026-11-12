@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817949143795495742}
   - component: {fileID: 8490471783721792630}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChoiceSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 304575875388203344}
   - component: {fileID: 7267538520598224122}
   - component: {fileID: 6036544314206246491}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 8590375862731473991}
   - component: {fileID: 4659577114753284327}
   - component: {fileID: 449006679878208654}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

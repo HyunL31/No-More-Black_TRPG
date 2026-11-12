@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1210843107284973848}
   - component: {fileID: 6269362002536604033}
   - component: {fileID: 2814392643598335346}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Character Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3200508729491817980}
   - component: {fileID: 1617324910448373783}
   - component: {fileID: 1932693762538332799}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5535030925207421819}
   - component: {fileID: 5269357627679632563}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PersonalEventUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5341623102861732093}
   - component: {fileID: 273386479598115909}
   - component: {fileID: 4771911247918822213}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Enter Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 1678297206236837791}
   - component: {fileID: 2821593966867911118}
   - component: {fileID: 3212921993986729861}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Room Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 4467052299258329118}
   - component: {fileID: 6649576059803109315}
   - component: {fileID: 5435882465599357365}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 8846053816491167201}
   - component: {fileID: 6422567848399023545}
   - component: {fileID: 7850320573442991682}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Script Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 6081702084446150913}
   - component: {fileID: 1559393887492149782}
   - component: {fileID: 7546520886839277244}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

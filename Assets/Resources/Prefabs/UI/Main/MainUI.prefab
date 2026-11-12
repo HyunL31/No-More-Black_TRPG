@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3453606803761365013}
   - component: {fileID: 8854249538956474924}
   - component: {fileID: 8713670795785411403}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6928297636025385802}
   - component: {fileID: 3349397110811851278}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 4897005830255492435}
   - component: {fileID: 8780069399944184734}
   - component: {fileID: 6390210857856907016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Inventory Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

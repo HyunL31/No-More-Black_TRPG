@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7003628318399680193}
   - component: {fileID: 5032989988277315175}
   - component: {fileID: 1663205675634639578}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Culprit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3007062658933406511}
   - component: {fileID: 1749345678397178905}
   - component: {fileID: 3939981288396504482}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hint Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7239422489173955765}
   - component: {fileID: 2922814463291840959}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PolygraphUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 6583569492293422272}
   - component: {fileID: 5300279291861524876}
   - component: {fileID: 2802905001946397359}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 2364054654522820394}
   - component: {fileID: 2157799048847456996}
   - component: {fileID: 4421267178461034436}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4564730167101625092}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 7997195921011064234}
   - component: {fileID: 3941153285962033347}
   - component: {fileID: 8940585623066102020}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Culprit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 9027690508770361441}
   - component: {fileID: 3602375397417054690}
   - component: {fileID: 5598227421835872434}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Culprit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 4948622123821521647}
   - component: {fileID: 8864740036953977618}
   - component: {fileID: 909198583573310997}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 822305223960579052}
   - component: {fileID: 8951811345536317685}
   - component: {fileID: 3708806863951247513}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Culprit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 7865853765442255302}
   - component: {fileID: 6094798856825531623}
   - component: {fileID: 7099194587307861698}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

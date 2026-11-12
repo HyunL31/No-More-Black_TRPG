@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5985290774729851056}
   - component: {fileID: 5246778331212268643}
   - component: {fileID: 2624759937733207804}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3112609722775420347}
   - component: {fileID: 1152228128350265623}
   - component: {fileID: 8664684977779230413}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Accept Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 8106672512892803264}
   - component: {fileID: 4183770156679403064}
   - component: {fileID: 1137532622529428165}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1518777805409459341}
   - component: {fileID: 8439412860391980042}
   - component: {fileID: 6042879056502434174}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 8634657966275579574}
   - component: {fileID: 1090841921302422455}
   - component: {fileID: 9072651149006460627}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Left Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 5736844374357609464}
   - component: {fileID: 1111972312426615249}
   - component: {fileID: 2276212085186426261}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Character Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 5590720765845110314}
   - component: {fileID: 866194004629660511}
   - component: {fileID: 3344809089289606803}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opinion Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 5670154882915091757}
   - component: {fileID: 1304830837857479155}
   - component: {fileID: 2016286726536053991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 67438591423147658}
   - component: {fileID: 1603980326503568033}
   - component: {fileID: 3413262405768936141}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ GameObject:
   - component: {fileID: 6586217755642146511}
   - component: {fileID: 5634739985638015507}
   - component: {fileID: 4737762938020243812}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opinion Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1183,7 @@ GameObject:
   - component: {fileID: 3207687678466592746}
   - component: {fileID: 6621553687452256007}
   - component: {fileID: 4215963691259682118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 2018553732842890180}
   - component: {fileID: 6569690136103619026}
   - component: {fileID: 8710698157695839369}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Right Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   - component: {fileID: 7885164934238030974}
   - component: {fileID: 3535860626997974553}
   - component: {fileID: 2824277278794911132}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reject Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1560,7 +1560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3811299008588378570}
   - component: {fileID: 7888999066465419828}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InspectorUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 6243624650004232997}
   - component: {fileID: 2822449639962036360}
   - component: {fileID: 2521063395809807460}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Info Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1702,7 +1702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3893176522677009789}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panorama
   m_TagString: Untagged
   m_Icon: {fileID: 0}

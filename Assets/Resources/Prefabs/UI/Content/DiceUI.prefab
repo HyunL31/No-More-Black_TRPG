@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9071639713574509005}
   - component: {fileID: 7880461674812293466}
   - component: {fileID: 6050831063505359944}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FailDice Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3470856147886837286}
   - component: {fileID: 7574688011900191427}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DiceUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 1116966918038514545}
   - component: {fileID: 8097240186981978652}
   - component: {fileID: 216783093070110689}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 8316355772016989491}
   - component: {fileID: 2895206653385050323}
   - component: {fileID: 2307750809468968988}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 767014914070770027}
   - component: {fileID: 2133008079648806904}
   - component: {fileID: 3992700917311325691}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 3429621001594090177}
   - component: {fileID: 5721448497382673919}
   - component: {fileID: 3128473718367127507}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 3517967417476375978}
   - component: {fileID: 1385732022823577294}
   - component: {fileID: 7826565907522914997}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Item Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 6847385229723294134}
   - component: {fileID: 2556261430936826850}
   - component: {fileID: 4111336794262679030}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opponent Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 2285118355186433512}
   - component: {fileID: 2921556495746044711}
   - component: {fileID: 5606636548703277456}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Item Checkmark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 9090323269393536879}
   - component: {fileID: 2459576276957304618}
   - component: {fileID: 7665614387733760423}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6049331318381041169}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opponent Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 4068982075960724902}
   - component: {fileID: 8639599187579223126}
   - component: {fileID: 5076765339104579960}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3772959769997817119}
   - component: {fileID: 2097677260948003942}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 8832514192464330706}
   - component: {fileID: 2438281562468992588}
   - component: {fileID: 8686709478263604435}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 5120278181983316285}
   - component: {fileID: 5925959699195591993}
   - component: {fileID: 3991488626722475922}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1521,7 @@ GameObject:
   - component: {fileID: 6597361433775903675}
   - component: {fileID: 6897767043887155123}
   - component: {fileID: 3864423960829256410}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opponent Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 437143049256328587}
   - component: {fileID: 2815233418741255607}
   - component: {fileID: 7288118052780542443}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dice Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 2028565478086858500}
   - component: {fileID: 3178805582663247540}
   - component: {fileID: 8604714422272568115}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dice Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 6861704261440816301}
   - component: {fileID: 1580389474974385004}
   - component: {fileID: 4389815463078439291}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2004,7 +2004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8594876615118855474}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2044,7 +2044,7 @@ GameObject:
   - component: {fileID: 5482170765913360672}
   - component: {fileID: 2549812920219357478}
   - component: {fileID: 123382777191029732}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2180,7 +2180,7 @@ GameObject:
   - component: {fileID: 1420262966620311310}
   - component: {fileID: 6695480501160426778}
   - component: {fileID: 1584626398872299358}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2316,7 +2316,7 @@ GameObject:
   - component: {fileID: 1876869918646176575}
   - component: {fileID: 2488053105416010263}
   - component: {fileID: 4555167270958107861}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Item Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,7 +2453,7 @@ GameObject:
   - component: {fileID: 3090718845579115504}
   - component: {fileID: 14995357544715001}
   - component: {fileID: 3951277846821988821}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2572,7 +2572,7 @@ GameObject:
   - component: {fileID: 7193697816162324612}
   - component: {fileID: 3470408999545168627}
   - component: {fileID: 5844197732827428744}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Edit Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2708,7 +2708,7 @@ GameObject:
   - component: {fileID: 7542985755263659535}
   - component: {fileID: 6483681244111604359}
   - component: {fileID: 5230952571468857004}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Dice Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2844,7 +2844,7 @@ GameObject:
   - component: {fileID: 4857897834122684498}
   - component: {fileID: 3925606261956799319}
   - component: {fileID: 2685646756991549117}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opponent Dice Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2980,7 +2980,7 @@ GameObject:
   - component: {fileID: 859304294008427633}
   - component: {fileID: 5446282117633773481}
   - component: {fileID: 1584103087388866319}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Opponent Edit Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3117,7 +3117,7 @@ GameObject:
   - component: {fileID: 7091651820694612135}
   - component: {fileID: 8568397135567566273}
   - component: {fileID: 1258921490268455156}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3242,7 +3242,7 @@ GameObject:
   - component: {fileID: 6424343840649167826}
   - component: {fileID: 6617901264102146650}
   - component: {fileID: 1368967817325645604}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Result Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3376,7 +3376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6439534356153360378}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Result Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3412,7 +3412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4222737995328661551}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3451,7 +3451,7 @@ GameObject:
   - component: {fileID: 6880271995038808265}
   - component: {fileID: 3459461128768636822}
   - component: {fileID: 5541794109644246085}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Result Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3571,7 +3571,7 @@ GameObject:
   - component: {fileID: 4278222829846874498}
   - component: {fileID: 7477003807528504998}
   - component: {fileID: 6486099984108401161}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3646,7 +3646,7 @@ GameObject:
   - component: {fileID: 52429327596072890}
   - component: {fileID: 6763944714040935816}
   - component: {fileID: 4180404194188816242}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dice Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3723,7 +3723,7 @@ GameObject:
   - component: {fileID: 317280226916611542}
   - component: {fileID: 5088962790386863057}
   - component: {fileID: 4165554454205642590}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3809,7 +3809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8799944151559899139}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3847,7 +3847,7 @@ GameObject:
   - component: {fileID: 5912714889490417850}
   - component: {fileID: 2023570616635487325}
   - component: {fileID: 405973267158318623}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3984,7 +3984,7 @@ GameObject:
   - component: {fileID: 806985469297917105}
   - component: {fileID: 3826943124295868215}
   - component: {fileID: 5116497852503428373}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4092,7 +4092,7 @@ GameObject:
   - component: {fileID: 5461211983682198513}
   - component: {fileID: 1407710660495184144}
   - component: {fileID: 3671370004122808941}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NormalDice Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4212,7 +4212,7 @@ GameObject:
   - component: {fileID: 8306140315169644926}
   - component: {fileID: 3379897237088371406}
   - component: {fileID: 7553235747791061137}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dice Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4348,7 +4348,7 @@ GameObject:
   - component: {fileID: 6224594611076046654}
   - component: {fileID: 2901799135866290442}
   - component: {fileID: 5288307589688240070}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fail Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4484,7 +4484,7 @@ GameObject:
   - component: {fileID: 5572166193089269809}
   - component: {fileID: 5139136997481263366}
   - component: {fileID: 2140970960982838625}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Result Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4620,7 +4620,7 @@ GameObject:
   - component: {fileID: 1111763974538812663}
   - component: {fileID: 3389475819889131163}
   - component: {fileID: 3094956789210812032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4756,7 +4756,7 @@ GameObject:
   - component: {fileID: 7898733768703871585}
   - component: {fileID: 7726089335610847564}
   - component: {fileID: 8259423766582197015}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fail Apply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4892,7 +4892,7 @@ GameObject:
   - component: {fileID: 1904894928976238938}
   - component: {fileID: 6503063707020678767}
   - component: {fileID: 5108411193526514149}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4968,7 +4968,7 @@ GameObject:
   - component: {fileID: 5286833045872800996}
   - component: {fileID: 1567410581284754218}
   - component: {fileID: 4547705853722844466}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,7 +5104,7 @@ GameObject:
   - component: {fileID: 4170884194065082520}
   - component: {fileID: 2476532652480424782}
   - component: {fileID: 3981005087444058079}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,7 +5240,7 @@ GameObject:
   - component: {fileID: 400660711604994286}
   - component: {fileID: 6430665919998438677}
   - component: {fileID: 4084881679634424182}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5322,7 +5322,7 @@ GameObject:
   - component: {fileID: 154449814300237888}
   - component: {fileID: 3519837241572519276}
   - component: {fileID: 2641252028702644173}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}

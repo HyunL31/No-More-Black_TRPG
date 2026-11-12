@@ -117,8 +117,6 @@ public class DiceUI : ViewBase
     {
         _playerDiceController.OnRollComplete -= CompleteDiceRoll;
         _opponentDiceController.OnRollComplete -= CompleteDiceRoll;
-
-        Camera.main.orthographic = false;
     }
 
     private void OnClickDice()
@@ -189,8 +187,6 @@ public class DiceUI : ViewBase
 
         _playerDiceController.OnRollComplete += CompleteDiceRoll;
         _opponentDiceController.OnRollComplete += CompleteDiceRoll;
-
-        Camera.main.orthographic = true;
     }
 
     private void InitDropdown()

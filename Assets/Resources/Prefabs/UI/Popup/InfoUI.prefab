@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3890482571599924068}
   - component: {fileID: 4615764562043738492}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4393152191544899325}
   - component: {fileID: 4526067177626109320}
   - component: {fileID: 3451778690917532081}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Info Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4209072047336625242}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Select Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1884482704656544714}
   - component: {fileID: 6446445546057485663}
   - component: {fileID: 7393368581857513335}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1018009192032195339}
   - component: {fileID: 3834364490143098021}
   - component: {fileID: 3890342138204649775}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 2969127779967267216}
   - component: {fileID: 3926411489570174520}
   - component: {fileID: 6324940549751661938}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 4684231357647692008}
   - component: {fileID: 749996915916204490}
   - component: {fileID: 7440872653732538145}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   - component: {fileID: 299289796401821504}
   - component: {fileID: 3161123083040726992}
   - component: {fileID: 2964771274644246103}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Accept Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 4377840684773767157}
   - component: {fileID: 382134352299980547}
   - component: {fileID: 5472509762019359}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 3188671891255351107}
   - component: {fileID: 7411172002949711584}
   - component: {fileID: 201925878304607185}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reject Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 2266491991250589370}
   - component: {fileID: 7131848728723504629}
   - component: {fileID: 5601315164112959229}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

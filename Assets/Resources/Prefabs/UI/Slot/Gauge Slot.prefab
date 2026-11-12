@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3931670855231092462}
   - component: {fileID: 8987257261784969370}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Gauge Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 6154407757550976058}
   - component: {fileID: 7535687906089209000}
   - component: {fileID: 2275757221783496902}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Gauge Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 8190446539945488400}
   - component: {fileID: 6524823677594266239}
   - component: {fileID: 3955348981460982157}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Gauge Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

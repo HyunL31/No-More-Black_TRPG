@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4895688314675152895}
   - component: {fileID: 6531295966133730180}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DialogueSlot_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 6537290434257160755}
   - component: {fileID: 8702148739288045465}
   - component: {fileID: 3581441291414693238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5121941633651874950}
   - component: {fileID: 9011615493354635707}
   - component: {fileID: 5543056167511830400}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 3302271995044041543}
   - component: {fileID: 7707323173543350469}
   - component: {fileID: 6151616062722283504}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

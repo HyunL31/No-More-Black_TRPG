@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6624557507873249522}
   - component: {fileID: 4188367441507872426}
   - component: {fileID: 7030455082063105133}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9220576930293716935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7141349676010556483}
   - component: {fileID: 3065401303417288428}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WaveUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 5051824548912613759}
   - component: {fileID: 576890178307511248}
   - component: {fileID: 1410686144631223215}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 5876799811164612639}
   - component: {fileID: 2772376610491090897}
   - component: {fileID: 1041923747477730721}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 994632820272135295}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 8485744827594520702}
   - component: {fileID: 4422463636892329854}
   - component: {fileID: 8358368588800886587}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5225715370361600869}
   - component: {fileID: 7828743803503336183}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 7950918123823962186}
   - component: {fileID: 5339783638090942110}
   - component: {fileID: 4176638782886528484}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

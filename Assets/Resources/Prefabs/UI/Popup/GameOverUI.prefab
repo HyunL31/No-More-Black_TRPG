@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553794081937238611}
   - component: {fileID: 1892932037878844001}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1854888406381664505}
   - component: {fileID: 8381024126648942713}
   - component: {fileID: 1455141533879396524}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1778545059821796350}
   - component: {fileID: 6065023430084739059}
   - component: {fileID: 7896510534119831545}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2141189312544899504}
   - component: {fileID: 6321441627928596688}
   - component: {fileID: 2908556270951319486}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 9126026577952932876}
   - component: {fileID: 4916564178551911187}
   - component: {fileID: 1067462267999166068}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Date Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 4018763834318106408}
   - component: {fileID: 237705671273092714}
   - component: {fileID: 7685721513452242540}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Thumnail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 1232721578931495565}
   - component: {fileID: 5118336233497786180}
   - component: {fileID: 7205202359775390823}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Select Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 1250916790659623748}
   - component: {fileID: 4293191377892176745}
   - component: {fileID: 2888403815984970042}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Delete Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412802364535513884}
   - component: {fileID: 8840298752360277916}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SaveSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 1063384377893274866}
   - component: {fileID: 2719754650740813005}
   - component: {fileID: 7524615327621981422}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

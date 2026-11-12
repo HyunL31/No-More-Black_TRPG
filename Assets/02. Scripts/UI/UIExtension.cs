@@ -81,11 +81,15 @@ public static class UIExtension
 
     public static void OpenVisualNovelUI(this UIManager uiManager)
     {
+        GameObjectManager.Inst.CloseMap();
+
         uiManager.OpenUI(UIRoot.Content, UIType.VisualNovelUI);
     }
 
     public static void CloseVisualNovelUI(this UIManager uiManager)
     {
+        GameObjectManager.Inst.InitMap();
+
         uiManager.CloseUI(UIRoot.Content, UIType.VisualNovelUI);
     }
 

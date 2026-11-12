@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7292733415539519034}
   - component: {fileID: 3205610370879722032}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ChoiceUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 6024474417679258829}
   - component: {fileID: 2529936989964904323}
   - component: {fileID: 5491932451370492672}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2959722727275139810}
   - component: {fileID: 707194879986032611}
   - component: {fileID: 2975114384621721740}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 4438080811802849176}
   - component: {fileID: 6310308393584077038}
   - component: {fileID: 7708499142538306888}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

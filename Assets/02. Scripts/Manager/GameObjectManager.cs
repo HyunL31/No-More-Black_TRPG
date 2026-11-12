@@ -11,6 +11,7 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
     [SerializeField] private GameObject Player;
 
     private GameObject _spaceship;
+    private GameObject _player;
     private DiceController _playerDice;
     private DiceController _opponentDice;
 
@@ -19,22 +20,27 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
         if (_spaceship == null)
         {
             _spaceship = Instantiate(SpaceshipMap);
-            InitPlayer();
+        }
+        else
+        {
+            _spaceship.SetActive(true);
         }
 
-        UIManager.Inst.OpenMainUI();
-        UIManager.Inst.CloseDialogueUI();
-        UIManager.Inst.CloseDialogueLog();
-        UIManager.Inst.CloseVisualNovelUI();
-        UIManager.Inst.CloseBackground();
-
-        UIManager.Inst.OpenMainUI();
+        InitPlayer();
     }
 
     private void InitPlayer()
     {
-        Player = Instantiate(Player);
-        Camera_Cinemachine.Target.TrackingTarget = Player.transform;
+        if (_player == null)
+        {
+            _player = Instantiate(Player);
+        }
+        else
+        {
+            _player.SetActive(true);
+        }
+
+        Camera_Cinemachine.Target.TrackingTarget = _player.transform;
     }
 
     public DiceController InitPlayerDice()
@@ -73,7 +79,20 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
 
     public GameObject GetPlayer()
     {
-        return Player;
+        return _player;
+    }
+
+    public void CloseMap()
+    {
+        if (_player == null || _spaceship == null)
+        {
+            return;
+        }
+
+        UIManager.Inst.CloseMainUI();
+
+        _player.SetActive(false);
+        _spaceship.SetActive(false);
     }
 
     public Camera GetDiceCamera()

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4231218821153948445}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 8604689084035384903}
   - component: {fileID: 4534871795461439872}
   - component: {fileID: 4486331366634316138}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cold Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 2306570423942977459}
   - component: {fileID: 3410021556371561246}
   - component: {fileID: 7199314347078168320}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 7598275756897926755}
   - component: {fileID: 4966985003671573418}
   - component: {fileID: 1620723672360074461}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 1481749441276616224}
   - component: {fileID: 6696999265144481169}
   - component: {fileID: 7359579644589499467}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fuel Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 6514761295430840250}
   - component: {fileID: 8988901261065852560}
   - component: {fileID: 1189486066521645567}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Oxygen Dial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200979010900429887}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 7589881319753236911}
   - component: {fileID: 4378346383516681442}
   - component: {fileID: 5899304237067760863}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +738,7 @@ GameObject:
   - component: {fileID: 1420277582725888125}
   - component: {fileID: 4424791013654281115}
   - component: {fileID: 219409868334223440}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 8305995173544630995}
   - component: {fileID: 4214756559216683095}
   - component: {fileID: 6043384387442149566}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Confirm Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 7972206189401615151}
   - component: {fileID: 5501114501855451680}
   - component: {fileID: 7536422861036424991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cold Dial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 9042567357092021998}
   - component: {fileID: 5791661877180915022}
   - component: {fileID: 9083013326559763640}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fuel Dial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1112,7 @@ GameObject:
   - component: {fileID: 7344385350328373550}
   - component: {fileID: 3789816875823378378}
   - component: {fileID: 84812216215703528}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Oxygen Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 1317492152568221383}
   - component: {fileID: 5827198041398532022}
   - component: {fileID: 8797728677056487853}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cold Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 5838071703692890841}
   - component: {fileID: 2319574844431219553}
   - component: {fileID: 9099940442619328404}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 2033388527514645095}
   - component: {fileID: 5829145777859319488}
   - component: {fileID: 3837409154743154126}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Oxygen Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1475,7 @@ GameObject:
   - component: {fileID: 4229768585197381875}
   - component: {fileID: 5695328151079178708}
   - component: {fileID: 2237019740078510843}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fuel Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1549,7 +1549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135692290378749708}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Gauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9009008426451069429}
   - component: {fileID: 8320541686356545964}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PressureUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
