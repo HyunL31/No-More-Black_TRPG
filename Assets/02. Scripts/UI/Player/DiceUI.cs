@@ -1,10 +1,8 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public enum DiceResult
@@ -52,6 +50,9 @@ public class DiceUI : ViewBase
 
     private CharacterViewModel _characterVM;
 
+    private DiceController _playerDiceController;
+    private DiceController _opponentDiceController;
+    private bool _isRolling = false;
     private bool _canClose = false;
 
     private string _diceID;
@@ -89,6 +90,8 @@ public class DiceUI : ViewBase
         Button_NormalDice.gameObject.SetActive(true);
         Button_FailDice.gameObject.SetActive(false);
 
+        _isRolling = false;
+
         Text_OpponentDice.text = "";
         Text_OpponentResult.text = "";
         Text_PlayerDice.text = "";
@@ -106,6 +109,16 @@ public class DiceUI : ViewBase
         Text_PlayerFinal.text = "";
         Text_FailResult.text = "";
         Text_FailApply.text = "";
+
+        InitDiceObject();
+    }
+
+    private void OnDisable()
+    {
+        _playerDiceController.OnRollComplete -= CompleteDiceRoll;
+        _opponentDiceController.OnRollComplete -= CompleteDiceRoll;
+
+        Camera.main.orthographic = false;
     }
 
     private void OnClickDice()
@@ -123,6 +136,7 @@ public class DiceUI : ViewBase
     {
         if (_canClose == true)
         {
+            GameObjectManager.Inst.CloseDice();
             UIManager.Inst.OpenDialogueUI();
             UIManager.Inst.CloseDiceUI();
         }
@@ -134,6 +148,7 @@ public class DiceUI : ViewBase
 
     private void OnClickResult()
     {
+        GameObjectManager.Inst.CloseDice();
         Panel_TestResult.gameObject.SetActive(true);
         Text_Boost.text = $"고양 상태 여부: {_boost}";
     }
@@ -141,6 +156,8 @@ public class DiceUI : ViewBase
     private void OnClickTestClose()
     {
         Panel_TestResult.gameObject.SetActive(false);
+        GameObjectManager.Inst.InitPlayerDice();
+        GameObjectManager.Inst.InitOpponentDice();
     }
 
     public void SetDiceID(string diceID)
@@ -163,6 +180,17 @@ public class DiceUI : ViewBase
 
         Text_OpponentTitle.text = $"{GameDataManager.Inst.GetData<Character>(opponent).Name} 다이스";
         Text_Opponent.text = $"상대 : {GameDataManager.Inst.GetData<Character>(opponent).Name}";
+    }
+
+    private void InitDiceObject()
+    {
+        _playerDiceController = GameObjectManager.Inst.InitPlayerDice();
+        _opponentDiceController = GameObjectManager.Inst.InitOpponentDice();
+
+        _playerDiceController.OnRollComplete += CompleteDiceRoll;
+        _opponentDiceController.OnRollComplete += CompleteDiceRoll;
+
+        Camera.main.orthographic = true;
     }
 
     private void InitDropdown()
@@ -211,11 +239,26 @@ public class DiceUI : ViewBase
 
     private void RollNormalDice()
     {
+        if (_isRolling)
+        {
+            return;
+        }
+
+        _isRolling = true;
+
         _playerOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
         _opponentOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
 
         _playerDice = EditDice(_playerOriginDice, true);
         _opponentDice = EditDice(_opponentOriginDice, false);
+
+        _playerDiceController.Roll(_playerOriginDice);
+        _opponentDiceController.Roll(_opponentOriginDice);
+    }
+
+    private void CompleteDiceRoll()
+    {
+        _isRolling = false;
 
         Text_PlayerOriginDice.text = $"플레이어 원래 다이스: {_playerOriginDice}";
         Text_OpponentOriginDice.text = $"상대방 원래 다이스: {_opponentOriginDice}";

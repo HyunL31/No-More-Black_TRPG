@@ -198,6 +198,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &207641668 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2549827228019976589, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+  m_PrefabInstance: {fileID: 7669137345668697161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &828300155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 225601105661703917, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
@@ -235,6 +240,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!20 &828300165 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4628428897623272635, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+  m_PrefabInstance: {fileID: 8988275862575387021}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1000496153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6398894109415043889, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
@@ -252,9 +262,33 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1507840533207618278, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 1507840533207618278, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549827228019976589, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 2549827228019976589, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033575427660568996, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 3033575427660568996, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033575427660568996, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3448351618067771824, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -297,16 +331,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3455092251181563789, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 3455092251181563789, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455092251181563789, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3483663427964037291, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4135222389965795889, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 4135222389965795889, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135222389965795889, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5591481585937820956, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -321,16 +379,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3259953725484289647, guid: 8eb4f9f5010752840aaacc22b3ae9b94, type: 3}
     - target: {fileID: 6307670010712658335, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: Camera_Dice
+      value: 
+      objectReference: {fileID: 828300165}
+    - target: {fileID: 6307670010712658335, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: Prefab_Dice
+      value: 
+      objectReference: {fileID: 385680950455965192, guid: a872e834643a0dd4e9f78a5ae9ce16d4, type: 3}
+    - target: {fileID: 6307670010712658335, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: Prefab_PlayerDice
+      value: 
+      objectReference: {fileID: 385680950455965192, guid: a872e834643a0dd4e9f78a5ae9ce16d4, type: 3}
+    - target: {fileID: 6307670010712658335, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: Camera_Cinemachine
       value: 
       objectReference: {fileID: 8988275862575387022}
+    - target: {fileID: 6307670010712658335, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: Prefab_OpponentDice
+      value: 
+      objectReference: {fileID: 385680950455965192, guid: 9b2d8fdd85656994c98d000cf5cbb323, type: 3}
+    - target: {fileID: 6387302957760432938, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
+      propertyPath: Canvas_Background
+      value: 
+      objectReference: {fileID: 207641668}
     - target: {fileID: 7406697357235279607, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4255462690511620498, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3337700531304147703, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0eb2b20410cc524da63c82599ebcbf2, type: 3}
@@ -387,12 +466,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4628428897623272635, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628428897623272635, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
       propertyPath: field of view
       value: 63.10332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801684361244817319, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911866813022820487, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6398894109415043889, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897043289295927325, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8826320376186979567, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,7 +517,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3569552807665426904, guid: 4aee0a432448dd94eaf37d11a7161ecc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

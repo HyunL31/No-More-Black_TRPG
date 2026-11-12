@@ -81,12 +81,12 @@ public static class UIExtension
 
     public static void OpenVisualNovelUI(this UIManager uiManager)
     {
-        uiManager.OpenUI(UIRoot.Main, UIType.VisualNovelUI);
+        uiManager.OpenUI(UIRoot.Content, UIType.VisualNovelUI);
     }
 
     public static void CloseVisualNovelUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Main, UIType.VisualNovelUI);
+        uiManager.CloseUI(UIRoot.Content, UIType.VisualNovelUI);
     }
 
     public static void OpenDialogueUI(this UIManager uiManager)
@@ -306,7 +306,7 @@ public static class UIExtension
 
     public static void OpenDiceUI(this UIManager uiManager, string diceID)
     {
-        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.DiceUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Content, UIType.DiceUI);
 
         if (uiBase is DiceUI diceUI)
         {
@@ -317,7 +317,7 @@ public static class UIExtension
 
     public static void CloseDiceUI(this UIManager uiManager)
     {
-        uiManager.CloseUI(UIRoot.Popup, UIType.DiceUI);
+        uiManager.CloseUI(UIRoot.Content, UIType.DiceUI);
     }
 
     public static void OpenMainUI(this UIManager uiManager)
