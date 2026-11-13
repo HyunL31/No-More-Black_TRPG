@@ -4,8 +4,11 @@ using UnityEngine;
 public class RadarUI : ViewBase
 {
     [SerializeField] private Transform Transform_Scanner;
-    [SerializeField] private Transform Transform_Parent;
+    [SerializeField] private RectTransform Rect_Frame;
     [SerializeField] private RedSpot Prefab_RedSpot;
+
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Timer_Limit;
 
     private ObjectPooling<RedSpot> _spotPool;
     private List<RedSpot> _activeSpot = new List<RedSpot>();
@@ -18,14 +21,22 @@ public class RadarUI : ViewBase
 
     private void Awake()
     {
-        _spotPool = new ObjectPooling<RedSpot>(Prefab_RedSpot, Transform_Parent, 10, 30);
-        _center = Transform_Parent.position;
+        _spotPool = new ObjectPooling<RedSpot>(Prefab_RedSpot, Rect_Frame, 10, 30);
+        _center = Rect_Frame.position;
     }
 
     private void OnEnable()
     {
         InitTarget();
         _removeCount = 0;
+
+        Timer.OnTimeOver += OnTimeOver;
+        Timer.StartTimer(Timer_Limit);
+    }
+
+    private void OnDisable()
+    {
+        Timer.OnTimeOver -= OnTimeOver;
     }
 
     private void Update()
@@ -42,12 +53,26 @@ public class RadarUI : ViewBase
     {
         ClearTarget();
 
+        Rect rect = Rect_Frame.rect;
+
+        float radiusX = rect.width * 0.5f;
+        float radiusY = rect.height * 0.5f;
+
+        float radius = Mathf.Min(radiusX, radiusY) - 30f;
+
         for (int i = 0; i < _targetNum; i++)
         {
-            Vector2 rand = Random.insideUnitCircle * 400;
-
             RedSpot spot = _spotPool.Get();
-            spot.transform.position = _center + rand;
+            RectTransform spotRect = spot.GetRectSpot();
+
+            float halfWidth = spotRect.rect.width * 0.5f;
+            float halfHeight = spotRect.rect.height * 0.5f;
+
+            float maxRadius = radius - Mathf.Max(halfWidth, halfHeight);
+
+            Vector2 randomPos = Random.insideUnitCircle * maxRadius;
+
+            spotRect.anchoredPosition = randomPos;
 
             _activeSpot.Add(spot);
         }
@@ -91,5 +116,10 @@ public class RadarUI : ViewBase
         }
 
         _activeSpot.Clear();
+    }
+
+    private void OnTimeOver()
+    {
+        UIManager.Inst.OpenFailPanel();
     }
 }

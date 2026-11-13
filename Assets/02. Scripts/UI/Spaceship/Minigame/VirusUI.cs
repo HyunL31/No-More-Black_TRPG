@@ -1,68 +1,38 @@
-﻿using Cysharp.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
-public class VirusUI : MonoBehaviour
+public class VirusUI : ViewBase
 {
-    [SerializeField] private VirusSlot Prefab_Slot;
-    [SerializeField] private Transform Transform_Parent;
-    [SerializeField] private ScrollRect Scroll_Rect;
-    [SerializeField] private float Speed_Slot;
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Timer_Limit;
 
-    private ObjectPooling<VirusSlot> _virusPool;
-    private readonly List<VirusSlot> _activeSlots = new List<VirusSlot>();
-
-    private int _currentAnswer;
-
-    private void Awake()
-    {
-        _virusPool = new ObjectPooling<VirusSlot>(Prefab_Slot, Transform_Parent, 30, 100);
-    }
+    private int _currentAnswer = 0;
+    private int _answerNum = 5;
 
     private void OnEnable()
     {
-        ClearVirusSlot();
+        _currentAnswer = 0;
 
-        PritLog().Forget();
+        Timer.OnTimeOver += OnTimeOver;
+        Timer.StartTimer(Timer_Limit);
     }
 
-    private async UniTask PritLog()
+    private void OnDisable()
     {
-        while (true)
+        Timer.OnTimeOver -= OnTimeOver;
+    }
+
+    public void AddAnswerCount()
+    {
+        _currentAnswer++;
+
+        if (_currentAnswer >= _answerNum)
         {
-            ShowLog();
-
-            Canvas.ForceUpdateCanvases();
-            Scroll_Rect.verticalNormalizedPosition = 0f;
-
-            await UniTask.Delay(TimeSpan.FromSeconds(Speed_Slot));
+            UIManager.Inst.OpenWinPanel();
         }
     }
 
-    private void ShowLog()
+    private void OnTimeOver()
     {
-        int random = Random.Range(1, 31);
-
-        VirusSlot slot = _virusPool.Get();
-        slot.SetVirusID($"Virus_{random}");
-        slot.SetText(AddAnswerCount);
-    }
-
-    private void ClearVirusSlot()
-    {
-        foreach (VirusSlot slot in _activeSlots)
-        {
-            _virusPool.Release(slot);
-        }
-
-        _activeSlots.Clear();
-    }
-
-    private int AddAnswerCount()
-    {
-        return ++_currentAnswer;
+        UIManager.Inst.OpenFailPanel();
     }
 }

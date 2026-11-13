@@ -16,6 +16,9 @@ public class GermUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_Name;
     [SerializeField] private TextMeshProUGUI Text_Description;
 
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Time_Limit;
+
     private int _quizNum = 5;
     private int _currentQuiz = 0;
     private List<int> _quizList = new List<int>();
@@ -38,9 +41,20 @@ public class GermUI : ViewBase
 
     private void OnEnable()
     {
+        _currentQuiz = 0;
+        _dictionaryIndex = 0;
+
         SetQuizIndex();
         SetQuizImage(_quizList[_currentQuiz]).Forget();
         SetDictionary(_dictionaryIndex + 1).Forget();
+
+        Timer.OnTimeOver += OnTimeOver;
+        Timer.StartTimer(Time_Limit);
+    }
+
+    private void OnDisable()
+    {
+        Timer.OnTimeOver -= OnTimeOver;
     }
 
     private void OnClickAccept()
@@ -150,5 +164,10 @@ public class GermUI : ViewBase
     private bool CheckAnswer(int index)
     {
         return _germList[index - 1].Answer;
+    }
+
+    private void OnTimeOver()
+    {
+        UIManager.Inst.OpenFailPanel();
     }
 }

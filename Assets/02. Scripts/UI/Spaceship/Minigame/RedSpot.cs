@@ -1,16 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RedSpot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] RectTransform Rect_Spot;
 
-    // Update is called once per frame
-    void Update()
+    public RectTransform GetRectSpot()
     {
-        
+        return Rect_Spot;
     }
 }

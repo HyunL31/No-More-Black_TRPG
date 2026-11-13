@@ -6,6 +6,9 @@ public class WaveUI : ViewBase
 {
     [SerializeField] private Slider Slider_Wave;
     [SerializeField] private Button Button_Confirm;
+
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Timer_Limit;
     
     private WaveRenderer _waveRenderer;
 
@@ -27,6 +30,9 @@ public class WaveUI : ViewBase
     {
         UIManager.Inst.CloseBackground();
         InitWave().Forget();
+
+        Timer.OnTimeOver += OnClickConfirm;
+        Timer.StartTimer(Timer_Limit);
     }
 
     private void OnDisable()
@@ -37,6 +43,8 @@ public class WaveUI : ViewBase
         {
             _waveRenderer.gameObject.SetActive(false);
         }
+
+        Timer.OnTimeOver -= OnClickConfirm;
     }
     
     private void OnClickConfirm()

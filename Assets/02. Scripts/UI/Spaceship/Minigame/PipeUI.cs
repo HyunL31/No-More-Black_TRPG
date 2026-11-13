@@ -20,6 +20,9 @@ public class PipeUI : ViewBase
     [SerializeField] private float _spacing = 100f;
     [SerializeField] private Button Button_Confirm;
 
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Timer_Limit;
+
     private int _width = 8;
     private int _height = 4;
 
@@ -41,6 +44,17 @@ public class PipeUI : ViewBase
     private void Start()
     {
         GenerateMap();
+    }
+
+    private void OnEnable()
+    {
+        Timer.OnTimeOver += OnClickConfirm;
+        Timer.StartTimer(Timer_Limit);
+    }
+
+    private void OnDisable()
+    {
+        Timer.OnTimeOver -= OnClickConfirm;
     }
 
     private void OnClickConfirm()

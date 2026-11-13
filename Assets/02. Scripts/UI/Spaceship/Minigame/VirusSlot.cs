@@ -8,7 +8,7 @@ public class VirusSlot : MonoBehaviour
     [SerializeField] private Button Button_Reject;
     [SerializeField] private TextMeshProUGUI Text_Log;
 
-    private Func<int> _onAddAnswer;
+    private Action _onAddAnswer;
 
     private string _virusID;
 
@@ -33,11 +33,7 @@ public class VirusSlot : MonoBehaviour
         else
         {
             Text_Log.color = _selectColor;
-
-            if (_onAddAnswer.Invoke() >= 5)
-            {
-                UIManager.Inst.OpenWinPanel();
-            }
+            _onAddAnswer?.Invoke();
         }
     }
 
@@ -46,7 +42,7 @@ public class VirusSlot : MonoBehaviour
         return GameDataManager.Inst.GetData<Virus>(_virusID).Answer;
     }
 
-    public void SetText(Func<int> onAnswer)
+    public void SetText(Action onAnswer)
     {
         Text_Log.text = GameDataManager.Inst.GetData<Virus>(_virusID).Content;
 

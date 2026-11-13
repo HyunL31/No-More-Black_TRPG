@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class DialController : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     [SerializeField] private RectTransform Rect_Dial;
+    [SerializeField] private float Rotation_Sensitivity = 1.5f;
 
     public event Action<float> OnChangeAngle;
 
@@ -13,21 +14,15 @@ public class DialController : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _startAngle = GetAngle(eventData.position);
+        _startAngle = GetAngle(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        float currentAngle = GetAngle(eventData.position);
+        float currentAngle = GetAngle(eventData);
         float deltaAngle = Mathf.DeltaAngle(_startAngle, currentAngle);
-        float snappedDelta = Mathf.Round(deltaAngle / 3f) * 3f;
 
-        if (snappedDelta == 0f)
-        {
-            return;
-        }
-
-        _currentRotation -= snappedDelta;
+        _currentRotation -= deltaAngle * Rotation_Sensitivity;
         _currentRotation = Mathf.Clamp(_currentRotation, 0f, 360f);
 
         Rect_Dial.localRotation = Quaternion.Euler(0, 0, -_currentRotation);
@@ -37,10 +32,12 @@ public class DialController : MonoBehaviour, IDragHandler, IBeginDragHandler
         OnChangeAngle?.Invoke(_currentRotation);
     }
 
-    private float GetAngle(Vector2 screenPos)
+    private float GetAngle(PointerEventData eventData)
     {
-        Vector2 dir = screenPos - (Vector2)Rect_Dial.position;
+        Camera cam = eventData.pressEventCamera;
 
-        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(Rect_Dial, eventData.position, cam, out Vector2 localPoint);
+
+        return Mathf.Atan2(localPoint.y, localPoint.x) * Mathf.Rad2Deg;
     }
 }

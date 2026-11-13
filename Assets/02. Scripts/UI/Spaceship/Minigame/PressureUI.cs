@@ -25,6 +25,10 @@ public class PressureUI : ViewBase
     [SerializeField] private DialController Dial_Oxygen;
     [SerializeField] private DialController Dial_Cold;
 
+    [Header("타이머")]
+    [SerializeField] private Timer Timer;
+    [SerializeField] private int Timer_Limit;
+
     [SerializeField] private Button Button_Confirm;
 
     private float _fuel;
@@ -47,6 +51,14 @@ public class PressureUI : ViewBase
         Dial_Cold.OnChangeAngle += (angle) => ChangeGaugeColor(Image_Cold, angle);
 
         SetRandomText();
+
+        Timer.OnTimeOver += OnClickConfirm;
+        Timer.StartTimer(Timer_Limit);
+    }
+
+    private void OnDisable()
+    {
+        Timer.OnTimeOver -= OnClickConfirm;
     }
 
     private void OnClickConfirm()
