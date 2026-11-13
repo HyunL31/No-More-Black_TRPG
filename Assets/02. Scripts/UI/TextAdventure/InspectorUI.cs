@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InspectorUI : ViewBase
+public class InspectorUI : ViewBase, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("추론 시스템 UI")]
     [SerializeField] private Image Image_Background;
@@ -72,6 +72,26 @@ public class InspectorUI : ViewBase
     {
         float targetX = Mathf.Clamp(Rect_Panorama.anchoredPosition.x - Step_Panorama, _minX, _maxX);
         MovePanorama(targetX).Forget();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        CancelPanorama();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        float targetX = Rect_Panorama.anchoredPosition.x + eventData.delta.x;
+        targetX = Mathf.Clamp(targetX, _minX, _maxX);
+
+        Rect_Panorama.anchoredPosition = new Vector2(targetX, Rect_Panorama.anchoredPosition.y);
+
+        UpdateButtons();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        UpdateButtons();
     }
 
     private void OnClickReject()
