@@ -94,15 +94,22 @@ public class DialogueUI : ViewBase
             TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
 
             string[] results = data.ResultID;
+            bool isStop = false;
+            
             foreach (string result in results)
             {
-                TextAdventureManager.Inst.ApplyResult(result);
+                isStop = TextAdventureManager.Inst.ApplyResult(result);
             }
 
             TextAdventureManager.Inst.SetCurrentID(nextID);
 
             data = GameDataManager.Inst.GetData<Dialogue>(GetCurrentID());
             nextID = GetNextID(data.NextID, data.Condition, data.Operation);
+
+            if (isStop == true)
+            {
+                break;
+            }
         }
 
         ShowDialogue();

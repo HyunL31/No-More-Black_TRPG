@@ -35,11 +35,11 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
         DialogueLogs.Add(new KeyValuePair<string, string>(characterID, content));
     }
 
-    public void ApplyResult(string resultID)
+    public bool ApplyResult(string resultID)
     {
         if (string.IsNullOrEmpty(resultID) == true)
         {
-            return;
+            return false;
         }
 
         Result result = GameDataManager.Inst.GetData<Result>(resultID);
@@ -96,7 +96,7 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
                         UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}이(가) 역량 {1}을(를) 잃었습니다.", characterName, skill), () => _characterVM.AbandonSkill(result.SkillID));
                     }
 
-                    break;
+                    return true;
                 }
 
             case "Impart":
@@ -106,7 +106,7 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
 
                     UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}의 역량: {1}을(를) 획득하시겠습니까?", npc, skill), () => _characterVM.GetSkill(result.SkillID), false);
 
-                    break;
+                    return true;
                 }
 
             case "Relationship":
@@ -125,12 +125,11 @@ public class TextAdventureManager : SingletonBase<TextAdventureManager>
                         UIManager.Inst.OpenInfoUI(GameUtil.GetPopupMessage("{0}와 {1}의 인연을 잃었습니다.", npc, relation), () => _characterVM.CurrentCharacterModel.RemoveRelation(result.TargetID, type));
                     }
 
-                    break;
+                    return true;
                 }
-
-            default:
-                break;
         }
+
+        return false;
     }
 
     public bool CheckCondition(string[] conditions, string[] operations)
