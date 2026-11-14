@@ -19,11 +19,11 @@ public class UIManager : SingletonBase<UIManager>
         //this.OpenPipeUI();
         //this.OpenWaveUI();
         //this.OpenRadarUI();
-        this.OpenPressureUI();
+        //this.OpenPressureUI();
         //this.OpenVirusUI();
         //this.OpenGermUI();
 
-        //this.OpenTitleUI();
+        this.OpenTitleUI();
 
         //this.OpenVisualNovelUI();
         //this.OpenDialogueUI();

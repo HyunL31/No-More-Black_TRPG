@@ -248,8 +248,8 @@ public class DiceUI : ViewBase
         _playerDice = EditDice(_playerOriginDice, true);
         _opponentDice = EditDice(_opponentOriginDice, false);
 
-        _playerDiceController.Roll(_playerOriginDice);
-        _opponentDiceController.Roll(_opponentOriginDice);
+        _playerDiceController.Roll(_playerOriginDice, _playerDice);
+        _opponentDiceController.Roll(_opponentOriginDice, _opponentDice);
     }
 
     private void CompleteDiceRoll()
