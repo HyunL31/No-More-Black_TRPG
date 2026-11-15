@@ -11,7 +11,7 @@ public class SkillUI : ViewBase
     [SerializeField] private Transform Parent_Right;
     [SerializeField] private GameObject Prefab_SkillSlot;
     [SerializeField] private Button Button_Resume;
-    [SerializeField] private Button Button_NatureConfirm;
+    [SerializeField] private Button Button_Confirm;
 
     private CharacterViewModel _characterVM => ServiceManager.Inst.GetCharacterViewModel();
     private SkillCategory _currentCategory = SkillCategory.None;
@@ -20,7 +20,9 @@ public class SkillUI : ViewBase
     private List<SkillSlot> _rightSlots = new List<SkillSlot>();
 
     private string _natureSkill = "";
+    private string _abandonSkill = "";
 
+    public bool IsAbandon { get; private set; } = false;
     public int CheckCount { get; private set; } = 1;
 
     private void Awake()
@@ -29,7 +31,7 @@ public class SkillUI : ViewBase
         CreateSkillSlot();
 
         Button_Resume.onClick.AddListener(OnClickResume);
-        Button_NatureConfirm.onClick.AddListener(OnClickNatureConfirm);
+        Button_Confirm.onClick.AddListener(OnClickConfirm);
     }
 
     private void OnEnable()
@@ -37,12 +39,18 @@ public class SkillUI : ViewBase
         if (SaveManager.Inst.PlayerModel.IsNewGame == true)
         {
             Button_Resume.gameObject.SetActive(false);
-            Button_NatureConfirm.gameObject.SetActive(true);
+            Button_Confirm.gameObject.SetActive(true);
         }
         else
         {
             Button_Resume.gameObject.SetActive(true);
-            Button_NatureConfirm.gameObject.SetActive(false);
+            Button_Confirm.gameObject.SetActive(false);
+        }
+
+        if (IsAbandon == true)
+        {
+            Button_Resume.gameObject.SetActive(false);
+            Button_Confirm.gameObject.SetActive(true);
         }
 
         if (_leftSlots.Count == 0)
@@ -63,17 +71,33 @@ public class SkillUI : ViewBase
         UIManager.Inst.CloseSkillUI();
     }
 
-    private void OnClickNatureConfirm()
+    private void OnClickConfirm()
     {
-        if (_natureSkill == "")
+        if (IsAbandon == false)
         {
-            return;
+            if (_natureSkill == "")
+            {
+                return;
+            }
+
+            AddNatureSkill();
+
+            UIManager.Inst.OpenVisualNovelUI();
+            UIManager.Inst.OpenDialogueUI();
         }
+        else
+        {
+            if (_abandonSkill == "")
+            {
+                return;
+            }
 
-        AddNatureSkill();
+            _characterVM.AbandonSkill(_abandonSkill);
+            _abandonSkill = "";
 
-        UIManager.Inst.OpenVisualNovelUI();
-        UIManager.Inst.OpenDialogueUI();
+            SetAbandonUI(false);
+            // TODO: 다음날로 넘어가기 등
+        }
 
         UIManager.Inst.CloseSkillUI();
     }
@@ -131,9 +155,28 @@ public class SkillUI : ViewBase
     {
         string skillID = $"Skill_{category}_{index}";
 
+        if (IsAbandon == true)
+        {
+            if (isOn == false)
+            {
+                _abandonSkill = skillID;
+            }
+            else if (_abandonSkill == skillID)
+            {
+                _abandonSkill = "";
+            }
+
+            UpdateSlots();
+            return;
+        }
+
         if (isOn == true)
         {
             _natureSkill = skillID;
+        }
+        else if (_natureSkill == skillID)
+        {
+            _natureSkill = "";
         }
 
         UpdateSlots();
@@ -161,53 +204,46 @@ public class SkillUI : ViewBase
     {
         RefreshCategory();
 
-        bool isNewGame = SaveManager.Inst.PlayerModel.IsNewGame;
-
         for (int i = 0; i < _leftSlots.Count; i++)
         {
-            string skillID = $"Skill_{_currentCategory}_{i + 1}";
-            var data = GameDataManager.Inst.GetData<Skill>(skillID);
-            string skillName = data.Name;
-
-            bool canCheck = data.CanGet;
-            bool isAbandon = CheckAbandon(skillID);
-            bool isSelected = (_currentCategory == SkillCategory.Nature && skillID == _natureSkill) || CheckSelect(_currentCategory, skillID);
-
-            bool canInteract;
-            if (_currentCategory == SkillCategory.Nature)
-            {
-                canInteract = isNewGame;
-            }
-            else
-            {
-                canInteract = canCheck && !isAbandon;
-            }
-
-            _leftSlots[i].SetSlot(skillName, isSelected, canInteract);
+            UpdateSlot(_leftSlots[i], i + 1);
         }
 
         for (int i = 0; i < _rightSlots.Count; i++)
         {
-            string skillID = $"Skill_{_currentCategory}_{i + (_leftSlots.Count + 1)}";
-            var data = GameDataManager.Inst.GetData<Skill>(skillID);
-            string skillName = data.Name;
-
-            bool canCheck = data.CanGet;
-            bool isAbandon = CheckAbandon(skillID);
-            bool isSelected = (_currentCategory == SkillCategory.Nature && skillID == _natureSkill) || CheckSelect(_currentCategory, skillID);
-
-            bool canInteract;
-            if (_currentCategory == SkillCategory.Nature)
-            {
-                canInteract = isNewGame;
-            }
-            else
-            {
-                canInteract = canCheck && !isAbandon;
-            }
-
-            _rightSlots[i].SetSlot(skillName, isSelected, canInteract);
+            UpdateSlot(_rightSlots[i], i + _leftSlots.Count + 1);
         }
+    }
+
+    private void UpdateSlot(SkillSlot slot, int index)
+    {
+        string skillID = $"Skill_{_currentCategory}_{index}";
+
+        var data = GameDataManager.Inst.GetData<Skill>(skillID);
+
+        bool hasSkill = CheckSelect(_currentCategory, skillID);
+        bool isAbandoned = CheckAbandon(skillID);
+
+        bool canInteract;
+        bool isSelected;
+
+        if (IsAbandon == true)
+        {
+            canInteract = hasSkill && !isAbandoned;
+            isSelected = hasSkill && !isAbandoned && _abandonSkill != skillID;
+        }
+        else if (_currentCategory == SkillCategory.Nature)
+        {
+            canInteract = SaveManager.Inst.PlayerModel.IsNewGame;
+            isSelected = _natureSkill == skillID;
+        }
+        else
+        {
+            canInteract = data.CanGet && !isAbandoned;
+            isSelected = hasSkill;
+        }
+
+        slot.SetSlot(data.Name, isSelected, canInteract);
     }
 
     private void AddNatureSkill()
@@ -235,5 +271,16 @@ public class SkillUI : ViewBase
         }
 
         return _characterVM.CheckAbandonSkill(skillID);
+    }
+
+    public void SetAbandonUI(bool isAbandon)
+    {
+        IsAbandon = isAbandon;
+        _abandonSkill = "";
+
+        if (_leftSlots.Count > 0)
+        {
+            UpdateSlots();
+        }
     }
 }

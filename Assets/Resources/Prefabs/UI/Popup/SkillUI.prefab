@@ -492,7 +492,7 @@ MonoBehaviour:
   Parent_Right: {fileID: 7175914324348278095}
   Prefab_SkillSlot: {fileID: 8121283987868517283, guid: c0b5b095500094b49a9d03795b758f11, type: 3}
   Button_Resume: {fileID: 2497613435518456176}
-  Button_NatureConfirm: {fileID: 6228795131403495511}
+  Button_Confirm: {fileID: 6228795131403495511}
 --- !u!1 &2389640249598967956
 GameObject:
   m_ObjectHideFlags: 0

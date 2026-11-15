@@ -175,10 +175,46 @@ public class CharacterViewModel : ViewModelBase
 
     public void AbandonSkill(string skillID)
     {
-        if (!CurrentCharacterModel.AbandonedSkillID.Contains(skillID))
+        CharacterModel model = CurrentCharacterModel;
+
+        Skill skill = GameDataManager.Inst.GetData<Skill>(skillID);
+
+        if (!Enum.TryParse<SkillCategory>(skill.Category, out SkillCategory category))
         {
-            CurrentCharacterModel.AbandonedSkillID.Add(skillID);
+            return;
         }
+
+        switch (category)
+        {
+            case SkillCategory.Major:
+                model.SelectedMajor.Remove(skillID);
+                break;
+
+            case SkillCategory.Career:
+                model.SelectedCareer.Remove(skillID);
+                break;
+
+            case SkillCategory.Wisdom:
+                model.SelectedWisdom.Remove(skillID);
+                break;
+
+            case SkillCategory.Method:
+                model.SelectedMethod.Remove(skillID);
+                break;
+
+            case SkillCategory.Resistance:
+                model.SelectedResistance.Remove(skillID);
+                break;
+
+            case SkillCategory.Nature:
+                if (model.SelectedNature == skillID)
+                {
+                    model.SelectedNature = "";
+                }
+                break;
+        }
+
+        model.AbandonedSkillID.Add(skillID);
     }
 
     private static void AddList(List<string> list, string value)

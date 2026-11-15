@@ -26,9 +26,10 @@ public class SkillSlot : MonoBehaviour
         Text_SkillName.text = skillName;
 
         Toggle_Skill.onValueChanged.RemoveListener(OnToggleChanged);
-        Toggle_Skill.isOn = isActive;
-        Toggle_Skill.onValueChanged.AddListener(OnToggleChanged);
 
-        Toggle_Skill.interactable = !isActive && canInteract;
+        Toggle_Skill.isOn = isActive;
+        Toggle_Skill.interactable = canInteract;
+
+        Toggle_Skill.onValueChanged.AddListener(OnToggleChanged);
     }
 }

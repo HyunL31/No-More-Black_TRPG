@@ -69,9 +69,14 @@ public static class UIExtension
         uiManager.CloseUI(UIRoot.Popup, UIType.ResumeUI);
     }
 
-    public static void OpenSkillUI(this UIManager uiManager)
+    public static void OpenSkillUI(this UIManager uiManager, bool isAbandon = false)
     {
-        uiManager.OpenUI(UIRoot.Popup, UIType.SkillUI);
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.SkillUI);
+
+        if (uiBase is SkillUI skillUI)
+        {
+            skillUI.SetAbandonUI(isAbandon);
+        }
     }
 
     public static void CloseSkillUI(this UIManager uiManager)
