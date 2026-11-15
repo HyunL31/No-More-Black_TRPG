@@ -12,16 +12,34 @@ public class ItemDetect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool _canInteract;
     private bool _isCollected = false;
 
-    private float _requireDis = 3f;
+    private float _requireDis = 1.5f;
+
+    private float _checkInterval = 0.15f;
+    private float _checkTimer;
 
     private void Start()
     {
         Outline.enabled = false;
-        _player = GameObjectManager.Inst.GetPlayer();
+        _player = GameObjectManager.Inst.GetPlayer().gameObject;
+
+        UIBase uiBase = UIManager.Inst.GetOpenedUI(UIRoot.Main, UIType.MainUI);
+        
+        if (uiBase is MainUI mainUI)
+        {
+            mainUI.GetMinimap().RegisterClue(transform);
+        }
     }
 
     private void Update()
     {
+        _checkTimer += Time.deltaTime;
+
+        if (_checkTimer < _checkInterval)
+        {
+            return;
+        }
+
+        _checkTimer = 0;
         CheckDistance();
     }
 
@@ -62,6 +80,13 @@ public class ItemDetect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             SaveManager.Inst.PlayerModel.CollectedItem.Add(ItemID);
 
             _isCollected = true;
+
+            UIBase uiBase = UIManager.Inst.GetOpenedUI(UIRoot.Main, UIType.MainUI);
+
+            if (uiBase is MainUI mainUI)
+            {
+                mainUI.GetMinimap().UnregisterClue(transform);
+            }
         }
 
         UIManager.Inst.OpenItemUI(ItemID);

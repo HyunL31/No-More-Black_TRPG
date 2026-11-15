@@ -171,10 +171,12 @@ public class DialogueUI : ViewBase
         }
         else if (GetCurrentID() == "0")
         {
+            GameObjectManager.Inst.InitMap();
+            UIManager.Inst.OpenMainUI();
+
             UIManager.Inst.CloseDialogueLog();
             UIManager.Inst.CloseVisualNovelUI();
             UIManager.Inst.CloseBackground();
-            UIManager.Inst.OpenMainUI();
 
             UIManager.Inst.CloseDialogueUI();
         }

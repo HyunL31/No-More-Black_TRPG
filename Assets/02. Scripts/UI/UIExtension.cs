@@ -93,8 +93,6 @@ public static class UIExtension
 
     public static void CloseVisualNovelUI(this UIManager uiManager)
     {
-        GameObjectManager.Inst.InitMap();
-
         uiManager.CloseUI(UIRoot.Content, UIType.VisualNovelUI);
     }
 

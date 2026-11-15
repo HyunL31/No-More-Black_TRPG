@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private string _currentAnimation = "";
     private bool _currentLoop = true;
 
+    public PlayerDirection CurrentDirection => _currentDirection;
+    public bool IsRight => Skeleton_Side.transform.localScale.x > 0f;
+
     private void Start()
     {
         SetDirection(_currentDirection);
@@ -227,6 +230,24 @@ public class PlayerController : MonoBehaviour
         SkeletonAnimation skeleton = GetCurrentSkeleton();
 
         skeleton.AnimationState.SetAnimation(0, anim, isLoop);
+    }
+
+    public Vector3 GetFacingDirection()
+    {
+        switch (_currentDirection)
+        {
+            case PlayerDirection.Front:
+                return Vector3.back;
+
+            case PlayerDirection.Side:
+                return IsRight ? Vector3.right : Vector3.left;
+
+            case PlayerDirection.Back:
+                return Vector3.forward;
+
+            default:
+                return Vector3.back;
+        }
     }
 
     private void OnDrawGizmos()

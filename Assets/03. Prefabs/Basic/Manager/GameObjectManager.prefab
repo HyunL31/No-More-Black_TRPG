@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf411e3a03329614ab8b0df480cbeb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera_Dice: {fileID: 0}
+  Prefab_PlayerDice: {fileID: 0}
+  Prefab_OpponentDice: {fileID: 0}
   SpaceshipMap: {fileID: 6774273027020157035, guid: 861019d7138e36d479bd7e4a62e732e4, type: 3}
-  Player: {fileID: 3259953725484289647, guid: 8eb4f9f5010752840aaacc22b3ae9b94, type: 3}
+  Camera_Cinemachine: {fileID: 0}
+  Player: {fileID: 657106129293189182, guid: 8eb4f9f5010752840aaacc22b3ae9b94, type: 3}

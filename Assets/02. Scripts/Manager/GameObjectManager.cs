@@ -8,10 +8,10 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
     [SerializeField] private DiceController Prefab_OpponentDice;
     [SerializeField] private GameObject SpaceshipMap;
     [SerializeField] private CinemachineCamera Camera_Cinemachine;
-    [SerializeField] private GameObject Player;
+    [SerializeField] private PlayerController Player;
 
     private GameObject _spaceship;
-    private GameObject _player;
+    private PlayerController _player;
     private DiceController _playerDice;
     private DiceController _opponentDice;
 
@@ -37,7 +37,7 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
         }
         else
         {
-            _player.SetActive(true);
+            _player.gameObject.SetActive(true);
         }
 
         Camera_Cinemachine.Target.TrackingTarget = _player.transform;
@@ -77,7 +77,7 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
         _opponentDice.gameObject.SetActive(false);
     }
 
-    public GameObject GetPlayer()
+    public PlayerController GetPlayer()
     {
         return _player;
     }
@@ -91,7 +91,7 @@ public class GameObjectManager : SingletonBase<GameObjectManager>
 
         UIManager.Inst.CloseMainUI();
 
-        _player.SetActive(false);
+        _player.gameObject.SetActive(false);
         _spaceship.SetActive(false);
     }
 

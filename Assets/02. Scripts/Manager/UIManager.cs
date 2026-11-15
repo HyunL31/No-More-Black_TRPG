@@ -88,7 +88,7 @@ public class UIManager : SingletonBase<UIManager>
         }
     }
 
-    private UIBase GetOpenedUI(UIRoot root, UIType type)
+    public UIBase GetOpenedUI(UIRoot root, UIType type)
     {
         return GetCreatedUI(root, type);
     }
