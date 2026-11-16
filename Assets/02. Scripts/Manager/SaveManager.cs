@@ -84,6 +84,8 @@ public class SaveManager : SingletonBase<SaveManager>
         newPlayerData.PlayerName = "";
         newPlayerData.IsNewGame = true;
 
+        newPlayerData.Day = 1;
+
         string[] characterKeys = { "Player_01", "Elysia_01", "July_01", "Taehyun_01", "Labresa_01" };
 
         foreach (var key in characterKeys)

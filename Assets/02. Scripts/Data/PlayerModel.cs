@@ -7,6 +7,8 @@ public class PlayerModel
     public string PlayerName;
     public bool IsNewGame;
 
+    public int Day;
+
     public string SaveChapter;
     public string SaveDate;
 
