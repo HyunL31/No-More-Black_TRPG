@@ -1,0 +1,122 @@
+[
+  {
+    "ID": "Dice_01_01",
+    "Target": "Player",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Method_4",
+    "RelationType": null,
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_01_02",
+    "Target": "Player",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Wisdom_1",
+    "RelationType": null,
+    "EditValue": 2
+  },
+  {
+    "ID": "Dice_01_03",
+    "Target": "Player",
+    "EditType": "Relation",
+    "EditTarget": "Elysia_01",
+    "RelationType": "Friendly",
+    "EditValue": -1
+  },
+  {
+    "ID": "Dice_01_04",
+    "Target": "Opponent",
+    "EditType": "Ideology",
+    "EditTarget": "0",
+    "RelationType": null,
+    "EditValue": -1
+  },
+  {
+    "ID": "Dice_01_05",
+    "Target": "Opponent",
+    "EditType": "Relation",
+    "EditTarget": "Taehyun_01",
+    "RelationType": "Hostile",
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_01_06",
+    "Target": "Opponent",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Major_3",
+    "RelationType": null,
+    "EditValue": 2
+  },
+  {
+    "ID": "Dice_02_01",
+    "Target": "Player",
+    "EditType": "Ideology",
+    "EditTarget": "-1",
+    "RelationType": null,
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_02_02",
+    "Target": "Opponent",
+    "EditType": "Ideology",
+    "EditTarget": "-1",
+    "RelationType": null,
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_02_03",
+    "Target": "Opponent",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Nature_1",
+    "RelationType": null,
+    "EditValue": -1
+  },
+  {
+    "ID": "Dice_03_01",
+    "Target": "Player",
+    "EditType": "Ideology",
+    "EditTarget": "0",
+    "RelationType": null,
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_03_02",
+    "Target": "Opponent",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Nature_1",
+    "RelationType": null,
+    "EditValue": -1
+  },
+  {
+    "ID": "Dice_04_01",
+    "Target": "Player",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Nature_5",
+    "RelationType": null,
+    "EditValue": -1
+  },
+  {
+    "ID": "Dice_04_02",
+    "Target": "Player",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Nature_1",
+    "RelationType": null,
+    "EditValue": 2
+  },
+  {
+    "ID": "Dice_04_03",
+    "Target": "Opponent",
+    "EditType": "Skill",
+    "EditTarget": "Skill_Nature_5",
+    "RelationType": null,
+    "EditValue": 1
+  },
+  {
+    "ID": "Dice_04_04",
+    "Target": "Opponent",
+    "EditType": "Relation",
+    "EditTarget": "July_01",
+    "RelationType": "Friendship",
+    "EditValue": 1
+  }
+]

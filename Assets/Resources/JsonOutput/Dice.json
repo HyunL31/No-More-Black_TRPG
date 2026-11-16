@@ -4,15 +4,6 @@
     "WinID": "Dialogue_27",
     "FailID": "Dialogue_28",
     "Opponent": "System",
-    "Type": "Skill",
-    "TrueTarget": [
-      "Skill_Method_4"
-    ],
-    "FalseTarget": [
-      "Skill_Major_3"
-    ],
-    "RelationType": null,
-    "EditValue": 1,
     "Result": "Stamina"
   },
   {
@@ -20,14 +11,6 @@
     "WinID": "Dialogue_31",
     "FailID": "Dialogue_32",
     "Opponent": "Elysia_01",
-    "Type": "Skill",
-    "TrueTarget": [
-      "Skill_Wisdom_1",
-      "Skill_Career_5"
-    ],
-    "FalseTarget": null,
-    "RelationType": null,
-    "EditValue": 2,
     "Result": "Stamina"
   },
   {
@@ -35,15 +18,6 @@
     "WinID": "Dialogue_35",
     "FailID": "Dialogue_36",
     "Opponent": "July_01",
-    "Type": "Relation",
-    "TrueTarget": [
-      "Elysia_01"
-    ],
-    "FalseTarget": null,
-    "RelationType": [
-      "Hostile"
-    ],
-    "EditValue": 3,
     "Result": "Crazy"
   },
   {
@@ -51,13 +25,6 @@
     "WinID": "Dialogue_39",
     "FailID": "Dialogue_40",
     "Opponent": "Taehyun_01",
-    "Type": "Ideology",
-    "TrueTarget": [
-      "-1"
-    ],
-    "FalseTarget": null,
-    "RelationType": null,
-    "EditValue": 4,
     "Result": "Crazy"
   }
 ]

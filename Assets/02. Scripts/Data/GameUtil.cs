@@ -49,6 +49,41 @@ public static class GameUtil
         }
     }
 
+    public static string GetIdeologyName(float ideology)
+    {
+        if (ideology == 0)
+        {
+            return "균형";
+        }
+        else
+        {
+            if (ideology <= -3)
+            {
+                return "혁명";
+            }
+            else if (ideology == -2)
+            {
+                return "개혁";
+            }
+            else if (ideology == -1)
+            {
+                return "발전";
+            }
+            else if (ideology == 1)
+            {
+                return "안정";
+            }
+            else if (ideology == 2)
+            {
+                return "헌신";
+            }
+            else
+            {
+                return "수호";
+            }
+        }
+    }
+
     public static int Roll(int side)
     {
         return Random.Range(1, side + 1);

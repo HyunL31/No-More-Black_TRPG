@@ -181,10 +181,15 @@ public class Dice : GameDataBase
     public string WinID;
     public string FailID;
     public string Opponent;
-    public string Type;
-    public string[] TrueTarget;
-    public string[] FalseTarget;
-    public string[] RelationType;
-    public int EditValue;
     public string Result;
+}
+
+[System.Serializable]
+public class DiceEdit : GameDataBase
+{
+    public string Target;
+    public string EditType;
+    public string EditTarget;
+    public string RelationType;
+    public int EditValue;
 }
