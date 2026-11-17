@@ -63,9 +63,9 @@
     "Friendly": null,
     "Friendship": null,
     "Pact": null,
-    "MajorCategory": null,
+    "MajorCategory": "Skill_Major_3",
     "Career": null,
-    "Nature": null,
+    "Nature": "Skill_Nature_1",
     "Wisdom": null,
     "Method": null,
     "Resistance": null
@@ -95,7 +95,7 @@
     "Pact": null,
     "MajorCategory": null,
     "Career": null,
-    "Nature": null,
+    "Nature": "Skill_Nature_1",
     "Wisdom": null,
     "Method": null,
     "Resistance": null
@@ -125,7 +125,7 @@
     "Pact": null,
     "MajorCategory": null,
     "Career": null,
-    "Nature": null,
+    "Nature": "Skill_Nature_5",
     "Wisdom": null,
     "Method": null,
     "Resistance": null
@@ -155,7 +155,7 @@
     "Pact": null,
     "MajorCategory": null,
     "Career": null,
-    "Nature": null,
+    "Nature": "Skill_Nature_8",
     "Wisdom": null,
     "Method": null,
     "Resistance": null

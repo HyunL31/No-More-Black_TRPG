@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 
@@ -34,13 +33,16 @@ public class DiceEditSlot : MonoBehaviour
                 break;
         }
 
+        string value = Mathf.Abs(data.EditValue).ToString();
+
         if (isOpponent == true)
         {
+            value = new string('■', value.Length);
             edit = new string('■', edit.Length);
         }
 
-        string sign = data.EditValue > 0 ? "+" : "";
+        string sign = data.EditValue > 0 ? "+" : "-";
 
-        Text_EditInfo.text = $"{sign}{data.EditValue} {edit}";
+        Text_EditInfo.text = $"{sign}{value} {edit}";
     }
 }

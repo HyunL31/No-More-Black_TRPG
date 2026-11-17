@@ -1,7 +1,5 @@
-﻿using Spine;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,6 +51,7 @@ public class DiceUI : ViewBase
     private bool _boost = false;
     private bool _special = false;
     private int _nullCount = 0;
+    private int _completeDiceCount = 0;
 
     private int _playerOriginDice;
     private int _opponentOriginDice;
@@ -83,6 +82,7 @@ public class DiceUI : ViewBase
     private void OnEnable()
     {
         _nullCount = 0;
+        _completeDiceCount = 0;
         _special = false;
         _canClose = false;
 
@@ -251,6 +251,50 @@ public class DiceUI : ViewBase
                 }
             }
         }
+
+        SetOpponentSkill();
+    }
+
+    private void SetOpponentSkill()
+    {
+        string opponent = GameDataManager.Inst.GetData<Dice>(_diceID).Opponent;
+
+        if (opponent == "System")
+        {
+            return;
+        }
+
+        _characterVM.SetCurrentCharacter(opponent);
+
+        string maxSkill = "";
+        int maxValue = -999;
+
+        foreach (string editID in _opponentEditDice)
+        {
+            var data = GameDataManager.Inst.GetData<DiceEdit>(editID);
+
+            if (data.EditType == "Skill")
+            {
+                Enum.TryParse(GameDataManager.Inst.GetData<Skill>(data.EditTarget).Category, out SkillCategory category);
+
+                if (_characterVM.CheckSkill(category, data.EditTarget) == true && maxValue < data.EditValue)
+                {
+                    maxValue = data.EditValue;
+                    maxSkill = data.EditTarget;
+                }
+            }
+        }
+
+        if (maxSkill == "")
+        {
+            Text_OpponentSkill.text = GameDataManager.Inst.GetData<Skill>(_characterVM.CurrentCharacterModel.SelectedNature).Name;
+        }
+        else
+        {
+            Text_OpponentSkill.text = GameDataManager.Inst.GetData<Skill>(maxSkill).Name;
+        }
+
+        _characterVM.SetCurrentCharacter("Player_01");
     }
 
     private void RollNormalDice()
@@ -260,6 +304,7 @@ public class DiceUI : ViewBase
             return;
         }
 
+        _completeDiceCount = 0;
         _isRolling = true;
 
         _playerOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
@@ -274,7 +319,14 @@ public class DiceUI : ViewBase
 
     private void CompleteDiceRoll()
     {
-        _isRolling = false;;
+        _completeDiceCount++;
+
+        if (_completeDiceCount < 2)
+        {
+            return;
+        }
+
+        _isRolling = false;
 
         _diceResult = CheckResult();
 
@@ -377,7 +429,6 @@ public class DiceUI : ViewBase
             }
         }
 
-        Debug.Log(editValue);
         return dice + editValue;
     }
 
