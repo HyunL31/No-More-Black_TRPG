@@ -39,7 +39,8 @@ public enum UIType
     WinPanel,
     FailPanel,
     DiceUI,
-    MainUI
+    DiceResultUI,
+    MainUI,
 }
 
 public static class UIExtension
@@ -325,6 +326,21 @@ public static class UIExtension
     public static void CloseDiceUI(this UIManager uiManager)
     {
         uiManager.CloseUI(UIRoot.Content, UIType.DiceUI);
+    }
+
+    public static void OpenDiceResultUI(this UIManager uiManager, bool isWin, DiceResult player, DiceResult opponent)
+    {
+        UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.DiceResultUI);
+
+        if (uiBase is DiceResultUI diceResultUI)
+        {
+            diceResultUI.SetDiceResult(isWin, player, opponent);
+        }
+    }
+
+    public static void CloseDiceResultUI(this UIManager uiManager)
+    {
+        uiManager.CloseUI(UIRoot.Popup, UIType.DiceResultUI);
     }
 
     public static void OpenMainUI(this UIManager uiManager)

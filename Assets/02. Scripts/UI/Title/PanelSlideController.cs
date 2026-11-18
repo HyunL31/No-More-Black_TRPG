@@ -10,7 +10,6 @@ public class PanelSlideController : MonoBehaviour
 
     [SerializeField] private bool PlayOnEnable = true;
     [SerializeField] private Vector2 Direction_Enter = Vector2.right;
-    [SerializeField] private Vector2 Direction_Exit = Vector2.left;
 
     private Vector2 _homePos;
     private bool _isInit;
@@ -43,14 +42,10 @@ public class PanelSlideController : MonoBehaviour
     {
         RectTransform parent = Rect_Panel.parent as RectTransform;
 
-        if (direction == Vector2.left || direction == Vector2.right)
-        {
-            return new Vector2(direction.x * parent.rect.width + 100, direction.y * parent.rect.height);
-        }
-        else
-        {
-            return new Vector2(direction.x * parent.rect.width, direction.y * parent.rect.height + 100);
-        }
+        float x = direction.x * (parent.rect.width * 0.5f + Rect_Panel.rect.width);
+        float y = direction.y * (parent.rect.height * 0.5f + Rect_Panel.rect.height);
+
+        return new Vector2(x, y);
     }
 
     public void SlideIn(Vector2 fromDirection, Action onComplete = null)

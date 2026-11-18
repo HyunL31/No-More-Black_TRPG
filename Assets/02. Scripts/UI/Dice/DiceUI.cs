@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public enum DiceResult
 {
+    None,
     CriticalSuccess,
     ExtremeSuccess,
     HardSuccess,
@@ -20,7 +22,6 @@ public class DiceUI : ViewBase
     [SerializeField] private DiceEditSlot Prefab_EditInfo;
 
     [Header("Button")]
-    [SerializeField] private Button Button_Close;
     [SerializeField] private Button Button_NormalDice;
 
     [Header("Opponent")]
@@ -42,7 +43,6 @@ public class DiceUI : ViewBase
     private DiceController _playerDiceController;
     private DiceController _opponentDiceController;
     private bool _isRolling = false;
-    private bool _canClose = false;
 
     private string _diceID;
     private bool _boost = false;
@@ -56,7 +56,8 @@ public class DiceUI : ViewBase
     private int _playerDice;
     private int _opponentDice;
 
-    private DiceResult _diceResult;
+    private DiceResult _playerResult;
+    private DiceResult _opponentResult;
     private List<string> _skillID = new List<string>();
 
     private List<string> _playerEditDice = new List<string>();
@@ -71,7 +72,6 @@ public class DiceUI : ViewBase
 
     private void Awake()
     {
-        Button_Close.onClick.AddListener(OnClickClose);
         Button_NormalDice.onClick.AddListener(OnClickDice);
 
         _characterVM = ServiceManager.Inst.GetCharacterViewModel();
@@ -84,7 +84,6 @@ public class DiceUI : ViewBase
         _nullCount = 0;
         _completeDiceCount = 0;
         _special = false;
-        _canClose = false;
 
         Button_NormalDice.gameObject.SetActive(true);
 
@@ -118,20 +117,6 @@ public class DiceUI : ViewBase
 
         Dropdown_Skill.gameObject.SetActive(false);
         Panel_SkillText.SetActive(false);
-    }
-
-    private void OnClickClose()
-    {
-        if (_canClose == true)
-        {
-            GameObjectManager.Inst.CloseDice();
-            UIManager.Inst.OpenDialogueUI();
-            UIManager.Inst.CloseDiceUI();
-        }
-        else
-        {
-            return;
-        }
     }
 
     public void SetDiceID(string diceID)
@@ -347,7 +332,8 @@ public class DiceUI : ViewBase
 
         _isRolling = false;
 
-        _diceResult = CheckResult();
+        _playerResult = CheckResult(_playerDice, _opponentDice);
+        _opponentResult = CheckResult(_opponentDice, _playerDice);
 
         if (_playerDice == _opponentDice)
         {
@@ -364,7 +350,7 @@ public class DiceUI : ViewBase
         Text_OpponentDice.text = $"{_opponentDice}";
         Text_PlayerDice.text = $"{_playerDice}";
 
-        CheckWin();
+        CheckWin().Forget();
     }
 
     private void RollFailDice()
@@ -374,10 +360,9 @@ public class DiceUI : ViewBase
         ApplyDiceResult(_playerDice);
 
         Text_PlayerDice.text = $"{_playerDice}";
-        _canClose = true;
     }
 
-    private void CheckWin()
+    private async UniTask CheckWin()
     {
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
 
@@ -399,7 +384,6 @@ public class DiceUI : ViewBase
         if (isWin == true)
         {
             TextAdventureManager.Inst.SetCurrentID(data.WinID);
-            _canClose = true;
         }
         else
         {
@@ -407,6 +391,10 @@ public class DiceUI : ViewBase
         }
 
         Button_NormalDice.gameObject.SetActive(false);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
+
+        UIManager.Inst.OpenDiceResultUI(isWin, _playerResult, _opponentResult);
     }
 
     private (int plus, int minus) EditDice(bool isPlayer)
@@ -540,9 +528,9 @@ public class DiceUI : ViewBase
         }
     }
 
-    private DiceResult CheckResult()
+    private DiceResult CheckResult(int x, int y)
     {
-        int middle = _playerDice - _opponentDice;
+        int middle = x - y;
 
         if (_playerDice == 20)
         {
