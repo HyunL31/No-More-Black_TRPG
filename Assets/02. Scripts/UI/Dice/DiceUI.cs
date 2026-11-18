@@ -353,15 +353,6 @@ public class DiceUI : ViewBase
         CheckWin().Forget();
     }
 
-    private void RollFailDice()
-    {
-        _playerDice = GameUtil.RollFail();
-
-        ApplyDiceResult(_playerDice);
-
-        Text_PlayerDice.text = $"{_playerDice}";
-    }
-
     private async UniTask CheckWin()
     {
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
@@ -394,7 +385,7 @@ public class DiceUI : ViewBase
 
         await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
-        UIManager.Inst.OpenDiceResultUI(isWin, _playerResult, _opponentResult);
+        UIManager.Inst.OpenDiceResultUI(GameDataManager.Inst.GetData<Dice>(_diceID).Opponent, isWin, _playerResult, _opponentResult);
     }
 
     private (int plus, int minus) EditDice(bool isPlayer)
@@ -532,24 +523,24 @@ public class DiceUI : ViewBase
     {
         int middle = x - y;
 
-        if (_playerDice == 20)
+        if (x == 20)
         {
             _boost = true;
             return DiceResult.CriticalSuccess;
         }
-        else if (_playerDice == 1)
+        else if (x == 1)
         {
             return DiceResult.CriticalFail;
         }
 
-        int half = _boost ? Mathf.CeilToInt(_opponentDice / 2f) : Mathf.FloorToInt(_opponentDice / 2f);
+        int half = _boost ? Mathf.CeilToInt(y / 2f) : Mathf.FloorToInt(y / 2f);
 
-        if (middle < 20 && middle > _opponentDice)
+        if (middle < 20 && middle > y)
         {
             _boost = true;
             return DiceResult.ExtremeSuccess;
         }
-        else if (middle > half && middle <= _opponentDice)
+        else if (middle > half && middle <= y)
         {
             return DiceResult.HardSuccess;
         }

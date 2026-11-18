@@ -1,5 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,11 +28,22 @@ public class DiceResultUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_PlayerFail;
     [SerializeField] private TextMeshProUGUI Text_OpponentFail;
 
+    [Header("캐릭터 슬롯")]
+    [SerializeField] private Transform Parent_PlayerSuccess;
+    [SerializeField] private Transform Parent_OpponentSuccess;
+    [SerializeField] private Transform Parent_PlayerFail;
+    [SerializeField] private Transform Parent_OpponentFail;
+
     private DiceResult _playerResult = DiceResult.None;
     private DiceResult _opponentResult = DiceResult.None;
 
     private bool _isWin = false;
     private bool _canClose = false;
+
+    private Dictionary<string, CharacterState> _diceCharacter = new Dictionary<string, CharacterState>();
+
+    private string _player = "Player_01";
+    private string _opponent = "";
 
     private void Awake()
     {
@@ -48,6 +61,8 @@ public class DiceResultUI : ViewBase
         Slide_PlayerFail.gameObject.SetActive(false);
         Slide_OpponentSuccess.gameObject.SetActive(false);
         Slide_OpponentFail.gameObject.SetActive(false);
+
+        ClearCharacter();
 
         _canClose = false;
     }
@@ -67,14 +82,57 @@ public class DiceResultUI : ViewBase
         }
     }
 
-    public void SetDiceResult(bool isWin, DiceResult player, DiceResult opponent)
+    public void SetDiceResult(string opponentName, bool isWin, DiceResult player, DiceResult opponent)
     {
+        _opponent = opponentName;
         _isWin = isWin;
 
         _playerResult = player;
         _opponentResult = opponent;
 
+        ApplyCharacter().Forget();
+
         ShowResultSequence().Forget();
+    }
+
+    private async UniTask<CharacterState> GetCharacter(string id)
+    {
+        if (_diceCharacter.ContainsKey(id))
+        {
+            _diceCharacter[id].gameObject.SetActive(true);
+            return _diceCharacter[id];
+        }
+
+        GameObject spine = await ResourceManager.Inst.InstantiateAsync($"Spine/{id}");
+
+        CharacterState state = spine.GetComponent<CharacterState>();
+        _diceCharacter.Add(id, state);
+
+        return state;
+    }
+
+    private void SetCharacter(CharacterState state, Transform parent, string skin)
+    {
+        state.transform.SetParent(parent, false);
+        state.ApplyEmotion("basic", skin);
+        state.FitFace(parent);
+    }
+
+    private async UniTask ApplyCharacter()
+    {
+        CharacterState player = await GetCharacter(_player);
+        CharacterState opponent = await GetCharacter(_opponent);
+
+        if (_isWin == true)
+        {
+            SetCharacter(player, Panel_PlayerSuccess.transform, "default");
+            SetCharacter(opponent, Panel_OpponentFail.transform, "normal");
+        }
+        else
+        {
+            SetCharacter(player, Panel_PlayerFail.transform, "default");
+            SetCharacter(opponent, Panel_OpponentSuccess.transform, "smile");
+        }
     }
 
     private async UniTask ShowResultSequence()
@@ -117,6 +175,14 @@ public class DiceResultUI : ViewBase
         }
 
         _canClose = true;
+    }
+    
+    private void ClearCharacter()
+    {
+        foreach (CharacterState character in _diceCharacter.Values)
+        {
+            character.gameObject.SetActive(false);
+        }
     }
 
     private string ReturnDiceResult(DiceResult result)

@@ -3,9 +3,11 @@ using Spine;
 using Spine.Unity;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterState : MonoBehaviour
 {
+    [SerializeField] private RectTransform Rect_FacePivot;
     [SerializeField] private SkeletonGraphic SkeletonGraphic;
     [SerializeField] private InspectorCharacter InspectorCharacter;
 
@@ -147,5 +149,13 @@ public class CharacterState : MonoBehaviour
             _blinkToken.Dispose();
             _blinkToken = null;
         }
+    }
+
+    public void FitFace(Transform target)
+    {
+        Transform root = transform;
+
+        root.localScale = Vector3.one * 2.5f;
+        root.position += target.position - Rect_FacePivot.position;
     }
 }

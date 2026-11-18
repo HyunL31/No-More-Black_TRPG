@@ -328,13 +328,13 @@ public static class UIExtension
         uiManager.CloseUI(UIRoot.Content, UIType.DiceUI);
     }
 
-    public static void OpenDiceResultUI(this UIManager uiManager, bool isWin, DiceResult player, DiceResult opponent)
+    public static void OpenDiceResultUI(this UIManager uiManager, string opponentName, bool isWin, DiceResult player, DiceResult opponent)
     {
         UIBase uiBase = uiManager.OpenUI(UIRoot.Popup, UIType.DiceResultUI);
 
         if (uiBase is DiceResultUI diceResultUI)
         {
-            diceResultUI.SetDiceResult(isWin, player, opponent);
+            diceResultUI.SetDiceResult(opponentName, isWin, player, opponent);
         }
     }
 
