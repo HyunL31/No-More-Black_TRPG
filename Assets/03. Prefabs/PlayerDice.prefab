@@ -596,13 +596,7 @@ MonoBehaviour:
   - {fileID: 6817446370755154458}
   - {fileID: 7634231366125846086}
   - {fileID: 2922276249868226422}
-  Duration_Spin: 2.2
-  Duration_Rise: 0.35
-  Duration_Land: 0.5
-  Duration_Correct: 1
-  Min_Extra: 3
-  Max_Extra: 5
-  Height: 2
+  IsPlayer: 1
   Effect_Bonus: {fileID: 4669598422837665842}
   Effect_Minus: {fileID: 2043835215403444664}
 --- !u!1 &8807214571531079842
@@ -847,11 +841,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
       propertyPath: lengthInSec
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
       propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+      propertyPath: autoRandomSeed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771972552311404798, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
@@ -962,6 +964,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504214343101900871, guid: 3ed0d324122d7b24eaec75c55c74aafc, type: 3}
       propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504214343621411456, guid: 3ed0d324122d7b24eaec75c55c74aafc, type: 3}
+      propertyPath: stopAction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2504214343621411456, guid: 3ed0d324122d7b24eaec75c55c74aafc, type: 3}

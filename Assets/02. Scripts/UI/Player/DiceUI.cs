@@ -107,7 +107,9 @@ public class DiceUI : ViewBase
     private void OnClickDice()
     {
         RollNormalDice();
-        Dropdown_Skill.interactable = false;
+
+        Dropdown_Skill.gameObject.SetActive(false);
+        Panel_SkillText.SetActive(false);
     }
 
     private void OnClickFailDice()
@@ -167,7 +169,7 @@ public class DiceUI : ViewBase
         _characterVM.SetCurrentCharacter("Player_01");
         _skillID.Clear();
 
-        Dropdown_Skill.interactable = true;
+        Dropdown_Skill.gameObject.SetActive(true);
         Dropdown_Skill.ClearOptions();
 
         string natureSkill = GameDataManager.Inst.GetData<Skill>(_characterVM.CurrentCharacterModel.SelectedNature).Name;
@@ -310,11 +312,17 @@ public class DiceUI : ViewBase
         _playerOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
         _opponentOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
 
-        _playerDice = EditDice(_playerOriginDice, true);
-        _opponentDice = EditDice(_opponentOriginDice, false);
+        _playerOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
+        _opponentOriginDice = _special ? GameUtil.RollSpecial() : GameUtil.RollNormal();
 
-        _playerDiceController.Roll(_playerOriginDice, _playerDice);
-        _opponentDiceController.Roll(_opponentOriginDice, _opponentDice);
+        (int plus, int minus) player = EditDice(true);
+        (int plus, int minus) opponent = EditDice(false);
+
+        _playerDice = _playerOriginDice + player.plus + player.minus;
+        _opponentDice = _opponentOriginDice + opponent.plus + opponent.minus;
+
+        _playerDiceController.Roll(_playerOriginDice, player.plus, player.minus);
+        _opponentDiceController.Roll(_opponentOriginDice, opponent.plus, opponent.minus);
     }
 
     private void CompleteDiceRoll()
@@ -399,37 +407,45 @@ public class DiceUI : ViewBase
         Button_FailDice.gameObject.SetActive(isWin == false);
     }
 
-    private int EditDice(int dice, bool isPlayer)
+    private (int plus, int minus) EditDice(bool isPlayer)
     {
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
 
+        int plus = 0;
+        int minus = 0;
+
         if (data.Opponent == "System" && isPlayer == false)
         {
-            return dice;
+            return (0, 0);
         }
 
-        int editValue = 0;
+        List<string> list = isPlayer ? _playerEditDice : _opponentEditDice;
 
         if (isPlayer == false)
         {
             _characterVM.SetCurrentCharacter(data.Opponent);
+        }
 
-            foreach (string editID in _opponentEditDice)
+        foreach (string editID in list)
+        {
+            int value = CalculateEditValue(editID, isPlayer);
+
+            if (value > 0)
             {
-                editValue += CalculateEditValue(editID, isPlayer);
+                plus += value;
             }
+            else if (value < 0)
+            {
+                minus += value;
+            }
+        }
 
+        if (isPlayer == false)
+        {
             _characterVM.SetCurrentCharacter("Player_01");
         }
-        else
-        {
-            foreach (string editID in _playerEditDice)
-            {
-                editValue += CalculateEditValue(editID, isPlayer);
-            }
-        }
 
-        return dice + editValue;
+        return (plus, minus);
     }
 
     private int CalculateEditValue(string editID, bool isPlayer)
@@ -536,19 +552,18 @@ public class DiceUI : ViewBase
             return DiceResult.CriticalFail;
         }
 
-        int fifth = _boost ? Mathf.CeilToInt(_opponentDice / 5f) : Mathf.FloorToInt(_opponentDice / 5f);
         int half = _boost ? Mathf.CeilToInt(_opponentDice / 2f) : Mathf.FloorToInt(_opponentDice / 2f);
 
-        if (middle < 20 && middle > half)
+        if (middle < 20 && middle > _opponentDice)
         {
             _boost = true;
             return DiceResult.ExtremeSuccess;
         }
-        else if (middle > fifth && middle <= half)
+        else if (middle > half && middle <= _opponentDice)
         {
             return DiceResult.HardSuccess;
         }
-        else if (middle > 0 && middle <= fifth)
+        else if (middle > 0 && middle <= half)
         {
             return DiceResult.ReasonSuccess;
         }

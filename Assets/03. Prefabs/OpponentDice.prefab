@@ -603,6 +603,12 @@ MonoBehaviour:
   Min_Extra: 3
   Max_Extra: 5
   Height: 2
+  SweepRangeX: 1.5
+  SweepRangeY: 0.8
+  SweepCount: 4
+  DiceRadius: 0.8
+  HopHeight: 0.15
+  HopCount: 5
   Effect_Bonus: {fileID: 8591183357651222362}
   Effect_Minus: {fileID: 982372797181203224}
 --- !u!1 &8807214571531079842
@@ -804,7 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771972552311404736, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 8771972552311404736, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -994,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2504214343621411459, guid: 3ed0d324122d7b24eaec75c55c74aafc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: -1.7200001
       objectReference: {fileID: 0}
     - target: {fileID: 2504214343621411459, guid: 3ed0d324122d7b24eaec75c55c74aafc, type: 3}
       propertyPath: m_LocalPosition.z

@@ -37,8 +37,6 @@ public class Minimap : MonoBehaviour
 
     private void Update()
     {
-        UpdatePlayerArrow();
-
         _timer += Time.deltaTime;
 
         if (_timer < Interval_Update)
@@ -48,6 +46,7 @@ public class Minimap : MonoBehaviour
 
         _timer = 0f;
 
+        UpdatePlayerArrow();
         UpdateCluePosition();
     }
 
