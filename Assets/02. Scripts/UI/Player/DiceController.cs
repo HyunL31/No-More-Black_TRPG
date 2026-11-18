@@ -18,6 +18,7 @@ public class DiceController : MonoBehaviour
 
     public Action<int> OnPlusHit;
     public Action<int> OnMinusHit;
+    public Action OnLandHit;
     public Action OnRollComplete;
 
     private Camera _diceCamera;
@@ -406,6 +407,8 @@ public class DiceController : MonoBehaviour
 
     private void PlayImpact(int originResult, int editResult)
     {
+        OnLandHit?.Invoke();
+
         if (originResult == editResult)
         {
             return;

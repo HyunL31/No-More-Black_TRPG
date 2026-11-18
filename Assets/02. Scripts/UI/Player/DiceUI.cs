@@ -22,12 +22,10 @@ public class DiceUI : ViewBase
     [Header("Button")]
     [SerializeField] private Button Button_Close;
     [SerializeField] private Button Button_NormalDice;
-    [SerializeField] private Button Button_FailDice;
-    [SerializeField] private Button Button_Result;
 
     [Header("Opponent")]
     [SerializeField] private TextMeshProUGUI Text_OpponentTitle;
-    [SerializeField] private TextMeshProUGUI Text_OpponentResult;
+    [SerializeField] private TextMeshProUGUI Text_OpponentDice;
     [SerializeField] private GameObject Panel_SkillText;
     [SerializeField] private TextMeshProUGUI Text_OpponentSkill;
     [SerializeField] private Transform Parent_OpponentBonusEdit;
@@ -35,7 +33,6 @@ public class DiceUI : ViewBase
 
     [Header("Player")]
     [SerializeField] private TextMeshProUGUI Text_PlayerDice;
-    [SerializeField] private TextMeshProUGUI Text_PlayerResult;
     [SerializeField] private TMP_Dropdown Dropdown_Skill;
     [SerializeField] private Transform Parent_PlayerBonusEdit;
     [SerializeField] private Transform Parent_PlayerMinusEdit;
@@ -68,11 +65,14 @@ public class DiceUI : ViewBase
     private ObjectPooling<DiceEditSlot> _editPool;
     private List<DiceEditSlot> _activeSlot = new List<DiceEditSlot>();
 
+    private List<DiceEditSlot> _playerBonusSlots = new List<DiceEditSlot>();
+    private List<DiceEditSlot> _playerMinusSlots = new List<DiceEditSlot>();
+    private List<DiceEditSlot> _opponentSlots = new List<DiceEditSlot>();
+
     private void Awake()
     {
         Button_Close.onClick.AddListener(OnClickClose);
         Button_NormalDice.onClick.AddListener(OnClickDice);
-        Button_FailDice.onClick.AddListener(OnClickFailDice);
 
         _characterVM = ServiceManager.Inst.GetCharacterViewModel();
 
@@ -87,21 +87,29 @@ public class DiceUI : ViewBase
         _canClose = false;
 
         Button_NormalDice.gameObject.SetActive(true);
-        Button_FailDice.gameObject.SetActive(false);
 
         _isRolling = false;
 
         Text_PlayerDice.text = "";
-        Text_OpponentResult.text = "";
-        Text_PlayerResult.text = "";
+        Text_OpponentDice.text = "";
 
         InitDiceObject();
     }
 
     private void OnDisable()
     {
-        _playerDiceController.OnRollComplete -= CompleteDiceRoll;
-        _opponentDiceController.OnRollComplete -= CompleteDiceRoll;
+        if (_playerDiceController != null)
+        {
+            _playerDiceController.OnRollComplete -= CompleteDiceRoll;
+            _playerDiceController.OnPlusHit -= OnPlayerPlusHit;
+            _playerDiceController.OnMinusHit -= OnPlayerMinusHit;
+        }
+
+        if (_opponentDiceController != null)
+        {
+            _opponentDiceController.OnRollComplete -= CompleteDiceRoll;
+            _opponentDiceController.OnLandHit -= OnOpponentHit;
+        }
     }
 
     private void OnClickDice()
@@ -110,11 +118,6 @@ public class DiceUI : ViewBase
 
         Dropdown_Skill.gameObject.SetActive(false);
         Panel_SkillText.SetActive(false);
-    }
-
-    private void OnClickFailDice()
-    {
-        RollFailDice();
     }
 
     private void OnClickClose()
@@ -162,6 +165,11 @@ public class DiceUI : ViewBase
 
         _playerDiceController.OnRollComplete += CompleteDiceRoll;
         _opponentDiceController.OnRollComplete += CompleteDiceRoll;
+
+        _playerDiceController.OnPlusHit += OnPlayerPlusHit;
+        _playerDiceController.OnMinusHit += OnPlayerMinusHit;
+
+        _opponentDiceController.OnLandHit += OnOpponentHit;
     }
 
     private void InitDropdown()
@@ -227,10 +235,12 @@ public class DiceUI : ViewBase
                     if (dice.EditValue > 0)
                     {
                         slot.transform.SetParent(Parent_PlayerBonusEdit);
+                        _playerBonusSlots.Add(slot);
                     }
                     else
                     {
                         slot.transform.SetParent(Parent_PlayerMinusEdit);
+                        _playerMinusSlots.Add(slot);
                     }
                 }
                 else
@@ -241,6 +251,7 @@ public class DiceUI : ViewBase
                     _activeSlot.Add(slot);
 
                     slot.SetEditInfo(dice.ID, true);
+                    _opponentSlots.Add(slot);
 
                     if (dice.EditValue > 0)
                     {
@@ -340,9 +351,6 @@ public class DiceUI : ViewBase
 
         if (_playerDice == _opponentDice)
         {
-            Text_OpponentResult.text = "무효";
-            Text_PlayerResult.text = "무효";
-
             _nullCount++;
 
             if ((_playerDice == 20 && _opponentDice == 20) || (_playerDice == 1 && _opponentDice == 1) || _nullCount >= 2)
@@ -353,30 +361,25 @@ public class DiceUI : ViewBase
             return;
         }
 
+        Text_OpponentDice.text = $"{_opponentDice}";
+        Text_PlayerDice.text = $"{_playerDice}";
+
         CheckWin();
     }
 
     private void RollFailDice()
     {
-        Text_OpponentResult.text = "";
-        Text_PlayerResult.text = "";
-
         _playerDice = GameUtil.RollFail();
 
         ApplyDiceResult(_playerDice);
 
         Text_PlayerDice.text = $"{_playerDice}";
-
-        Button_FailDice.gameObject.SetActive(false);
         _canClose = true;
     }
 
     private void CheckWin()
     {
         var data = GameDataManager.Inst.GetData<Dice>(_diceID);
-
-        Text_OpponentResult.text = _opponentDice > _playerDice ? "승" : "패";
-        Text_PlayerResult.text = _opponentDice < _playerDice ? "승" : "패";
 
         bool isWin;
 
@@ -404,7 +407,6 @@ public class DiceUI : ViewBase
         }
 
         Button_NormalDice.gameObject.SetActive(false);
-        Button_FailDice.gameObject.SetActive(isWin == false);
     }
 
     private (int plus, int minus) EditDice(bool isPlayer)
@@ -587,5 +589,31 @@ public class DiceUI : ViewBase
         }
 
         _activeSlot.Clear();
+        _playerBonusSlots.Clear();
+        _playerMinusSlots.Clear();
+        _opponentSlots.Clear();
+    }
+
+    private void OnPlayerPlusHit(int value)
+    {
+        PlayAppliedSlots(_playerBonusSlots);
+    }
+
+    private void OnPlayerMinusHit(int value)
+    {
+        PlayAppliedSlots(_playerMinusSlots);
+    }
+
+    private void OnOpponentHit()
+    {
+        PlayAppliedSlots(_opponentSlots);
+    }
+
+    private void PlayAppliedSlots(List<DiceEditSlot> slots)
+    {
+        foreach (DiceEditSlot slot in slots)
+        {
+            slot.PlayHit();
+        }
     }
 }
