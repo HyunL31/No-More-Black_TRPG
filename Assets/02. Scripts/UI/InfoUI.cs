@@ -13,7 +13,6 @@ public class InfoUI : ViewBase
     [SerializeField] private Button Button_Reject;
 
     private Action _onAccept;
-    private Action _onClose;
 
     private void Awake()
     {

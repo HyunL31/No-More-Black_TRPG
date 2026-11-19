@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +12,8 @@ public class DiceResultUI : ViewBase
     [SerializeField] private PanelSlideController Panel_OpponentSuccess;
     [SerializeField] private PanelSlideController Panel_PlayerFail;
     [SerializeField] private PanelSlideController Panel_OpponentFail;
+    [SerializeField] private DiceFailUI Panel_DiceFail;
+    [SerializeField] private GameObject Panel_ResultPanel;
 
     [SerializeField] private Button Button_Close;
 
@@ -28,12 +29,6 @@ public class DiceResultUI : ViewBase
     [SerializeField] private TextMeshProUGUI Text_PlayerFail;
     [SerializeField] private TextMeshProUGUI Text_OpponentFail;
 
-    [Header("캐릭터 슬롯")]
-    [SerializeField] private Transform Parent_PlayerSuccess;
-    [SerializeField] private Transform Parent_OpponentSuccess;
-    [SerializeField] private Transform Parent_PlayerFail;
-    [SerializeField] private Transform Parent_OpponentFail;
-
     private DiceResult _playerResult = DiceResult.None;
     private DiceResult _opponentResult = DiceResult.None;
 
@@ -44,6 +39,7 @@ public class DiceResultUI : ViewBase
 
     private string _player = "Player_01";
     private string _opponent = "";
+    private string _diceID;
 
     private void Awake()
     {
@@ -62,6 +58,9 @@ public class DiceResultUI : ViewBase
         Slide_OpponentSuccess.gameObject.SetActive(false);
         Slide_OpponentFail.gameObject.SetActive(false);
 
+        Panel_DiceFail.gameObject.SetActive(false);
+        Panel_ResultPanel.SetActive(true);
+
         ClearCharacter();
 
         _canClose = false;
@@ -75,16 +74,33 @@ public class DiceResultUI : ViewBase
         }
         else
         {
-            UIManager.Inst.OpenDialogueUI();
-            GameObjectManager.Inst.CloseDice();
-            UIManager.Inst.CloseDiceUI();
-            UIManager.Inst.CloseDiceResultUI();
+            if (_isWin == true)
+            {
+                UIManager.Inst.OpenDialogueUI();
+                GameObjectManager.Inst.CloseDice();
+                UIManager.Inst.CloseDiceUI();
+                UIManager.Inst.CloseDiceResultUI();
+            }
+            else
+            {
+                UIManager.Inst.OpenDialogueUI();
+                GameObjectManager.Inst.CloseDice();
+                UIManager.Inst.CloseDiceUI();
+
+                Panel_ResultPanel.SetActive(false);
+                
+                Panel_DiceFail.gameObject.SetActive(true);
+                Panel_DiceFail.SetDiceID(_diceID);
+                Panel_DiceFail.ApplyDiceResult();
+            }
         }
     }
 
-    public void SetDiceResult(string opponentName, bool isWin, DiceResult player, DiceResult opponent)
+    public void SetDiceResult(string diceID, bool isWin, DiceResult player, DiceResult opponent)
     {
-        _opponent = opponentName;
+        _diceID = diceID;
+
+        _opponent = GameDataManager.Inst.GetData<Dice>(_diceID).Opponent;
         _isWin = isWin;
 
         _playerResult = player;

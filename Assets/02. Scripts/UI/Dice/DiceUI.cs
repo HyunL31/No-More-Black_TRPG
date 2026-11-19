@@ -385,7 +385,7 @@ public class DiceUI : ViewBase
 
         await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
-        UIManager.Inst.OpenDiceResultUI(GameDataManager.Inst.GetData<Dice>(_diceID).Opponent, isWin, _playerResult, _opponentResult);
+        UIManager.Inst.OpenDiceResultUI(_diceID, isWin, _playerResult, _opponentResult);
     }
 
     private (int plus, int minus) EditDice(bool isPlayer)
@@ -500,22 +500,6 @@ public class DiceUI : ViewBase
 
             default:
                 return 0;
-        }
-    }
-
-    private void ApplyDiceResult(int dice)
-    {
-        string result = GameDataManager.Inst.GetData<Dice>(_diceID).Result;
-
-        switch (result)
-        {
-            case "Stamina":
-                _characterVM.AddStamina(-dice);
-                break;
-
-            case "Crazy":
-                _characterVM.AddCrazy(dice);
-                break;
         }
     }
 
