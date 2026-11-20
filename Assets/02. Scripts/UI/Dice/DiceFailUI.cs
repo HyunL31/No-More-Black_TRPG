@@ -20,7 +20,7 @@ public class DiceFailUI : ViewBase
     [SerializeField] private Button Button_Confirm;
 
     private Vector2 _originPos;
-    private int _cycles = 4;
+    private int _cycles = 3;
     private float _fast = 0.1f;
     private float _slow = 0.4f;
     private float _height = 357f;
@@ -100,9 +100,15 @@ public class DiceFailUI : ViewBase
 
             float p = (float)i / total;
             float dur = Mathf.Lerp(_fast, _slow, p * p);
-            Ease ease = (i == total) ? Ease.OutBack : Ease.Linear;
 
-            Sequence sequence = DOTween.Sequence().SetUpdate(true).Join(Rect_Value1.DOAnchorPosY(_originPos.y - _height, dur).SetEase(ease)).Join(Rect_Value2.DOAnchorPosY(_originPos.y, dur).SetEase(ease));
+            if (i == total)
+            {
+                dur = _slow * 1.5f;
+            }
+
+            Ease ease = (i == total) ? Ease.OutCubic : Ease.Linear;
+
+            Sequence sequence = DOTween.Sequence().SetUpdate(true).Join(Rect_Value1.DOAnchorPosY(_originPos.y - _height, dur).SetEase(ease, 0.8f)).Join(Rect_Value2.DOAnchorPosY(_originPos.y, dur).SetEase(ease, 0.8f));
 
             await UniTask.WaitUntil(() => !sequence.IsActive(), cancellationToken: token);
 

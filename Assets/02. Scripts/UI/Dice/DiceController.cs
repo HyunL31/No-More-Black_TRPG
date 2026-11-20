@@ -11,10 +11,6 @@ public class DiceController : MonoBehaviour
 
     [SerializeField] private bool IsPlayer = false;
 
-    //[Header("파티클")]
-    //[SerializeField] private GameObject Effect_Bonus;
-    //[SerializeField] private GameObject Effect_Minus;
-
     public Action<int> OnPlusHit;
     public Action<int> OnMinusHit;
     public Action OnLandHit;
@@ -32,8 +28,6 @@ public class DiceController : MonoBehaviour
 
     private float _spinDuration = 3f;
     private float _riseDuration = 0.35f;
-    private float _landDuration = 0.5f;
-    private float _correctDuration = 1f;
     private float _height = 1f;
 
     private float _sweepRangeX = 1.5f;
@@ -52,6 +46,9 @@ public class DiceController : MonoBehaviour
     private Vector2 _plusHitOffset = new Vector2(-2f, -1.2f);
     private Vector2 _minusHitOffset = new Vector2(2f, -1.2f);
 
+    private float _ceilingRise = 1.2f;
+    private float _floorDrop = 1f;
+
     private float _hitStop = 0.06f;
     private float _hitPunch = 0.3f;
     private float _recoilDis = 0.6f;
@@ -69,9 +66,6 @@ public class DiceController : MonoBehaviour
     private void OnEnable()
     {
         Transform_Dice.position = _startPosition;
-
-        //Effect_Bonus.SetActive(false);
-        //Effect_Minus.SetActive(false);
     }
 
     private void OnDestroy()
@@ -89,8 +83,7 @@ public class DiceController : MonoBehaviour
         }
         else
         {
-            int finalResult = Mathf.Clamp(originResult + minus + plus, 1, 20);
-            OpponentRoll(originResult, finalResult);
+            OpponentRoll(originResult, plus, minus);
         }
     }
 
@@ -109,28 +102,8 @@ public class DiceController : MonoBehaviour
 
         _roll.AppendInterval(_pauseDuration);
 
-        AppendHit(true, afterPlus, () =>
-        {
-            OnPlusHit?.Invoke(plus);
-
-            //if (plus != 0)
-            //{
-            //    Effect_Bonus.transform.position = GetHitPosition(true);
-            //    Effect_Bonus.SetActive(true);
-            //}
-        });
-
-        AppendHit(false, finalResult, () =>
-        {
-            OnMinusHit?.Invoke(minus);
-
-            //if (minus != 0)
-            //{
-            //    Effect_Minus.transform.position = GetHitPosition(false);
-            //    Effect_Minus.SetActive(true);
-            //}
-        });
-
+        AppendHit(true, afterPlus, () => { OnPlusHit?.Invoke(plus); });
+        AppendHit(false, finalResult, () => { OnMinusHit?.Invoke(minus); });
         AppendReturn();
 
         _roll.OnComplete(() =>
@@ -138,9 +111,6 @@ public class DiceController : MonoBehaviour
             Transform_Dice.position = _startPosition;
             Transform_Dice.rotation = _correctedRotation;
             Transform_Dice.localScale = _baseScale;
-
-            //Effect_Bonus.SetActive(false);
-            //Effect_Minus.SetActive(false);
 
             _isRolling = false;
             OnRollComplete?.Invoke();
@@ -153,52 +123,131 @@ public class DiceController : MonoBehaviour
         });
     }
 
-    private void OpponentRoll(int originResult, int editResult)
+    private void OpponentRoll(int originResult, int plus, int minus)
     {
         if (_isRolling == true)
         {
             return;
         }
 
-        RollAnimation(originResult, editResult);
+        int finalResult = Mathf.Clamp(originResult + plus + minus, 1, 20);
 
-        Tween land = Transform_Dice.DOMoveY(_startPosition.y - 1f, _landDuration).SetEase(Ease.OutBounce);
+        RollAnimation(originResult, finalResult);
 
-        float landStart;
+        _roll.AppendInterval(_pauseDuration);
 
-        if (originResult != editResult)
-        {
-            _roll.Append(Transform_Dice.DORotateQuaternion(_correctedRotation, _correctDuration).SetEase(Ease.OutCubic));
-
-            landStart = _roll.Duration() - _correctDuration;
-
-            _roll.Join(land);
-        }
-        else
-        {
-            landStart = _roll.Duration();
-
-            _roll.Append(land);
-        }
-
-        _roll.InsertCallback(landStart + _landDuration * 0.364f, () => PlayImpact(originResult, editResult));
-
-        _roll.AppendInterval(0.2f);
-        _roll.Append(Transform_Dice.DOMove(_startPosition, _returnDuration).SetEase(Ease.InOutCubic));
+        AppendCeilingHit();
+        AppendFloorHit(originResult, finalResult);
+        AppendReturn();
 
         _roll.OnComplete(() =>
         {
             Transform_Dice.position = _startPosition;
             Transform_Dice.rotation = _correctedRotation;
-
-            //Effect_Bonus.SetActive(false);
-            //Effect_Minus.SetActive(false);
+            Transform_Dice.localScale = _baseScale;
 
             _isRolling = false;
             OnRollComplete?.Invoke();
         });
 
-        _roll.OnKill(() => _isRolling = false);
+        _roll.OnKill(() =>
+        {
+            Transform_Dice.localScale = _baseScale;
+            _isRolling = false;
+        });
+    }
+
+    private Vector3 GetCeilingPosition()
+    {
+        Vector3 center = _startPosition + Vector3.up * _height;
+        return center + _diceCamera.transform.up * _ceilingRise;
+    }
+
+    private void AppendCeilingHit()
+    {
+        Vector3 from = Vector3.zero;
+        Vector3 to = Vector3.zero;
+        float spinDir = 1f;
+
+        _roll.AppendCallback(() =>
+        {
+            from = Transform_Dice.position;
+            to = GetCeilingPosition();
+            spinDir = Random.value < 0.5f ? -1f : 1f;
+        });
+
+        float travel = 0f;
+
+        _roll.Append(DOTween.To(() => travel, p =>
+        {
+            travel = p;
+            Transform_Dice.position = Vector3.Lerp(from, to, p);
+            Transform_Dice.rotation = Quaternion.AngleAxis(720f * spinDir * Time.deltaTime, _diceCamera.transform.forward) * Transform_Dice.rotation;
+        }, 1f, _hopDuration).SetEase(Ease.InCubic).OnStart(() => travel = 0f));
+
+        _roll.AppendCallback(() =>
+        {
+            Transform_Dice.position = to;
+            Transform_Dice.DOKill();
+            Transform_Dice.localScale = _baseScale;
+            Transform_Dice.DOPunchScale(_baseScale * _hitPunch, 0.35f, 10, 0.6f);
+        });
+
+        _roll.AppendInterval(_hitStop + _hitSpinDuration);
+    }
+
+    private void AppendFloorHit(int originResult, int finalResult)
+    {
+        Vector3 from = Vector3.zero;
+        Vector3 to = new Vector3(_startPosition.x, _startPosition.y - _floorDrop, _startPosition.z);
+        Quaternion spinStart = Quaternion.identity;
+        Quaternion targetRotation = Quaternion.identity;
+        float spinDir = 1f;
+
+        _roll.AppendCallback(() =>
+        {
+            from = Transform_Dice.position;
+            spinDir = Random.value < 0.5f ? -1f : 1f;
+        });
+
+        float travel = 0f;
+
+        _roll.Append(DOTween.To(() => travel, p =>
+        {
+            travel = p;
+
+            Transform_Dice.position = Vector3.Lerp(from, to, p);
+            Transform_Dice.rotation = Quaternion.AngleAxis(720f * spinDir * Time.deltaTime, _diceCamera.transform.forward) * Transform_Dice.rotation;
+        }, 1f, _hopDuration).SetEase(Ease.InCubic).OnStart(() => travel = 0f));
+
+        _roll.AppendCallback(() =>
+        {
+            Transform_Dice.position = to;
+            spinStart = Transform_Dice.rotation;
+            targetRotation = GetFaceRotationFromCurrent(finalResult);
+
+            OnLandHit?.Invoke();
+
+            Transform_Dice.DOKill();
+            Transform_Dice.localScale = _baseScale;
+            Transform_Dice.DOPunchScale(_baseScale * _hitPunch, 0.35f, 10, 0.6f);
+        });
+
+        _roll.AppendInterval(_hitStop);
+
+        float recoil = 0f;
+
+        _roll.Append(DOTween.To(() => recoil, p =>
+        {
+            recoil = p;
+
+            Vector3 pos = to;
+            pos.y += Mathf.Sin(p * Mathf.PI) * _recoilHeight;
+            Transform_Dice.position = pos;
+
+            Quaternion spin = Quaternion.AngleAxis(_hitSpinAngle * spinDir * p, _diceCamera.transform.forward) * spinStart;
+            Transform_Dice.rotation = Quaternion.Slerp(spin, targetRotation, p);
+        }, 1f, _hitSpinDuration).SetEase(Ease.OutCubic).OnStart(() => recoil = 0f));
     }
 
     private void RollAnimation(int originResult, int editResult)
@@ -403,24 +452,5 @@ public class DiceController : MonoBehaviour
         Vector2 offset = isLeft ? _plusHitOffset : _minusHitOffset;
 
         return _startPosition + _diceCamera.transform.right * offset.x + _diceCamera.transform.up * offset.y;
-    }
-
-    private void PlayImpact(int originResult, int editResult)
-    {
-        OnLandHit?.Invoke();
-
-        //if (originResult == editResult)
-        //{
-        //    return;
-        //}
-
-        //if (editResult > originResult)
-        //{
-        //    Effect_Bonus.SetActive(true);
-        //}
-        //else
-        //{
-        //    Effect_Minus.SetActive(true);
-        //}
     }
 }
