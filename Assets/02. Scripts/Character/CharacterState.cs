@@ -3,7 +3,6 @@ using Spine;
 using Spine.Unity;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class CharacterState : MonoBehaviour
 {

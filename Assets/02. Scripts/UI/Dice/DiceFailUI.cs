@@ -20,9 +20,9 @@ public class DiceFailUI : ViewBase
     [SerializeField] private Button Button_Confirm;
 
     private Vector2 _originPos;
-    private int _cycles = 2;
-    private float _fast = 0.05f;
-    private float _slow = 0.22f;
+    private int _cycles = 4;
+    private float _fast = 0.1f;
+    private float _slow = 0.4f;
     private float _height = 357f;
 
     private int _value;

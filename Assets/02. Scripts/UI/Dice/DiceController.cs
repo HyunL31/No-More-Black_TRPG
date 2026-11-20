@@ -11,9 +11,9 @@ public class DiceController : MonoBehaviour
 
     [SerializeField] private bool IsPlayer = false;
 
-    [Header("파티클")]
-    [SerializeField] private GameObject Effect_Bonus;
-    [SerializeField] private GameObject Effect_Minus;
+    //[Header("파티클")]
+    //[SerializeField] private GameObject Effect_Bonus;
+    //[SerializeField] private GameObject Effect_Minus;
 
     public Action<int> OnPlusHit;
     public Action<int> OnMinusHit;
@@ -30,7 +30,7 @@ public class DiceController : MonoBehaviour
 
     private Sequence _roll;
 
-    private float _spinDuration = 3.5f;
+    private float _spinDuration = 3f;
     private float _riseDuration = 0.35f;
     private float _landDuration = 0.5f;
     private float _correctDuration = 1f;
@@ -39,13 +39,13 @@ public class DiceController : MonoBehaviour
     private float _sweepRangeX = 1.5f;
     private float _sweepRangeY = 0.8f;
 
-    private float _diceRadius = 0.8f;
+    private float _diceRadius = 0.6f;
     private float _hopHeight = 0.15f;
-    private float _hopCount = 5f;
+    private float _hopCount = 10f;
 
     private float _hopDuration = 0.6f;
-    private float _pauseDuration = 0.4f;
-    private float _hopArc = 0.8f;
+    private float _pauseDuration = 0.2f;
+    private float _hopArc = 1.2f;
     private float _hitSpinAngle = 360f;
     private float _hitSpinDuration = 0.5f;
 
@@ -56,7 +56,7 @@ public class DiceController : MonoBehaviour
     private float _hitPunch = 0.3f;
     private float _recoilDis = 0.6f;
     private float _recoilHeight = 0.4f;
-    private float _returnDuration = 0.6f;
+    private float _returnDuration = 0.4f;
 
     private void Awake()
     {
@@ -70,8 +70,8 @@ public class DiceController : MonoBehaviour
     {
         Transform_Dice.position = _startPosition;
 
-        Effect_Bonus.SetActive(false);
-        Effect_Minus.SetActive(false);
+        //Effect_Bonus.SetActive(false);
+        //Effect_Minus.SetActive(false);
     }
 
     private void OnDestroy()
@@ -101,8 +101,9 @@ public class DiceController : MonoBehaviour
             return;
         }
 
+        int realPlus = originResult + plus;
         int afterPlus = Mathf.Clamp(originResult + plus, 1, 20);
-        int finalResult = Mathf.Clamp(afterPlus + minus, 1, 20);
+        int finalResult = Mathf.Clamp(realPlus + minus, 1, 20);
 
         RollAnimation(originResult, finalResult);
 
@@ -112,22 +113,22 @@ public class DiceController : MonoBehaviour
         {
             OnPlusHit?.Invoke(plus);
 
-            if (plus != 0)
-            {
-                Effect_Bonus.transform.position = GetHitPosition(true);
-                Effect_Bonus.SetActive(true);
-            }
+            //if (plus != 0)
+            //{
+            //    Effect_Bonus.transform.position = GetHitPosition(true);
+            //    Effect_Bonus.SetActive(true);
+            //}
         });
 
         AppendHit(false, finalResult, () =>
         {
             OnMinusHit?.Invoke(minus);
 
-            if (minus != 0)
-            {
-                Effect_Minus.transform.position = GetHitPosition(false);
-                Effect_Minus.SetActive(true);
-            }
+            //if (minus != 0)
+            //{
+            //    Effect_Minus.transform.position = GetHitPosition(false);
+            //    Effect_Minus.SetActive(true);
+            //}
         });
 
         AppendReturn();
@@ -138,8 +139,8 @@ public class DiceController : MonoBehaviour
             Transform_Dice.rotation = _correctedRotation;
             Transform_Dice.localScale = _baseScale;
 
-            Effect_Bonus.SetActive(false);
-            Effect_Minus.SetActive(false);
+            //Effect_Bonus.SetActive(false);
+            //Effect_Minus.SetActive(false);
 
             _isRolling = false;
             OnRollComplete?.Invoke();
@@ -190,8 +191,8 @@ public class DiceController : MonoBehaviour
             Transform_Dice.position = _startPosition;
             Transform_Dice.rotation = _correctedRotation;
 
-            Effect_Bonus.SetActive(false);
-            Effect_Minus.SetActive(false);
+            //Effect_Bonus.SetActive(false);
+            //Effect_Minus.SetActive(false);
 
             _isRolling = false;
             OnRollComplete?.Invoke();
@@ -408,18 +409,18 @@ public class DiceController : MonoBehaviour
     {
         OnLandHit?.Invoke();
 
-        if (originResult == editResult)
-        {
-            return;
-        }
+        //if (originResult == editResult)
+        //{
+        //    return;
+        //}
 
-        if (editResult > originResult)
-        {
-            Effect_Bonus.SetActive(true);
-        }
-        else
-        {
-            Effect_Minus.SetActive(true);
-        }
+        //if (editResult > originResult)
+        //{
+        //    Effect_Bonus.SetActive(true);
+        //}
+        //else
+        //{
+        //    Effect_Minus.SetActive(true);
+        //}
     }
 }
