@@ -456,6 +456,7 @@ MonoBehaviour:
   Transform_LogParent: {fileID: 8231924783224745564}
   Prefab_LeftLogSlot: {fileID: 6531295966133730180, guid: 3b6e5ab7fd32da84f89ec6708d79deb2, type: 3}
   Prefab_RightLogSlot: {fileID: 6683391632224821181, guid: 783f18025b947754895fe91d599f3100, type: 3}
+  ScrollRect_Log: {fileID: 8129067027455516324}
 --- !u!114 &1465079786298055211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +474,6 @@ MonoBehaviour:
   Ease: 9
   PlayOnEnable: 1
   Direction_Enter: {x: 0, y: 1}
-  Direction_Exit: {x: 0, y: 1}
 --- !u!1 &6222818704486599299
 GameObject:
   m_ObjectHideFlags: 0

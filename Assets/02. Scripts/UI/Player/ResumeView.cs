@@ -48,6 +48,8 @@ public class ResumeView : ViewBase
     [SerializeField] private Button Button_Skill;
 
     private const int MaxGaugeCount = 10;
+    private const int SlotCount = 5;
+    private const int CurrentSlot = 2;
 
     private GuageSlot[] _staminaSlots;
     private GuageSlot[] _crazySlots;
@@ -64,9 +66,6 @@ public class ResumeView : ViewBase
     private SlotState[] _slotState;
     private Sequence _slideSeq;
     private bool _isAnimating;
-
-    private const int SlotCount = 5;
-    private const int CurrentSlot = 2;
 
     private void Awake()
     {

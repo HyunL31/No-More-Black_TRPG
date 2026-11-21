@@ -10,6 +10,7 @@ public class DialogueLog : ViewBase
     [SerializeField] private Transform Transform_LogParent;
     [SerializeField] private LogSlot Prefab_LeftLogSlot;
     [SerializeField] private LogSlot Prefab_RightLogSlot;
+    [SerializeField] private ScrollRect ScrollRect_Log;
 
     private ObjectPooling<LogSlot> _leftPool;
     private ObjectPooling<LogSlot> _rightPool;
@@ -26,7 +27,7 @@ public class DialogueLog : ViewBase
 
     private void OnEnable()
     {
-        InitSlot();
+        InitSlot().Forget();
     }
 
     private void OnDisable()
@@ -39,7 +40,7 @@ public class DialogueLog : ViewBase
         SlideController.SlideOut(Vector2.up, UIManager.Inst.CloseDialogueLog);
     }
 
-    private void InitSlot()
+    private async UniTaskVoid InitSlot()
     {
         ClearSlot();
 
@@ -55,6 +56,9 @@ public class DialogueLog : ViewBase
 
             slot.SetSlot(logs[i].Key, logs[i].Value).Forget();
         }
+
+        await UniTask.NextFrame();
+        ScrollRect_Log.verticalNormalizedPosition = 0f;
     }
 
     private void ClearSlot()
