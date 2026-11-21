@@ -126,6 +126,8 @@ public class DialogueUI : ViewBase
         string speaker = GameDataManager.Inst.GetData<Character>(data.Speaker).Name;
         Text_Speaker.text = speaker;
 
+        TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(currentID);
+
         CancelTyping();
         _typingToken = new CancellationTokenSource();
         TypingEffect(data.Content, _typingToken.Token).Forget();
@@ -133,7 +135,6 @@ public class DialogueUI : ViewBase
         SetBGM(data.BGM);
         SetSFX(data.SFX);
 
-        TextAdventureManager.Inst.OnChangeBaseUI?.Invoke(currentID);
         TextAdventureManager.Inst.OnAddLog?.Invoke(data.Speaker, data.Content);
 
         if (data.ResultID.Length != 0)
